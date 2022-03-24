@@ -1,0 +1,605 @@
+---
+title: "Metafor_NUE_Luncheng_paper2"
+author: "Luncheng & Gerard"
+date: "2022/2/9"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+
+```{r load packages,message=FALSE,warning=FALSE,echo=FALSE}
+
+  # Load libraries 
+  library(data.table)
+  library(metafor)
+  library(metagear)
+  # library(dplyr)
+
+```
+
+
+```{r load data,warning=FALSE,message=FALSE}
+
+  # read data
+  d1 <- readxl::read_xlsx('../01 data/20220316_Database impacts measures on NUE 1.xlsx',sheet = 1)
+  d1 <- as.data.table(d1)
+
+```
+
+# Supplement the SD when missing
+
+Something to check: usually i always followed the approach: estimate the CV from studies were info is known (SD / mean), and then estimate the CV of studies with missing data as CV = 1.25 x mean(CV), after which the SD of the studies that miss them can be estimated.
+
+Question: can you do both, and compare the SD in a simple 1-to-1 plot from Brackens method and our common method?
+
+
+```{r Supplement the standard deviation missing value_Common Method}
+d2<-d1
+CV_nuet_bar<-mean(d2$nuet_sd[is.na(d2$nuet_sd)==FALSE]/d2$nuet_mean[is.na(d2$nuet_sd)==FALSE])
+d2$nuet_sd[is.na(d2$nuet_sd)==TRUE]<-d2$nuet_mean[is.na(d2$nuet_sd)==TRUE]*1.25*CV_nuet_bar
+
+CV_nuec_bar<-mean(d2$nuec_sd[is.na(d2$nuec_sd)==FALSE]/d2$nuec_mean[is.na(d2$nuec_sd)==FALSE])
+d2$nuec_sd[is.na(d2$nuec_sd)==TRUE]<-d2$nuec_mean[is.na(d2$nuec_sd)==TRUE]*1.25*CV_nuec_bar
+
+# clean up column names
+d2 <- as.data.table(d2)
+setnames(d2,gsub('\\/','_',gsub(' |\\(|\\)','',colnames(d2))))
+setnames(d2,tolower(colnames(d2)))
+
+#output Excel
+#path<-file.path("d2.xls")
+#library(xlsx)
+#write.xlsx(d2,file = path)
+```
+
+
+# Estimate meta-analytical response measure (ROM Method)
+
+
+```{r Calculate effect size_MD}
+
+# calculate effect size (NUE)
+es21 <- escalc(measure = "MD", data = d2, 
+               m1i = nuet_mean, sd1i = nuet_sd, n1i = replication,
+               m2i = nuec_mean, sd2i = nuec_sd, n2i = replication )
+#output Excel
+# path<-file.path("es21.xlsx")
+# library(xlsx)
+# write.xlsx(es21,file = path)
+```
+
+# make forest plots per group treatments
+
+```{r forest plot per treatment_MD,warning=FALSE}
+
+# convert to data.tables
+d02 <- as.data.table(es21)
+
+# what are the treatments to be assessed
+d02.treat <- data.table(treatment =  c('ALL',unique(d02$tillage)))
+
+# what are labels
+d02.treat[treatment=='ALL',desc := 'All']
+d02.treat[treatment=='EE',desc := 'Enhanced Efficiency']
+d02.treat[treatment=='CF',desc := 'Combined fertilizer']
+d02.treat[treatment=='RES',desc := 'Residue retention']
+d02.treat[treatment=='RFP',desc := 'Fertilizer placement']
+d02.treat[treatment=='RFR',desc := 'Fertilizer rate']
+d02.treat[treatment=='ROT',desc := 'Crop rotation']
+d02.treat[treatment=='RFT',desc := 'Fertilizer timing']
+d02.treat[treatment=='OF',desc := 'Organic fertilizer']
+d02.treat[treatment=='RT',desc := 'Reduced tillage']
+d02.treat[treatment=='NT',desc := 'No tillage']
+d02.treat[treatment=='CC',desc := 'Crop cover']
+d02.treat[treatment=='BC',desc := 'Biochar']
+
+
+# a list to store the coefficients
+out2 = out3 = list()
+
+# make a for loop to do a main analysis per treatment
+for(i in d02.treat$treatment){
+  
+  if(i=='ALL'){
+    
+    # run without selection to estimate overall mean
+    r_nue <- rma.mv(yi,vi, data=d02,random= list(~ 1|studyid), method="REML",sparse = TRUE)
+   
+  } else {
+    
+    # run for selected treatment
+    r_nue <- rma.mv(yi,vi, data=d02[tillage==i,],random= list(~ 1|studyid), method="REML",sparse = TRUE)
+  
+  }
+  
+  # save output in a list
+  out2[[i]] <- data.table(mean = as.numeric(r_nue$b),
+                          se = as.numeric(r_nue$se),
+                          label =  paste0(d02.treat[treatment==i,desc],' (n=',r_nue$k,')')
+                          )
+ }
+
+# convert lists to vector
+out2 <- rbindlist(out2)
+# plot for NUE
+forest(out2$mean, out2$se, slab=out2$label, psize=0.9, cex=1, xlab="Change in NUE (%)", header="Treatment", col="#CC0000", lwd=2)
+
+```
+
+# Meta-regression for main factors
+
+Below the code to do a main factor analysis for all columns selected by var.sel.
+For each model the output is saved in out.est, with the estimate, se, pvalue, and confidence intervals.
+For each model also the summary stats are saved in out.sum, with the variable name, the AIC criterium, log likelihood, and the relative improvement in log likelyhood and explained variance in comparison with an "empty" model without a "moderator" or "explanatory" variable.
+Since character variables are analyses as a factor, and numeric variables as regression, the model equation is slightly different.
+
+This analysis has to be done for each of the main factors.
+This gives information on how much of the variation in the response variable can be explained by site properties (soil, fertilizer, climate, and so on)
+
+Please, ensure that the explanatory variables do not contain NA values (they currently have)
+easiest solution is to replace them with the median value. 
+
+```{r main factor analysis, warning=FALSE,message=FALSE, eval=FALSE}
+
+# do a first main factor analysis for log response ratio for NUE
+  
+  # update the missing values for n_dose and p2o5_dose (as example)
+  d02[is.na(n_dose), n_dose := median(d02$n_dose,na.rm=TRUE)]
+  d02[is.na(p_dose), p_dose := median(d02$p_dose,na.rm=TRUE)]
+  d02[is.na(k_dose), k_dose := median(d02$k_dose,na.rm=TRUE)]
+  d02[is.na(g_n_dose), g_n_dose := median(d02$g_n_dose,na.rm=TRUE)]
+  d02[is.na(g_p_dose), g_p_dose := median(d02$g_p_dose,na.rm=TRUE)]
+  d02[is.na(g_k_dose), g_k_dose := median(d02$g_k_dose,na.rm=TRUE)]
+
+  # what are the factors to be evaluated
+  var.site <- c('mat','map','clay','soc','ph')
+  var.crop <- c('g_crop_type','n_dose','p_dose','k_dose')
+  var.trea <- c('tillage')
+  
+# i select only one example
+  
+  # the columns to be assessed
+  var.sel <- c(var.trea,var.crop,var.site)
+
+  # run without a main factor selection to estimate overall mean
+  r_nue_0 <- rma.mv(yi,vi, data = d02,random= list(~ 1|studyid), method="REML",sparse = TRUE)
+   
+  # objects to store the effects per factor as wel summary stats of the meta-analytical models
+  out1.est = out1.sum = list()
+  
+  # evaluate the impact of treatment (column tillage) on NUE given site properties
+  for(i in var.sel){
+    
+    # check whether the column is a numeric or categorical variable
+    vartype = is.character(d02[,get(i)])
+    
+    # run with the main factor treatment
+    if(vartype == TRUE){
+    
+      # run a meta-regression model for main categorial variable
+      r_nue_1 <- rma.mv(yi,vi, 
+                      mods = ~factor(varsel)-1, 
+                      data = d02[,.(yi,vi,studyid,varsel = get(i))],
+                      random = list(~ 1|studyid), method="REML",sparse = TRUE)
+      
+    } else {
+      
+      # run a meta-regression model for main numerical variable
+      r_nue_1 <- rma.mv(yi,vi, 
+                      mods = ~varsel, 
+                      data = d02[,.(yi,vi,studyid,varsel = get(i))],
+                      random = list(~ 1|studyid), method="REML",sparse = TRUE)
+    }
+    
+   # save output in a list: the estimated impact of the explanatory variable
+   out1.est[[i]] <- data.table(var = i,
+                          varname = gsub('factor\\(varsel\\)','',rownames(r_nue_1$b)),
+                          mean = round(as.numeric(r_nue_1$b),3),
+                          se = round(as.numeric(r_nue_1$se),3),
+                          ci.lb = round(as.numeric(r_nue_1$ci.lb),3),
+                          ci.ub = round(as.numeric(r_nue_1$ci.ub),3),
+                          pval = round(as.numeric(r_nue_1$pval),3))
+   
+   # save output in a list: the summary stats collected
+   out1.sum[[i]] <- data.table(var = i,
+                          AIC = r_nue_1$fit.stats[4,2],
+                          ll = r_nue_1$fit.stats[1,2],
+                          ll_impr = round(100 * (1-r_nue_1$fit.stats[1,2]/r_nue_0$fit.stats[1,2]),2),
+                          r2_impr = round(100*max(0,(sum(r_nue_0$sigma2)-sum(r_nue_1$sigma2))/sum(r_nue_0$sigma2)),2),
+                          pval = round(anova(r_nue_1,r_nue_0)$pval,3)
+                          )
+        
+  }
+  
+  # merge output into a data.table
+  out1.sum <- rbindlist(out1.sum)
+  out1.est <- rbindlist(out1.est)
+  print(out1.sum)
+  print(out1.est)
+  
+  
+```
+
+
+# Meta-regression for main factors with interactions
+
+Below the code to do a meta-regression with multiple explanatory factors.
+Be aware, this is a manual process. 
+So, you start with the results of the main factor analysis, and look how the model performance will become better by adding interactions.
+This might also include adding squared or squared-root transformations to test for non-linear behaviour.
+
+
+
+```{r meta-regression first setup, warning=FALSE,message=FALSE, eval=FALSE}
+
+  # make a function to extract relevant model statistics
+  estats <- function(model_new,model_base){
+    
+     out <- data.table(AIC = model_new$fit.stats[4,2],
+                       ll = model_new$fit.stats[1,2],
+                       ll_impr = round(100 * (1-model_new$fit.stats[1,2]/model_base$fit.stats[1,2]),2),
+                       r2_impr = round(100*max(0,(sum(model_base$sigma2)-sum(model_new$sigma2))/sum(model_base$sigma2)),2),
+                       pval = round(anova(r_nue_1,r_nue_0)$pval,3))
+     return(out)
+  }
+
+  # update the database (it looks like typos)
+  d02[crop_type=='marize', crop_type := 'maize']
+  d02[crop_type=='vegetables', crop_type := 'vegetable']
+
+ # run without a main factor selection to estimate overall mean
+  r_nue_0 <- rma.mv(yi,vi, data = d02,random= list(~ 1|studyid), method="REML",sparse = TRUE)
+  
+
+  # make a simple meta-regression model without interaction but with more than one explanatory variable
+
+  # 1. here just "tillage"
+  r_nue_1 <- rma.mv(yi,vi, 
+                  mods = ~tillage, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_1,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_1)
+  
+  # 2. here just "g_crop_type"
+  r_nue_2 <- rma.mv(yi,vi, 
+                  mods = ~g_crop_type, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_2,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_2)
+
+  # 3. here just "n_dose"
+  r_nue_3 <- rma.mv(yi,vi, 
+                  mods = ~n_dose, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_3,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_3)
+  
+  # 4. here just "p_dose"
+  r_nue_4 <- rma.mv(yi,vi, 
+                  mods = ~p_dose, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_4,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_4)
+  
+  # 5. here just "k_dose"
+  r_nue_5 <- rma.mv(yi,vi, 
+                  mods = ~k_dose, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_5,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_5) 
+  
+  # 6. here just "mat"
+  r_nue_6 <- rma.mv(yi,vi, 
+                  mods = ~mat, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_6,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_6) 
+  
+  # 7. here just "map"
+  r_nue_7 <- rma.mv(yi,vi, 
+                  mods = ~map, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_7,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_7)  
+  
+  # 8. here just "clay"
+  r_nue_8 <- rma.mv(yi,vi, 
+                  mods = ~clay, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_8,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_8)  
+  
+  # 9. here just "soc"
+  r_nue_9 <- rma.mv(yi,vi, 
+                  mods = ~soc, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_9,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_9)
+  
+  # 10. here just "ph"
+  r_nue_10 <- rma.mv(yi,vi, 
+                  mods = ~ph, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_10,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_10) 
+  
+  # here with more than one variables (and interaction)
+  
+  # 11. here with 2 variables "tillage, g_crop_type"
+  r_nue_11 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_11,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_11)  
+  
+  # 12. here with 2 variables "tillage, n_dose"
+  r_nue_12 <- rma.mv(yi,vi, 
+                  mods = ~tillage * n_dose - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_12,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_12)  
+  
+  # 13. here with 3 variables "tillage, g_crop_type, n_dose"
+  r_nue_13 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type + tillage * n_dose - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_13,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_13) 
+  
+# 14. here with 3 variables "tillage, g_crop_type, n_dose"
+  r_nue_14 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type + tillage * n_dose + g_crop_type * n_dose - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_14,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_14)
+
+  # 15. here with 4 variables "tillage, g_crop_type, n_dose, mat"
+  r_nue_15 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type + tillage * n_dose + g_crop_type * n_dose + tillage * mat + g_crop_type * mat +   n_dose * mat + tillage * map + g_crop_type * map + n_dose * map - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_15,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_15)
+  
+  # 16. here with 4 variables "tillage, g_crop_type, n_dose, map"
+  r_nue_16 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type + tillage * n_dose + g_crop_type * n_dose + tillage * map + g_crop_type * map + n_dose * map - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_16,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_16)
+  
+   # 17. here with 4 variables "tillage, g_crop_type, n_dose, clay"
+  r_nue_17 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type + tillage * n_dose + g_crop_type * n_dose + tillage * clay + g_crop_type * clay + n_dose * clay - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_17,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_17)
+
+  # 18. here with 4 variables "tillage, g_crop_type, n_dose, cec"
+  r_nue_18 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type + tillage * n_dose + g_crop_type * n_dose + tillage * cec + g_crop_type * cec + n_dose * cec - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_18,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_18)
+  
+  # 19. here with 4 variables "tillage, g_crop_type, n_dose, soc"
+  r_nue_19 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type + tillage * n_dose + g_crop_type * n_dose + tillage * soc + g_crop_type * soc + n_dose * soc - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_19,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_19)
+  
+  # 20. here with 4 variables "tillage, g_crop_type, n_dose, ph"
+  r_nue_20 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type + tillage * n_dose + g_crop_type * n_dose + tillage * ph + g_crop_type * ph + n_dose * ph - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_20,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_20)  
+  
+  # 21. here with 4 variables "tillage, g_crop_type, n_dose, ph, soc, clay, mat"
+  r_nue_21 <- rma.mv(yi,vi, 
+                  mods = ~tillage * g_crop_type + tillage * n_dose + g_crop_type * n_dose + tillage * ph + tillage * soc + tillage * clay + tillage * mat - 1, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_21,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_21) 
+  
+  d02[,mat := scale(mat)]
+  d02[,ph := scale(ph)]
+  d02[,n_dose := scale(n_dose)]
+  d02[,soc := scale(soc)]
+  d02[,clay := scale(clay)]
+  
+  # 22. here with 4 variables "tillage, g_crop_type, n_dose, ph, soc, clay, mat"
+  r_nue_22 <- rma.mv(yi,vi, 
+                  mods = ~tillage + g_crop_type + tillage : n_dose + soc + clay + n_dose:ph + mat:n_dose + mat, 
+                  data = d02,
+                  random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+  # show stats and improvements
+  out = estats(model_new = r_nue_22,model_base = r_nue_0)
+  print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  summary(r_nue_21) 
+
+    #  # add n_dose squared and square root
+  # d02[,n_dose_2 := n_dose^2]
+  # d02[,n_dose_sqrt := sqrt(n_dose)]
+  # 
+  # # here just "n_dose_sqrt"
+  # r_nue_15 <- rma.mv(yi,vi, 
+  #                 mods = ~n_dose_2 - 1, 
+  #                 data = d02,
+  #                 random = list(~ 1|studyid), method="REML",sparse = TRUE)
+  # 
+  # # show stats and improvements
+  # out = estats(model_new = r_nue_15,model_base = r_nue_0)
+  # print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  # summary(r_nue_15)  
+  # 
+  # 
+  # # extend with these two variables
+  # r_nue_14 <- rma.mv(yi,vi, 
+  #                 mods = ~tillage + n_dose + p2o5_dose + n_dose_2 + p_dose_sqrt - 1, 
+  #                 data = d02,
+  #                 random = list(~ 1|studyid), method="REML",sparse = TRUE)
+  # 
+  # # show stats and improvements
+  # out = estats(model_new = r_nue_14,model_base = r_nue_0)
+  # print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  # summary(r_nue_14)
+  # 
+  # # now check one or two interactions
+  # # extend with these two variables but with tillage
+  # r_nue_15 <- rma.mv(yi,vi, 
+  #                 mods = ~tillage + tillage:n_dose + n_dose * p2o5_dose + n_dose_2 + p_dose_sqrt - 1, 
+  #                 data = d02,
+  #                 random = list(~ 1|studyid), method="REML",sparse = TRUE)
+  # 
+  # # show stats and improvements => all factors are significant
+  # # from summary(r_nue_3) it becomes clear that first interaction between tillage and n_dose is significant for most of the cases
+  # # the interaction between n and p205 dose is also significant
+  # out = estats(model_new = r_nue_15,model_base = r_nue_0)
+  # print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
+  # summary(r_nue_15)
+```
+
+
+# Model predictions
+As soon as you have developed a model, you might use it also in prediction mode, where you can do predictions for all kind of 'virtual' situations, defined by yourself.
+
+```{r model predictions, warning=FALSE,message=FALSE, eval=FALSE}
+
+  # see model structure that need to be filled in for newmods while predicting change in NUE
+  # using model r_nue_20
+  ms = predict(r_nue_12,addx=T)         
+  
+  # this is the order of input variables needed for model predictions (=newmods in predict function)
+  cols <- colnames(ms$X)
+    
+  # do for example a prediction for tillage is EE and an N dose varying from 0 to 300 kg N /ha
+  
+    # make a prediction data.table
+    dt.pred <- as.data.table(t(ms$X[1,]))
+    
+    # set all variables to 0
+    dt.pred[,c(cols) := 0,.SDcols = cols]
+    
+    # add the series of N dose
+    dt.pred <- cbind(dt.pred,ndose = seq(0,300,5))
+    
+    # what columns need to be updated for N dose
+    cols2 <- colnames(dt.pred)[grepl('n_dose',colnames(dt.pred))]
+    
+    # update those columns
+    dt.pred[,c(cols2) := ndose]
+    
+    # update the EE column (set to 1, all others are zero = non applicable)
+    dt.pred[, tillageRFT := 1]
+  
+    # remove ndose
+    dt.pred[,ndose := NULL]
+    
+  # predict for EE and variable N dose
+  m2 = predict(r_nue_12,newmods=as.matrix(dt.pred),addx=T) 
+    
+  m2 = as.data.frame(m2)
+  
+  # plot prediction (now without confidence)
+  require(ggplot2)
+  p1 = ggplot(data = m2,aes(x = X.n_dose, y = pred)) + geom_point() + theme_bw() +
+       geom_ribbon(aes(ymin = ci.lb,ymax = ci.ub),alpha = 0.15, color = 'green4',fill = 'green4') +
+       ylab('predicted change in NUE') + xlab('n dose (kg N/ha)') + ggtitle('illustration for prediction plot')
+  
+  p1
+```
