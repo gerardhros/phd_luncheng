@@ -1,11 +1,11 @@
 # upscaling results for global impacts of management on NUE based on the MD model of Luncheng
 
-# require packages
-require(terra)
+  # require packages
+  require(terra)
+  require(data.table)
 
-# the final model has the following variables
-# these need to be downloaded on spatial map, 05 degree resolution
-
+  # empty environment
+  rm(list=ls())
 
   # load in relevant data global maps (preprocessed for article Malte)
 
@@ -57,11 +57,49 @@ require(terra)
     } else {
 
       # load prepared db with crop data SPAM
-      cr.area <- as.data.table(readRDS('D:/DATA/04 crop/products/spam_areas_full.rds'))
+      # cr.area <- as.data.table(readRDS('D:/DATA/04 crop/products/spam_areas_full.rds'))
     }
 
   # load SPAM raster
   spam <- as.data.table(foreign::read.dbf('D:/DATA/04 crop/spam2010/cell5m_allockey_xy.dbf'))
+
+  # load crop area harvested as raster
+  if(FALSE){
+
+    # get the file names of the tiffs
+    rfiles <- list.files('D:/DATA/04 crop/spam2010', pattern = '_H.tif$',full.names = TRUE)
+
+    # read in all files and convert to spatrasters
+    r.crop <- sds(rfiles)
+    r.crop <- rast(r.crop)
+
+    # aggregate to 0.5 x 0.5 degree
+    r.crop <- terra::aggregate(r.crop,fact = 0.5/0.083333,fun = "sum", na.rm=T)
+
+    # adjust names
+    names(r.crop) <- stringr::str_extract(names(r.crop),'[A-Z]{4}')
+
+    # crop names to combine in other
+    other <- names(r.crop)[!grepl('MAIZ|RICE|VEG|WHEA|MIL|BAR',names(r.crop))]
+    scrop <- names(r.crop)[grepl('MAIZ|RICE|VEG|WHEA|MIL|BAR',names(r.crop))]
+
+    # sum all other crops
+    r.crop.other = app(r.crop[[other]],fun = sum,na.rm=T)
+
+    # combine again
+    r.crop <- c(r.crop[[scrop]],r.crop.other)
+
+    # write raster
+    terra::writeRaster(r.clim,'data/ma_crops.tif', overwrite = TRUE)
+
+
+  } else {
+
+    # read the raster with cropping data
+    soil <- rast('data/ma_crops.tif')
+
+  }
+
 
   # load the relevant soil properties
   if(FALSE){
@@ -75,6 +113,10 @@ require(terra)
 
     # write raster
     terra::writeRaster(r.clim,'data/soil.tif', overwrite = TRUE)
+  } else {
+
+    # read the raster with soil data
+    soil <- rast('data/soil.tif')
   }
 
 
@@ -167,25 +209,6 @@ require(terra)
     nfert <- terra::rast('data/nofert.tif')
   }
 
-
-  # biochar / crop residue / cover crop and rotation: yes or no
-
-  # tillage
-  # options: conventional, no-till and reduced
-
-  # fertilizer strategy
-  # options: conventional, placement, rate, timing
-
-  # fertilizer type
-  # options: combined, enhanced, mineral, organic
-
-  # g_crop
-  # options: maize, other, rice, vegetable, wheat
-
-  # nitrogen dose
-
-
-
   # fertilizer N dose, NH4 and NO3, 0.5 x 0.5 resolution, 1961-2010
   # https://doi.pangaea.de/10.1594/PANGAEA.861203
   # units: kg N /ha cropland (50 years since 1960, take the last one)
@@ -213,6 +236,9 @@ require(terra)
     # read the earlier prepared file with fertilizer N dose
     nfert <- terra::rast('data/nifert.tif')
   }
+
+
+
 
 
 fertilizer_type + fertilizer_strategy + biochar + crop_residue + tillage + cover_crop_and_crop_rotation +
