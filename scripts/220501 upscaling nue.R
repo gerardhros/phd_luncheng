@@ -145,6 +145,33 @@ require(terra)
   }
 
 
+  # prepare manure N dose on cropland (take latest year present)
+  # source: https://doi.pangaea.de/10.1594/PANGAEA.871980
+  # units: kg N / km2 / yr
+  if(FALSE){
+
+    # read the file with manure application data (kg N / km2 grid cell)
+    nman <- fread('data/manure_ndose_yy2014.txt')
+    nman <- raster(nrows=2124,ncols=4320,xmn=-180,ymn=-88.5,crs = "+proj=longlat +datum=WGS84",
+                   vals=as.matrix(nman))
+
+    # retreive values for new raster object
+    nman <- resample(nman,climzone,method='bilinear')
+
+    # manure area of gridcell
+    nman.area <- area(nman)
+
+    # save the file to products directory
+    saveRDS(nman,file='data/nman83km.rds')
+    saveRDS(nman.area,file='data/nman_area83km.rds')
+
+  } else {
+
+    # read the earlier prepared file with manure N dose on cropland
+    nman <- readRDS('data/nman83km.rds')
+    nman.area <- readRDS('data/nman_area83km.rds')
+  }
+
 
   # biochar / crop residue / cover crop and rotation: yes or no
 
@@ -162,16 +189,35 @@ require(terra)
 
   # nitrogen dose
 
-  # clay content
-
-  # map
-
-  # mat
-
-  # soil organic carbon
 
 
-# clay
+  # fertilizer N dose, NH4 and NO3, 0.5 x 0.5 resolution, 1961-2010
+  # https://doi.pangaea.de/10.1594/PANGAEA.861203
+  # units: kg N /ha cropland (50 years since 1960, take the last one)
+  if(FALSE){
+
+    # load total N fertilizer dose (kg N / ha of gri area) and take the latest year
+    nfert_no3 = terra::rast('D:/DATA/06 inputs/NO3_input_ver1.nc4')
+    nfert_no3 = nfert_no3[[589:600]]
+    nfert_nh4 = terra::rast('D:/DATA/06 inputs/NH4_input_ver1.nc4')
+    nfert_nh4 = nfert_nh4[[589:600]]
+
+    # sum the monthly values
+    nfert_nh4 = app(nfert_nh4,fun = sum,na.rm=T)
+    nfert_no3 = app(nfert_no3,fun = sum,na.rm=T)
+
+    # add both together
+    nfert <- c(nfert_nh4,nfert_no3)
+
+    # write raster with inorganic N fertilization to disk
+    terra::writeRaster(nfert,'data/nifert.tif', overwrite = TRUE)
+
+
+  } else {
+
+    # read the earlier prepared file with fertilizer N dose
+    nfert <- terra::rast('data/nifert.tif')
+  }
 
 
 fertilizer_type + fertilizer_strategy + biochar + crop_residue + tillage + cover_crop_and_crop_rotation +
