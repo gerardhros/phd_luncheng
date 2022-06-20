@@ -7,7 +7,8 @@
   # empty environment
   rm(list=ls())
 
-  # load in relevant data global maps (preprocessed for article Malte)
+  # load in cropland area Copernicus (not used)
+  if(FALSE){
 
     # source: https://www.esa-landcover-cci.org/?q=node/164)
     cropland <- terra::rast('data/cropland83km_v2.tif')
@@ -20,105 +21,43 @@
     cropland.dt[cci_croptype == 20, ctype := 'irrigated_cropland']
     cropland.dt[cci_croptype == 30, ctype := 'mosaic_cropland']
     cropland.dt[cci_croptype == 40, ctype := 'natural_vegetation']
+  }
 
-  # load crop area harvested with source SPAM
-    if(FALSE){
-
-      # read database with SPAM2005 properties (cropland area in ha)
-
-
-      # read db with total area per crop
-      cr.area <- as.data.table(foreign::read.dbf('D:/DATA/04 crop/spam2010/spam2010V2r0_global_H_TA.DBF'))
-      cr.area.sel <- colnames(cr.area)[grepl('CELL|TECH_TYPE|_A$',colnames(cr.area))]
-      cr.area <- cr.area[,mget(cr.area.sel)]
-      setnames(cr.area,gsub('_A$','',colnames(cr.area)))
-
-      # melt crop database
-      cr.area <- melt(cr.area,
-                      id.vars = c('CELL5M','TECH_TYPE'),
-                      variable.name = 'cropname',
-                      value.name = 'area')
-
-      # rename crops needed for MA models
-      cr.area[,cropname := as.character(cropname)]
-      cr.area[grepl('WHEA|MIL|BAR',cropname), ma_crop := 'wheat']
-      cr.area[cropname == 'MAIZ', ma_crop := 'maize']
-      cr.area[cropname == 'RICE', ma_crop := 'rice']
-      cr.area[cropname == 'VEG', ma_crop := 'vegetable']
-      cr.area[is.na(ma_crop), ma_crop := 'other']
-
-      # sum per crop category
-      cr.area <- cr.area[,list(area = sum(area)), by = c('CELL5M','ma_crop')]
-
-      # save file and clear objects from memory
-      saveRDS(cr.area,file = 'D:/DATA/04 crop/products/spam_areas_cropcategory.rds')
-      rm(cr.area)
-
-    } else {
-
-      # load prepared db with crop data SPAM
-      # cr.area <- as.data.table(readRDS('D:/DATA/04 crop/products/spam_areas_full.rds'))
-    }
-
-  # load SPAM raster
-  spam <- as.data.table(foreign::read.dbf('D:/DATA/04 crop/spam2010/cell5m_allockey_xy.dbf'))
-
-  # load crop area harvested as raster
+  # load crop area harvested with source SPAM (not used, raster is preferred)
   if(FALSE){
 
-    # get the file names of the tiffs
-    rfiles <- list.files('D:/DATA/04 crop/spam2010', pattern = '_H.tif$',full.names = TRUE)
+    # read db with total area per crop
+    cr.area <- as.data.table(foreign::read.dbf('D:/DATA/04 crop/spam2010/spam2010V2r0_global_H_TA.DBF'))
+    cr.area.sel <- colnames(cr.area)[grepl('CELL|TECH_TYPE|_A$',colnames(cr.area))]
+    cr.area <- cr.area[,mget(cr.area.sel)]
+    setnames(cr.area,gsub('_A$','',colnames(cr.area)))
 
-    # read in all files and convert to spatrasters
-    r.crop <- sds(rfiles)
-    r.crop <- rast(r.crop)
+    # melt crop database
+    cr.area <- melt(cr.area,
+                    id.vars = c('CELL5M','TECH_TYPE'),
+                    variable.name = 'cropname',
+                    value.name = 'area')
 
-    # aggregate to 0.5 x 0.5 degree
-    r.crop <- terra::aggregate(r.crop,fact = 0.5/0.083333,fun = "sum", na.rm=T)
+    # rename crops needed for MA models
+    cr.area[,cropname := as.character(cropname)]
+    cr.area[grepl('WHEA|MIL|BAR',cropname), ma_crop := 'wheat']
+    cr.area[cropname == 'MAIZ', ma_crop := 'maize']
+    cr.area[cropname == 'RICE', ma_crop := 'rice']
+    cr.area[cropname == 'VEG', ma_crop := 'vegetable']
+    cr.area[is.na(ma_crop), ma_crop := 'other']
 
-    # adjust names
-    names(r.crop) <- stringr::str_extract(names(r.crop),'[A-Z]{4}')
+    # sum per crop category
+    cr.area <- cr.area[,list(area = sum(area)), by = c('CELL5M','ma_crop')]
 
-    # crop names to combine in other
-    other <- names(r.crop)[!grepl('MAIZ|RICE|VEG|WHEA|MIL|BAR',names(r.crop))]
-    scrop <- names(r.crop)[grepl('MAIZ|RICE|VEG|WHEA|MIL|BAR',names(r.crop))]
-
-    # sum all other crops
-    r.crop.other = app(r.crop[[other]],fun = sum,na.rm=T)
-
-    # combine again
-    r.crop <- c(r.crop[[scrop]],r.crop.other)
-
-    # write raster
-    terra::writeRaster(r.clim,'data/ma_crops.tif', overwrite = TRUE)
-
+    # save file and clear objects from memory
+    saveRDS(cr.area,file = 'D:/DATA/04 crop/products/spam_areas_cropcategory.rds')
+    rm(cr.area)
 
   } else {
 
-    # read the raster with cropping data
-    soil <- rast('data/ma_crops.tif')
-
+    # load prepared db with crop data SPAM
+    # cr.area <- as.data.table(readRDS('D:/DATA/04 crop/products/spam_areas_full.rds'))
   }
-
-
-  # load the relevant soil properties
-  if(FALSE){
-
-    # load in ph and clay as raster, WGS84, 4326, 0.5 x 0.5 degrees
-    ph <- terra::rast('D:/DATA/01 soil/isric_phw_mean_0_5.tif')
-    clay <- terra::rast('D:/DATA/01 soil/isric_clay_mean_0_5.tif')
-
-    # combine both in one raster
-    soil <- c(ph,clay)
-
-    # write raster
-    terra::writeRaster(r.clim,'data/soil.tif', overwrite = TRUE)
-  } else {
-
-    # read the raster with soil data
-    soil <- rast('data/soil.tif')
-  }
-
 
   # load climatic data
   if(FALSE){
@@ -164,6 +103,76 @@
   }
 
 
+  # load SPAM raster
+  # spam <- as.data.table(foreign::read.dbf('D:/DATA/04 crop/spam2010/cell5m_allockey_xy.dbf'))
+
+  # load crop area harvested as raster
+  if(FALSE){
+
+    # get the file names of the tiffs
+    rfiles <- list.files('D:/DATA/04 crop/spam2010', pattern = '_H.tif$',full.names = TRUE)
+
+    # read in all files and convert to spatrasters
+    r.crop <- sds(rfiles)
+    r.crop <- rast(r.crop)
+
+    # aggregate to 0.5 x 0.5 degree
+    r.crop <- terra::aggregate(r.crop,fact = 0.5/0.083333,fun = "sum", na.rm=T)
+
+    # adjust names
+    names(r.crop) <- stringr::str_extract(names(r.crop),'[A-Z]{4}')
+
+    # crop names to combine in other
+    scrop <- c('RICE','MAIZ')
+    wheat <- c('WHEA','BARL','SMIL','PMIL')
+    other <- names(r.crop)[!names(r.crop) %in% c(scrop,wheat)]
+
+    # sum all other crops
+    r.crop.other = app(r.crop[[other]],fun = sum,na.rm=T)
+    names(r.crop.other) <- 'other'
+    r.crop.wheat = app(r.crop[[wheat]],fun = sum,na.rm=T)
+    names(r.crop.wheat) <- 'wheat'
+
+    # combine again
+    r.crop <- c(r.crop[[scrop]],r.crop.other,r.crop.wheat)
+
+    # reproject to r.clim
+    r.crop <- resample(r.crop,r.clim,method='bilinear')
+
+    # write raster
+    terra::writeRaster(r.crop,'data/ma_crops.tif', overwrite = TRUE)
+
+
+  } else {
+
+    # read the raster with cropping data
+    r.crop <- rast('data/ma_crops.tif')
+
+  }
+
+  # load the relevant soil properties
+  if(FALSE){
+
+    # load in ph and clay as raster, WGS84, 4326, 0.5 x 0.5 degrees
+    ph <- terra::rast('D:/DATA/01 soil/isric_phw_mean_0_5.tif')
+    clay <- terra::rast('D:/DATA/01 soil/isric_clay_mean_0_5.tif')
+
+    # combine both in one raster
+    r.soil <- c(ph,clay)
+
+    # reproject to r.clim
+    r.soil <- resample(r.soil,r.clim,method='bilinear')
+
+    # write raster
+    terra::writeRaster(r.soil,'data/soil.tif', overwrite = TRUE)
+
+  } else {
+
+    # read the raster with soil data
+    r.soil <- rast('data/soil.tif')
+  }
+
+
   # prepare raster with tillage practices
   # source: https://dataservices.gfz-potsdam.de/pik/showshort.php?id=escidoc:4085895
   # https://datapub.gfz-potsdam.de/download/10.5880.PIK.2019.011/
@@ -173,8 +182,36 @@
     tillage <- terra::rast('D:/DATA/05 tillage/tillage_revised.nc4')
     terra::crs(tillage) <- 'epsg:4326'
 
-    # change resolution to 0.5 x 0.5 degree
-    r.till <- terra::aggregate(tillage,fact = 0.5/0.08333333, fun = "modal")
+    # tillage categories
+    # 1 = Conventional annual tillage
+    # 2 = Traditional annual tillage
+    # 3 = Reduced tillage
+    # 4 = Conservation Agriculture
+    # 5 = Rotational tillage
+    # 6 = Traditional rotational tillage
+    # 7 = Scenario Conservation Agriculture area
+
+    # change names
+    names(tillage) <- c("WHEA","RICE","MAIZ","BARL","REST","OOIL","TOBA","TEAS","COCO","RCOF","ACOF","OFIB","COTT","SUGB","SUGC","OILP","VEGE",
+                        "TEMF","TROF","PLNT","BANA","CNUT","GROU","OTRS","CASS","YAMS","SWPO","POTA","SESA","RAPE","SUNF","SOYB","OPUL","LENT",
+                        "PIGE","COWP","CHIC","BEAN","OCER","SORG","SMIL","PMIL","scenario_ca_area")
+
+    # crop names to combine in other
+    scrop <- c('RICE','MAIZ')
+    wheat <- c('WHEA','BARL','SMIL','PMIL')
+    other <- names(tillage)[!names(tillage) %in% c(scrop,wheat)]
+
+    # select the most frequent tillage pracice for all other crops
+    r.till.other = app(tillage[[other]],fun = modal,na.rm=T)
+    names(r.till.other) <- 'other'
+    r.till.wheat = app(tillage[[wheat]],fun = modal,na.rm=T)
+    names(r.till.wheat) <- 'wheat'
+
+    # combine again
+    r.till <- c(tillage[[scrop]],r.till.other,r.till.wheat)
+
+    # reproject to r.clim
+    r.till <- resample(r.till,r.clim,method='near')
 
     # write raster with tillage to disk
     terra::writeRaster(r.till,'data/tillage.tif', overwrite = TRUE)
@@ -185,7 +222,6 @@
     r.till <- terra::rast('data/tillage.tif')
 
   }
-
 
   # prepare manure N dose on cropland (take latest year present)
   # source: https://doi.pangaea.de/10.1594/PANGAEA.871980
@@ -198,15 +234,15 @@
                         vals=as.matrix(nman))
 
     # retreive values for new raster object
-    nman <- terra::resample(nman,r.clim[[1]],method='bilinear')
+    r.nman <- terra::resample(nman,r.clim[[1]],method='bilinear')
 
     # write raster with manure N dose to cropland to disk
-    terra::writeRaster(nman,'data/nofert.tif', overwrite = TRUE)
+    terra::writeRaster(r.nman,'data/nofert.tif', overwrite = TRUE)
 
   } else {
 
     # read the earlier prepared file with manure N dose
-    nfert <- terra::rast('data/nofert.tif')
+    r.nman <- terra::rast('data/nofert.tif')
   }
 
   # fertilizer N dose, NH4 and NO3, 0.5 x 0.5 resolution, 1961-2010
@@ -223,21 +259,44 @@
     # sum the monthly values
     nfert_nh4 = app(nfert_nh4,fun = sum,na.rm=T)
     nfert_no3 = app(nfert_no3,fun = sum,na.rm=T)
+    names(nfert_nh4) <- 'nfert_nh4'
+    names(nfert_no3) <- 'nfert_no3'
 
     # add both together
-    nfert <- c(nfert_nh4,nfert_no3)
+    r.nfert <- c(nfert_nh4,nfert_no3)
+
+    # retreive values for new raster object
+    r.nfert <- terra::resample(r.nfert,r.clim,method='bilinear')
 
     # write raster with inorganic N fertilization to disk
-    terra::writeRaster(nfert,'data/nifert.tif', overwrite = TRUE)
+    terra::writeRaster(r.nfert,'data/nifert.tif', overwrite = TRUE)
 
 
   } else {
 
     # read the earlier prepared file with fertilizer N dose
-    nfert <- terra::rast('data/nifert.tif')
+    r.nfert <- terra::rast('data/nifert.tif')
   }
 
+# add all rasters
 
+    # what rasters are in data
+    rfiles <- list.files('data', pattern = 'tif$',full.names = TRUE)
+    rfiles <- rfiles[!grepl('cropland',rfiles)]
+
+    # read in raster files
+    r.ma <- sds(rfiles)
+
+    # convert to raster
+    r.ma <- rast(r.ma)
+
+# convert rasters to data.table
+
+    # set first to xy data.frame
+    r.df <- as.data.frame(r.ma,xy = TRUE)
+
+    # convert to data.table
+    r.dt <- as.data.table(r.df)
 
 
 
