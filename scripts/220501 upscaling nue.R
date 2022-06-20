@@ -122,6 +122,29 @@ require(terra)
   }
 
 
+  # prepare raster with tillage practices
+  # source: https://dataservices.gfz-potsdam.de/pik/showshort.php?id=escidoc:4085895
+  # https://datapub.gfz-potsdam.de/download/10.5880.PIK.2019.011/
+  if(FALSE){
+
+    # read in the rasters from nc4 file
+    tillage <- terra::rast('D:/DATA/05 tillage/tillage_revised.nc4')
+    terra::crs(tillage) <- 'epsg:4326'
+
+    # change resolution to 0.5 x 0.5 degree
+    r.till <- terra::aggregate(tillage,fact = 0.5/0.08333333, fun = "modal")
+
+    # write raster with MAT and MAP to disk
+    terra::writeRaster(r.till,'data/tillage.tif', overwrite = TRUE)
+
+  } else {
+
+    # read the earlier prepared file with tillage practices
+    r.till <- terra::rast('data/tillage.tif')
+
+  }
+
+
 
   # biochar / crop residue / cover crop and rotation: yes or no
 
