@@ -134,7 +134,7 @@ require(terra)
     # change resolution to 0.5 x 0.5 degree
     r.till <- terra::aggregate(tillage,fact = 0.5/0.08333333, fun = "modal")
 
-    # write raster with MAT and MAP to disk
+    # write raster with tillage to disk
     terra::writeRaster(r.till,'data/tillage.tif', overwrite = TRUE)
 
   } else {
@@ -151,25 +151,20 @@ require(terra)
   if(FALSE){
 
     # read the file with manure application data (kg N / km2 grid cell)
-    nman <- fread('data/manure_ndose_yy2014.txt')
-    nman <- raster(nrows=2124,ncols=4320,xmn=-180,ymn=-88.5,crs = "+proj=longlat +datum=WGS84",
-                   vals=as.matrix(nman))
+    nman <- data.table::fread('D:/DATA/06 inputs/DN_yy2010.txt')
+    nman <- terra::rast(nrows=2124,ncols=4320,xmin=-180,ymin=-88.5,crs = "+proj=longlat +datum=WGS84",
+                        vals=as.matrix(nman))
 
     # retreive values for new raster object
-    nman <- resample(nman,climzone,method='bilinear')
+    nman <- terra::resample(nman,r.clim[[1]],method='bilinear')
 
-    # manure area of gridcell
-    nman.area <- area(nman)
-
-    # save the file to products directory
-    saveRDS(nman,file='data/nman83km.rds')
-    saveRDS(nman.area,file='data/nman_area83km.rds')
+    # write raster with manure N dose to cropland to disk
+    terra::writeRaster(nman,'data/nofert.tif', overwrite = TRUE)
 
   } else {
 
-    # read the earlier prepared file with manure N dose on cropland
-    nman <- readRDS('data/nman83km.rds')
-    nman.area <- readRDS('data/nman_area83km.rds')
+    # read the earlier prepared file with manure N dose
+    nfert <- terra::rast('data/nofert.tif')
   }
 
 
