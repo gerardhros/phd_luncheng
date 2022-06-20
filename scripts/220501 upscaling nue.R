@@ -1,5 +1,7 @@
 # upscaling results for global impacts of management on NUE based on the MD model of Luncheng
 
+# require packages
+require(terra)
 
 # the final model has the following variables
 # these need to be downloaded on spatial map, 05 degree resolution
@@ -61,9 +63,20 @@
   # load SPAM raster
   spam <- as.data.table(foreign::read.dbf('D:/DATA/04 crop/spam2010/cell5m_allockey_xy.dbf'))
 
-  # load in ph and clay as raster, WGS84, 4326, 0.5 x 0.5 degrees
-  ph <- terra::rast('D:/DATA/01 soil/isric_phw_mean_0_5.tif')
-  clay <- terra::rast('D:/DATA/01 soil/isric_clay_mean_0_5.tif')
+  # load the relevant soil properties
+  if(FALSE){
+
+    # load in ph and clay as raster, WGS84, 4326, 0.5 x 0.5 degrees
+    ph <- terra::rast('D:/DATA/01 soil/isric_phw_mean_0_5.tif')
+    clay <- terra::rast('D:/DATA/01 soil/isric_clay_mean_0_5.tif')
+
+    # combine both in one raster
+    soil <- c(ph,clay)
+
+    # write raster
+    terra::writeRaster(r.clim,'data/soil.tif', overwrite = TRUE)
+  }
+
 
   # load climatic data
   if(FALSE){
