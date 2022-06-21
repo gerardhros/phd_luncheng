@@ -485,3 +485,6 @@
     # convert to spatial raster
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
+
+    # write as output
+    terra::writeRaster(r.fin,'products/scenario_1.tif', overwrite = TRUE)
