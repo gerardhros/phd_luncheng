@@ -283,6 +283,38 @@
     r.nfert <- terra::rast('data/nifert.tif')
   }
 
+# read in crop rotation intensity derived from MODIS (from Liu et al 2021)
+# works for arable systems, but not so well for grassland (manual check GR)
+# https://doi.org/10.6084/m9.figshare.14099402
+  if(FALSE){
+
+    # read in the raster from year 2010
+    r1 <- terra::rast('D:/DATA/04 crop/rotation/GCI_QC_2010.tif')
+
+    # cropping intensity of 0 is NA
+    r1[r1==0] <- NA
+
+    # lower resolution to 0.5x0.5 degree
+    r1.cropint <- terra::aggregate(r1,fact = 0.5/0.002209708,fun='mean',na.rm=TRUE)
+
+    # resample to similar format as other files
+    r1.cropint <-  terra::resample(r1.cropint,r.clim,method='near')
+
+    # apply a round function
+    r1.cropint <- app(r1.cropint,fun = round)
+    names(r1.cropint) <- 'cropintensity'
+
+    # write raster with inorganic N fertilization to disk
+    terra::writeRaster(r1.cropint,'data/cropintensity.tif', overwrite = TRUE)
+
+  } else {
+
+    # read the earlier prepared file with cropping intensity
+    r1.cropint <- terra::rast('data/cropintensity.tif')
+  }
+
+
+
 # add all rasters
 
     # clear environment
@@ -308,8 +340,8 @@
 
     # setnames
     setnames(r.dt,old = c('climate_mat', 'climate_pre','soil_isric_phw_mean_0_5','soil_isric_clay_mean_0_5','soil_isric_soc_mean_0_5',
-                          'nifert_nfert_nh4','nifert_nfert_no3','nofert_nofert'),
-             new = c('mat','pre','phw','clay','soc','nh4','no3','nam'),skip_absent = T)
+                          'nifert_nfert_nh4','nifert_nfert_no3','nofert_nofert','cropintensity_cropintensity'),
+             new = c('mat','pre','phw','clay','soc','nh4','no3','nam','cropintensity'),skip_absent = T)
 
     # select only land area
     r.dt <- r.dt[!(is.na(mat)|is.na(pre))]
@@ -321,10 +353,11 @@
     r.dt[,c(cols) := lapply(.SD,function(x) fifelse(is.na(x),0,x)),.SDcols = cols]
     cols <- colnames(r.dt)[grepl('^tillage',colnames(r.dt))]
     r.dt[,c(cols) := lapply(.SD,function(x) fifelse(is.na(x),1,x)),.SDcols = cols]
+    r.dt[is.na(cropintensity), cropintensity := 1]
 
     # melt the data.table
     r.dt.melt <- melt(r.dt,
-                      id.vars = c('x','y','mat', 'pre','phw','clay','nh4','no3','nam','soc'),
+                      id.vars = c('x','y','mat', 'pre','phw','clay','nh4','no3','nam','soc','cropintensity'),
                       measure=patterns(area="^ma_crops", tillage ="^tillage_"),
                       variable.factor = FALSE,
                       variable.name = 'croptype')
@@ -424,7 +457,7 @@
     dt.new[, fertilizer_strategytiming := 0]
     dt.new[, biocharyes := 0]
     dt.new[, crop_residueyes := 0]
-    dt.new[, cover_crop_and_crop_rotationyes := 0]
+    dt.new[, cover_crop_and_crop_rotationyes := fifelse(cropintensity>1,1,0)]
     dt.new[, `tillageno-till` := fifelse(till_name =='no-till',1,0)]
     dt.new[, g_crop_typeother := fifelse(cropname=='other',1,0)]
     dt.new[, g_crop_typerice := fifelse(cropname=='rice',1,0)]
