@@ -436,8 +436,52 @@
     cols <- c('pROMmean','pROMse','pROMcil','pROMciu','pROMpil','pROMpiu')
     dt.new[,c(cols) := dt.pred]
 
-    # change ROM into absolute change
+    # change ROM into the relative change due to a measure
     dt.new[,pROMmeanAbs := (exp(pROMmean) - 1) * 100]
 
+# scenario 1. the best combination of measures witout change in crop rotation
 
+    # make local copy
+    dt.s1 <- copy(dt.new)
 
+    # update actions taken for scenario 1
+    dt.s1[, fertilizer_typeenhanced := 1]
+    dt.s1[, fertilizer_typeorganic_and_combined := 1]
+    dt.s1[, fertilizer_strategyplacement := 1]
+    dt.s1[, crop_residueyes := 1]
+    dt.s1[, cover_crop_and_crop_rotationyes := 1]
+    dt.s1[, ph_scaled := (phw * 0.1 - mean(d02$ph)) / sd(d02$ph)]
+    dt.s1[, clay_scaled := (clay * 0.1 - mean(d02$clay)) / sd(d02$clay)]
+    dt.s1[, soc_scaled := (soc * 0.1 - mean(d02$soc)) / sd(d02$soc)]
+    dt.s1[, n_dose_scaled := scale(nh4+no3+nam) - 0.1]
+    dt.s1[, map_scaled := (pre - mean(d02$map)) / sd(d02$map)]
+    dt.s1[, mat_scaled := (mat  - mean(d02$mat)) / sd(d02$mat)]
+    dt.s1[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
+
+    # convert to matrix, needed for rma models
+    dt.newmod <- as.matrix(dt.s1[,mget(c(m1.cols))])
+
+    # predict the NUE via ROM model
+    dt.pred.s1 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
+    dt.s1[,c(cols) := dt.pred.s1]
+    dt.s1[,pROMmeanAbs := (exp(pROMmean) - 1) * 100]
+
+# compare baseline with scenario
+
+    # select relevant columns of the baseline
+    dt.fin <- dt.new[,.(x,y,base = pROMmeanAbs,cropname,area)]
+
+    # select relevant columns of scenario 1 and merge
+    dt.fin <- merge(dt.fin,dt.s1[,.(x,y,s1 = pROMmeanAbs,cropname)],by=c('x','y','cropname'))
+
+    # estimate relative improvement via senario 1
+    dt.fin[, improvement := s1 - base]
+
+    # estimate area weighted mean relative improvement
+    dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
+
+# make spatial raster of the estimated improvement
+
+    # convert to spatial raster
+    r.fin <- terra::rast(dt.fin,type='xyz')
+    terra::crs(r.fin) <- 'epsg:4326'
