@@ -300,8 +300,8 @@
 
 # convert rasters to data.table
 
-    # set first to xy data.frame
-    r.df <- as.data.frame(r.ma,xy = TRUE)
+    # set first to xy data.frame (NA=FALSE otherwise gridcels are removed)
+    r.df <- as.data.frame(r.ma,xy = TRUE, na.rm = FALSE)
 
     # convert to data.table
     r.dt <- as.data.table(r.df)
@@ -310,6 +310,17 @@
     setnames(r.dt,old = c('climate_mat', 'climate_pre','soil_isric_phw_mean_0_5','soil_isric_clay_mean_0_5','soil_isric_soc_mean_0_5',
                           'nifert_nfert_nh4','nifert_nfert_no3','nofert_nofert'),
              new = c('mat','pre','phw','clay','soc','nh4','no3','nam'),skip_absent = T)
+
+    # select only land area
+    r.dt <- r.dt[!(is.na(mat)|is.na(pre))]
+    r.dt <- r.dt[!(is.na(tillage_RICE) & is.na(tillage_MAIZ) & is.na(tillage_other) & is.na(tillage_wheat))]
+    r.dt <- r.dt[!(is.na(ma_crops_RICE) & is.na(ma_crops_MAIZ) & is.na(ma_crops_other) & is.na(ma_crops_wheat))]
+
+    # replace area with 0 when missing
+    cols <- colnames(r.dt)[grepl('^ma_|nh4|no3|nam',colnames(r.dt))]
+    r.dt[,c(cols) := lapply(.SD,function(x) fifelse(is.na(x),0,x)),.SDcols = cols]
+    cols <- colnames(r.dt)[grepl('^tillage',colnames(r.dt))]
+    r.dt[,c(cols) := lapply(.SD,function(x) fifelse(is.na(x),1,x)),.SDcols = cols]
 
     # melt the data.table
     r.dt.melt <- melt(r.dt,
