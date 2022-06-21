@@ -3,6 +3,7 @@
   # require packages
   require(terra)
   require(data.table)
+  require(metafor)
 
   # empty environment
   rm(list=ls())
@@ -156,12 +157,14 @@
     # load in ph and clay as raster, WGS84, 4326, 0.5 x 0.5 degrees
     ph <- terra::rast('D:/DATA/01 soil/isric_phw_mean_0_5.tif')
     clay <- terra::rast('D:/DATA/01 soil/isric_clay_mean_0_5.tif')
+    soc <-  terra::rast('D:/DATA/01 soil/isric_soc_mean_0_5.tif')
+    soc <- terra::resample(soc,clay)
 
     # combine both in one raster
-    r.soil <- c(ph,clay)
+    r.soil <- c(ph,clay,soc)
 
     # reproject to r.clim
-    r.soil <- resample(r.soil,r.clim,method='bilinear')
+    r.soil <- terra::resample(r.soil,r.clim,method='bilinear')
 
     # write raster
     terra::writeRaster(r.soil,'data/soil.tif', overwrite = TRUE)
@@ -169,7 +172,7 @@
   } else {
 
     # read the raster with soil data
-    r.soil <- rast('data/soil.tif')
+    r.soil <- terra::rast('data/soil.tif')
   }
 
 
@@ -236,6 +239,8 @@
     # retreive values for new raster object
     r.nman <- terra::resample(nman,r.clim[[1]],method='bilinear')
 
+    names(r.nman) <- 'nofert'
+
     # write raster with manure N dose to cropland to disk
     terra::writeRaster(r.nman,'data/nofert.tif', overwrite = TRUE)
 
@@ -280,15 +285,18 @@
 
 # add all rasters
 
+    # clear environment
+    rm(list= ls())
+
     # what rasters are in data
     rfiles <- list.files('data', pattern = 'tif$',full.names = TRUE)
     rfiles <- rfiles[!grepl('cropland',rfiles)]
 
     # read in raster files
-    r.ma <- sds(rfiles)
+    r.ma <- terra::sds(rfiles)
 
     # convert to raster
-    r.ma <- rast(r.ma)
+    r.ma <- terra::rast(r.ma)
 
 # convert rasters to data.table
 
@@ -298,7 +306,138 @@
     # convert to data.table
     r.dt <- as.data.table(r.df)
 
+    # setnames
+    setnames(r.dt,old = c('climate_mat', 'climate_pre','soil_isric_phw_mean_0_5','soil_isric_clay_mean_0_5','soil_isric_soc_mean_0_5',
+                          'nifert_nfert_nh4','nifert_nfert_no3','nofert_nofert'),
+             new = c('mat','pre','phw','clay','soc','nh4','no3','nam'),skip_absent = T)
+
+    # melt the data.table
+    r.dt.melt <- melt(r.dt,
+                      id.vars = c('x','y','mat', 'pre','phw','clay','nh4','no3','nam','soc'),
+                      measure=patterns(area="^ma_crops", tillage ="^tillage_"),
+                      variable.factor = FALSE,
+                      variable.name = 'croptype')
+
+    # set the crop names (be aware, its the order in ma_crops)
+    r.dt.melt[,cropname := c('rice','maiz','other','wheat')[as.numeric(croptype)]]
+
+    # set names to tillage practices
+    r.dt.melt[, till_name := 'conventional']
+    r.dt.melt[tillage %in% c(3,4,7), till_name := 'no-till']
+
+# derive the meta-analytical model
+
+    # read data
+    d1 <- readxl::read_xlsx('data/20220329_1_Database impacts measures on NUE_add 1.xlsx',sheet = 1)
+    d1 <- as.data.table(d1)
+
+    # add CV for NUE and estimate the SD for missing ones
+    d1[, cv_nuet := nuet_sd / nuet_mean]
+    d1[is.na(nuet_sd),nuet_sd := mean(d1$cv_nuet,na.rm=TRUE) * 1.25]
+
+    # add CV for N-uptake and estimate the SD for missing ones
+    d1[, cv_nuec := nuec_sd / nuec_mean]
+    d1[is.na(nuec_sd),nuec_sd := mean(d1$cv_nuec,na.rm=TRUE) * 1.25]
+
+    # clean up column names
+    setnames(d1,gsub('\\/','_',gsub(' |\\(|\\)','',colnames(d1))))
+    setnames(d1,tolower(colnames(d1)))
+
+    # calculate effect size (NUE)
+    es21 <- escalc(measure = "ROM", data = d1,
+                   m1i = nuet_mean, sd1i = nuet_sd, n1i = replication,
+                   m2i = nuec_mean, sd2i = nuec_sd, n2i = replication )
+
+    # convert to data.tables
+    d02 <- as.data.table(es21)
+
+    # what are the treatments to be assessed
+    d02.treat <- data.table(treatment =  c('ALL',unique(d02$management)))
+
+    # what are labels
+    d02.treat[treatment=='ALL',desc := 'All']
+    d02.treat[treatment=='EE',desc := 'Enhanced Efficiency']
+    d02.treat[treatment=='CF',desc := 'Combined fertilizer']
+    d02.treat[treatment=='RES',desc := 'Residue retention']
+    d02.treat[treatment=='RFP',desc := 'Fertilizer placement']
+    d02.treat[treatment=='RFR',desc := 'Fertilizer rate']
+    d02.treat[treatment=='ROT',desc := 'Crop rotation']
+    d02.treat[treatment=='RFT',desc := 'Fertilizer timing']
+    d02.treat[treatment=='OF',desc := 'Organic fertilizer']
+    d02.treat[treatment=='RT',desc := 'Reduced tillage']
+    d02.treat[treatment=='NT',desc := 'No tillage']
+    d02.treat[treatment=='CC',desc := 'Crop cover']
+    d02.treat[treatment=='BC',desc := 'Biochar']
+
+    # update the missing values for n_dose and p2o5_dose (as example)
+    d02[is.na(n_dose), n_dose := median(d02$n_dose,na.rm=TRUE)]
+    d02[is.na(p_dose), p_dose := median(d02$p_dose,na.rm=TRUE)]
+    d02[is.na(k_dose), k_dose := median(d02$k_dose,na.rm=TRUE)]
+
+    # scale the variables to unit variance
+    d02[,clay_scaled := scale(clay)]
+    d02[,soc_scaled := scale(soc)]
+    d02[,ph_scaled := scale(ph)]
+    d02[,mat_scaled := scale(mat)]
+    d02[,map_scaled := scale(map)]
+    d02[,n_dose_scaled := scale(n_dose)]
+
+    # Combining different factors
+    d02[g_crop_type=='vegetable', g_crop_type := 'other']
+    d02[tillage == 'reduced', tillage := 'no-till']
+    d02[fertilizer_type=='organic', fertilizer_type := 'organic_and_combined']
+    d02[fertilizer_type=='combined', fertilizer_type := 'organic_and_combined']
+
+    # make metafor model
+    m1 <- rma.mv(yi,vi,
+                mods = ~fertilizer_type + fertilizer_strategy + biochar + crop_residue + tillage + cover_crop_and_crop_rotation + g_crop_type + n_dose_scaled + clay_scaled + ph_scaled + map_scaled + mat_scaled + soc_scaled : n_dose_scaled - 1,
+                data = d02,
+                random = list(~ 1|studyid), method="REML",sparse = TRUE)
+
+    # see model structure that need to be filled in to predict NUE as function of the system properties
+    p1 <- predict(m1,addx=T)
+
+    # this is the order of input variables needed for model predictions (=newmods in predict function)
+    m1.cols <- colnames(p1$X)
+
+    # make prediction dataset for situation that soil is fertilized by both organic and inorganic fertilizers, conventional fertilizer strategy
+    dt.new <- copy(r.dt.melt)
+
+    # add the columns required for the ma model, baseline scenario
+    # baseline is here defined as "strategy conventional", combined organic and mineral fertilizers, no biochar, no crop residue, no cover crops
+    dt.new[, fertilizer_typeenhanced := 0]
+    dt.new[, fertilizer_typemineral := 0]
+    dt.new[, fertilizer_typeorganic_and_combined := 1]
+    dt.new[, fertilizer_strategyplacement := 0]
+    dt.new[, fertilizer_strategyrate := 0]
+    dt.new[, fertilizer_strategytiming := 0]
+    dt.new[, biocharyes := 0]
+    dt.new[, crop_residueyes := 0]
+    dt.new[, cover_crop_and_crop_rotationyes := 0]
+    dt.new[, `tillageno-till` := fifelse(till_name =='no-till',1,0)]
+    dt.new[, g_crop_typeother := fifelse(cropname=='other',1,0)]
+    dt.new[, g_crop_typerice := fifelse(cropname=='rice',1,0)]
+    dt.new[, g_crop_typewheat := fifelse(cropname=='wheat',1,0)]
+    dt.new[, ph_scaled := (phw * 0.1 - mean(d02$ph)) / sd(d02$ph)]
+    dt.new[, clay_scaled := (clay * 0.1 - mean(d02$clay)) / sd(d02$clay)]
+    dt.new[, soc_scaled := (soc * 0.1 - mean(d02$soc)) / sd(d02$soc)]
+    dt.new[, n_dose_scaled := scale(nh4+no3+nam)]
+    dt.new[, map_scaled := (pre - mean(d02$map)) / sd(d02$map)]
+    dt.new[, mat_scaled := (mat  - mean(d02$mat)) / sd(d02$mat)]
+    dt.new[, `n_dose_scaled:soc_scaled` := n_dose_scaled*soc_scaled]
+
+    # convert to matrix, needed for rma models
+    dt.newmod <- as.matrix(dt.new[,mget(c(m1.cols))])
+
+    # predict the NUE via ROM model
+    dt.pred <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
+
+    # add predictions to the data.table
+    cols <- c('pROMmean','pROMse','pROMcil','pROMciu','pROMpil','pROMpiu')
+    dt.new[,c(cols) := dt.pred]
+
+    # change ROM into absolute change
+    dt.new[,pROMmeanAbs := (exp(pROMmean) - 1) * 100]
 
 
-fertilizer_type + fertilizer_strategy + biochar + crop_residue + tillage + cover_crop_and_crop_rotation +
-  g_crop_type + n_dose_scaled + clay_scaled + ph_scaled + map_scaled + mat_scaled + soc_scaled : n_dose_scaled
+
