@@ -532,3 +532,5 @@
 
     # write as output
     terra::writeRaster(r.fin,'products/scenario_1.tif', overwrite = TRUE)
+
+    # add example
