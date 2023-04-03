@@ -26,6 +26,7 @@ d1[p_value2 >= 0.0001 & p_value2 < 0.001, plab:='***']
 # add label position for p value
 d1[, plabpos := Parameter_estimate + fifelse(Parameter_estimate < 0, -1,1)*0.05]
 
+# plot the figure (a)
 p1 <- ggplot(d1,aes(Moderator1,Parameter_estimate))+
       geom_col()+ theme_bw()+
       theme(panel.grid=element_blank())+
@@ -54,7 +55,6 @@ p1 <- ggplot(d1,aes(Moderator1,Parameter_estimate))+
 d2 <- readxl::read_xlsx('articles/ncoms23/Database.xlsx',sheet = "Figure3b")
 d2 <- as.data.table(d2)
 
-
 # set moderater levels
 mlevels <- c("EE","CF","OF","MF","RFP","RFR", "RFT","BC", "RES","CC/ROT","ZT/RT","Cr_w",
              "Cr_m","Cr_r","N_sc","Clay_sc","pH_sc","MAP_sc","MAT_sc","N_sq","RFP˟Cr_m",
@@ -71,6 +71,7 @@ d2[p_value2 >= 0.0001 & p_value2 < 0.001, plab:='***']
 # add label position for p value
 d2[, plabpos := Parameter_estimate + fifelse(Parameter_estimate < 0, -1,1)*0.5]
 
+# plot the figure (b)
 p2 <- ggplot(d2,aes(Moderator1, Parameter_estimate))+
       geom_col()+
       theme_bw()+
@@ -91,8 +92,6 @@ p2 <- ggplot(d2,aes(Moderator1, Parameter_estimate))+
       annotate("text",x=6,y=10,label="Management practices",size=4, fontface = "bold", colour="black")+
       annotate("text",x=16,y=10,label="Site factors",size=4, fontface = "bold", colour="black")+
       annotate("text",x=21,y=-10,label= expression(paste(Pseudo~R^2,"= 0.82")), size=4, fontface = "bold", colour="deeppink4")
-
-    p2
 
 # --- SMD Method -----
 
@@ -117,6 +116,7 @@ d3[p_value2 >= 0.0001 & p_value2 < 0.001, plab:='***']
 # add label position for p value
 d3[, plabpos := Parameter_estimate + fifelse(Parameter_estimate < 0, -1,1)*0.5]
 
+# plot the figure (c)
 p3 <- ggplot(d3,aes(Moderator1,Parameter_estimate))+
       geom_col()+
       theme_bw()+
@@ -141,5 +141,6 @@ p3 <- ggplot(d3,aes(Moderator1,Parameter_estimate))+
 p<- ggarrange(p1, p2, p3, ncol = 1, nrow = 3,align = "v",heights = c(2,2,2.9),
              labels = c("a", "b","c"), font.label=list(size=14, color = "black", face = "bold"), label.x = 0, label.y = 1,hjust = -0.2, vjust = 1)
 
+# save the plot into directory products
 ggsave(plot = p, file = "products/meta_regression.png", width = 180, height = 210, units = "mm")
 
