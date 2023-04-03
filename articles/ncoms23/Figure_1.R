@@ -3,7 +3,7 @@
 library(tidyverse)
 library(data.table)
 
-site <- readxl::read_xlsx('Database.xlsx',sheet = "Figure1")
+site <- readxl::read_xlsx('articles/ncoms23/Database.xlsx',sheet = "Figure1")
 site <- as.data.table(site)
 
 site[management=='OF', management := 'Nutrient management']
@@ -33,9 +33,9 @@ ggplot() +
   geom_point(data = site,aes(lon, lat,color = Managements), alpha = 1, size = 3) +
   scale_color_manual(values = c("Nutrient management" = "indianred3","Crop management"= "seagreen3","Soil management"="royalblue3"))+
   theme_bw()+
-  scale_x_continuous(breaks = c(-120, -60, 0, 60, 120), expand = c(0, 0), 
+  scale_x_continuous(breaks = c(-120, -60, 0, 60, 120), expand = c(0, 0),
                      labels = c('120°W', '60°W', '0', '60°E', '120°E')) +
-  scale_y_continuous(breaks = c(-60, -30, 0, 30, 60), expand = c(0, 0), 
+  scale_y_continuous(breaks = c(-60, -30, 0, 30, 60), expand = c(0, 0),
                      labels = c('60°S', '30°S', '0', '30°N', '60°N')) +
   labs(x = 'Longitude', y = 'Latitude', color = 'Managements')+
   theme(axis.text=element_text(size=22, color = "black"),
@@ -43,4 +43,4 @@ ggplot() +
   theme(legend.position = c(0.15,0.3))+theme(legend.text = element_text(size=22, color="black"))+theme(legend.title = element_text(face="bold", size=18, color="black"))
 
 
-ggsave(file = "location_map.png",width = 410,height = 197, units = "mm")
+ggsave(file = "products/location_map.png",width = 410,height = 197, units = "mm")
