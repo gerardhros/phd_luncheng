@@ -1,4 +1,4 @@
-# upscaling results for global impacts of management on NUE based on the MD model of Luncheng
+# Figure 4 and Figure S4
 
   # require packages
   require(terra)

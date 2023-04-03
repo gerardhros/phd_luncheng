@@ -1,5 +1,5 @@
-#R语言 | 多组数据拟合和相关系数计算
-#Luncheng_You
+#Figure S2
+
 
 library(tidyverse)
 library(reshape2)
@@ -36,7 +36,7 @@ d2[g_crop_type=='vegetable', g_crop_type := 4]
 d2[g_crop_type=='barley', g_crop_type := 5]
 d2[g_crop_type=='other', g_crop_type := 6]
 
-#因子型数据转换为数值型
+
 d2$g_crop_type <- as.numeric(d2$g_crop_type)
 str(d2)
 # update the database (tillage)
@@ -53,7 +53,7 @@ d2[tillage=='RT', tillage := 16]
 d2[tillage=='NT', tillage := 17]
 d2[tillage=='EE', tillage := 18]
 
-#因子型数据转换为数值型
+
 d2$tillage <- as.numeric(d2$tillage)
 
 # Estimate meta-analytical response measure (ROM Method)
@@ -68,18 +68,18 @@ es21 <- escalc(measure = "ROM", data = d2,
 # convert to data.tables
 d02 <- as.data.table(es21)
 
-d3 <- d02[,c("mat","map", "clay", "soc", "ph", "n_dose", "g_crop_type")] #抽取相关列
+d3 <- d02[,c("mat","map", "clay", "soc", "ph", "n_dose", "g_crop_type")] 
 
-#标准化数据，防止数值差距过大
+
 
 df=scale(d3[,1:7],center=TRUE,scale=TRUE)
 
-#更改列名
+
 names(d3)<-c("MAT","MAP", "Clay", "SOC", "pH", "N rate", "Crop type")
-head(d3) #查看前六行
+head(d3) 
 str(d3)
 
-#计算相关系数和散点图以及拟合线性
+
 ggpairs(d3, lower = list(continuous = wrap("cor", size = 8,color="#E64B35B2")),
         upper = list(continuous = wrap("smooth", size =1.2,color="#4DBBD5B2")))+
   theme_bw(base_line_size = 1.05,base_rect_size = 1.05)+

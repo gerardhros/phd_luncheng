@@ -1,4 +1,4 @@
-#正态分布_Luncheng_You
+#Figure S1
 
 
 
@@ -8,17 +8,14 @@ library(gridExtra)
 #library(patchwork)
 library(cowplot)
 
-#读取数据
+
 
 d1 <- readxl::read_xlsx('E:/phD/Papers/paper2/You_et_al_2022/public/20220329_1_Database impacts measures on NUE_add.xlsx',sheet = 1)
 d1 <- as.data.table(d1)
 
-#使用ggplot函数，运行geom_point()函数，分别映射一个变量到x和y
-
-#ggplot(d1)+ geom_point(aes(x=evaporation, y=nuet_mean))+ xlab("Evaporation (mm)")+ ylab("NUE (%)")
 
 p1 <- ggplot(data = d1, aes(x=evaporation))+
-#  stat_function(fun = dnorm, color = "red")+  #画出正态分布线，并且添加颜色
+
   geom_histogram(binwidth=10,fill="darkseagreen", 
                  color="darksalmon", alpha=0.5)+
   theme_bw()+labs(x= "Evaporation (mm)", y= "Count")+ theme(axis.title= element_text(size=14, family="myFont", color="black", face= "bold", vjust=0.5, hjust=0.5))+ theme(axis.text = element_text(size=12, family="myFont", color="black", face= "bold", vjust=0.5, hjust=0.5))
@@ -86,11 +83,8 @@ p13 <- ggplot(data = d1, aes(x=p_dose))+
                  color="firebrick", alpha=0.5)+
   theme_bw()+ labs(x= "K dose (kg/ha)", y= "Count")+ theme(axis.title= element_text(size=14, family="myFont", color="black", face= "bold", vjust=0.5, hjust=0.5))+ theme(axis.text = element_text(size=12, family="myFont", color="black", face= "bold", vjust=0.5, hjust=0.5)) 
 #p13
-#组合图片
-#2*2组合
-#plot_grid(p1, p2, p3, p4, ncol=2, nrow=2, labels= c("(a)", "(b)", "(c)", "(d)"), label_size=15, label_fontfamily = "Arial", label_fontface = "bold", label_colour = "red", label_x = 0.9, label_y = 0.99)
 
-#3*4组合
+#3*4
 plot_grid(p2, p3, p6, p9, p10, p11, ncol=2, nrow=3, labels= c(" a", "b", "c", "d", "e", " f"), label_size=18, label_fontfamily = "Arial", label_fontface = "bold", label_colour = "black")
 
 ggsave(file = "frequency_distribution_histogram.png")
