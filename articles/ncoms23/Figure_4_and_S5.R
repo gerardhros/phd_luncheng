@@ -1,4 +1,4 @@
-# Figure 4 and Figure S4
+# Figure 4 and Figure S5
 
   # require packages
   require(terra)
@@ -314,61 +314,57 @@
   }
 
 
-
-
-  
-#################################################################################
-  ############################################################################
-#################################################################################
+#############################################################################################################
+  # require packages
   require(terra)
   require(data.table)
   require(metafor)
 
   # Luncheng add
   
-  # read the raster with climatic data 
-  r.clim <- terra::rast('220629_upscaling/220621_data_for_upscaling/climate.tif')
+  # read the raster with climatic data 读取带有气候数据的栅格
+  r.clim <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/climate.tif')
   
   # read the raster with cropping data
-  r.crop <- rast('220629_upscaling/220621_data_for_upscaling/ma_crops.tif')
+  r.crop <- rast('C:/Users/86188/Desktop/Figures/upscaling/ma_crops.tif')
   
   # read the raster with soil data
-  r.soil <- terra::rast('220629_upscaling/220621_data_for_upscaling/soil.tif')
+  r.soil <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/soil.tif')
   
   # read the earlier prepared file with tillage practices
-  r.till <- terra::rast('220629_upscaling/220621_data_for_upscaling/tillage.tif')
+  r.till <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/tillage.tif')
   
   # read the earlier prepared file with manure N dose
-  r.nman <- terra::rast('220629_upscaling/220621_data_for_upscaling/nofert.tif')
+  r.nman <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/nofert.tif')
   
   # read the earlier prepared file with fertilizer N dose
-  r.nfert <- terra::rast('220629_upscaling/220621_data_for_upscaling/nifert.tif')
+  r.nfert <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/nifert.tif')
   
   # read the earlier prepared file with cropping intensity
-  r.cropint <- terra::rast('220629_upscaling/220621_data_for_upscaling/cropintensity.tif')
+  r.cropint <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/cropintensity.tif')
   
 #########################################################################
-# add all rasters 
+# add all rasters
 
     # clear environment
     rm(list= ls())
 
     # what rasters are in data
-    rfiles <- list.files('220629_upscaling/220621_data_for_upscaling', pattern = 'tif$',full.names = TRUE)
+    rfiles <- list.files('C:/Users/86188/Desktop/Figures/upscaling', pattern = 'tif$',full.names = TRUE)
     rfiles <- rfiles[!grepl('cropland',rfiles)]
 
     # read in raster files
     r.ma <- terra::sds(rfiles)
 
-    # convert to raster 
+    # convert to raster
     r.ma <- terra::rast(r.ma)
 
-# convert rasters to data.table 
+# convert rasters to data.table
 
     # set first to xy data.frame (NA=FALSE otherwise gridcels are removed) 
     r.df <- as.data.frame(r.ma,xy = TRUE, na.rm = FALSE)
 
-    # convert to data.table 
+    # convert to data.table
     r.dt <- as.data.table(r.df)
 
     # setnames
@@ -376,26 +372,26 @@
                           'nifert_nfert_nh4','nifert_nfert_no3','nofert_nofert','cropintensity_cropintensity'),
              new = c('mat','pre','phw','clay','soc','nh4','no3','nam','cropintensity'),skip_absent = T)
 
-    # select only land area 
+    # select only land area
     r.dt <- r.dt[!(is.na(mat)|is.na(pre))]
     r.dt <- r.dt[!(is.na(tillage_RICE) & is.na(tillage_MAIZ) & is.na(tillage_other) & is.na(tillage_wheat))]
     r.dt <- r.dt[!(is.na(ma_crops_RICE) & is.na(ma_crops_MAIZ) & is.na(ma_crops_other) & is.na(ma_crops_wheat))]
 
-    # replace area with 0 when missing 
+    # replace area with 0 when missing
     cols <- colnames(r.dt)[grepl('^ma_|nh4|no3|nam',colnames(r.dt))]
     r.dt[,c(cols) := lapply(.SD,function(x) fifelse(is.na(x),0,x)),.SDcols = cols]
     cols <- colnames(r.dt)[grepl('^tillage',colnames(r.dt))]
     r.dt[,c(cols) := lapply(.SD,function(x) fifelse(is.na(x),1,x)),.SDcols = cols]
     r.dt[is.na(cropintensity), cropintensity := 1]
 
-    # melt the data.table 
+    # melt the data.table
     r.dt.melt <- melt(r.dt,
                       id.vars = c('x','y','mat', 'pre','phw','clay','nh4','no3','nam','soc','cropintensity'),
                       measure=patterns(area="^ma_crops", tillage ="^tillage_"),
                       variable.factor = FALSE,
                       variable.name = 'croptype')
 
-    # set the crop names (be aware, its the order in ma_crops) 
+    # set the crop names (be aware, its the order in ma_crops)
     r.dt.melt[,cropname := c('rice','maize','other','wheat')[as.numeric(croptype)]]
 
     # set names to tillage practices 
@@ -405,7 +401,7 @@
 # derive the meta-analytical model
 
     # read data  
-    d1 <- readxl::read_xlsx('Database.xlsx',sheet = "Figure4&S4")
+    d1 <- readxl::read_xlsx('C:/Users/86188/Desktop/Source Data.xlsx',sheet = "Figure4andS5")
     d1 <- as.data.table(d1)
 
     
@@ -416,8 +412,9 @@
     
     CV_nuec_bar<-mean(d2$nuec_sd[is.na(d2$nuec_sd)==FALSE]/d2$nuec_mean[is.na(d2$nuec_sd)==FALSE])
     d2$nuec_sd[is.na(d2$nuec_sd)==TRUE]<-d2$nuec_mean[is.na(d2$nuec_sd)==TRUE]*1.25*CV_nuec_bar
-
-    # clean up column names 
+    
+    
+    # clean up column names
     setnames(d2,gsub('\\/','_',gsub(' |\\(|\\)','',colnames(d2))))
     setnames(d2,tolower(colnames(d2)))
     
@@ -446,11 +443,11 @@
     d02.treat[treatment=='RT',desc := 'Reduced tillage']
     d02.treat[treatment=='NT',desc := 'No tillage']
     d02.treat[treatment=='CC',desc := 'Crop cover']
-    d02.treat[treatment=='BC',desc := 'Biochar']
- 
+
+    
+    # update the missing values for n_dose and p2o5_dose (as example)
     d02[is.na(n_dose), n_dose := median(d02$n_dose,na.rm=TRUE)]
-
-
+   
     # scale the variables to unit variance
     d02[,clay_scaled := scale(clay)]
     d02[,soc_scaled := scale(soc)]
@@ -458,17 +455,23 @@
     d02[,mat_scaled := scale(mat)]
     d02[,map_scaled := scale(map)]
     d02[,n_dose_scaled := scale(n_dose)]
+    
+    # update the database (it looks like typos)
+    d02[g_crop_type=='marize', g_crop_type := 'maize']
 
+    
     #Combining different factors
-    d02[g_crop_type=='vegetable', g_crop_type := 'other']
+
     d02[tillage=='reduced', tillage := 'no-till']
 
+    # # Combining different factors
+    
     d02[,fertilizer_type := factor(fertilizer_type,
-                                  levels = c('mineral','organic', 'combined','enhanced'))] 
+                                  levels = c('mineral','organic', 'combined','enhanced'))]
     d02[,fertilizer_strategy := factor(fertilizer_strategy,
                                       levels = c("conventional", "placement","rate","timing"))]
     d02[,g_crop_type := factor(g_crop_type,
-                              levels = c('other','maize','wheat','rice'))]
+                              levels = c('maize','wheat','rice'))]
     
     d02[,rfp := fifelse(fertilizer_strategy=='placement','yes','no')]
     d02[,rft := fifelse(fertilizer_strategy=='timing','yes','no')]
@@ -476,40 +479,42 @@
     d02[,ctm := fifelse(g_crop_type=='maize','yes','no')]
     d02[,ctw := fifelse(g_crop_type=='wheat','yes','no')]
     d02[,ctr := fifelse(g_crop_type=='rice','yes','no')]
-    d02[,cto := fifelse(g_crop_type=='other','yes','no')]
+    #d02[,cto := fifelse(g_crop_type=='other','yes','no')]
     d02[,ndose2 := scale(n_dose^2)]
+    
 
+    # make metafor model
+    
     m1 <- rma.mv(yi,vi,
-                       mods = ~fertilizer_type + rfp + rft + rfr + biochar + crop_residue + tillage +
-                         cover_crop_and_crop_rotation + n_dose_scaled + clay_scaled + ph_scaled + map_scaled + mat_scaled +
-                         n_dose_scaled:soc_scaled + ctm:rfp + ctm + ctw + ctr + cto + ctm:mat_scaled  + ndose2 -1,
+                       mods = ~fertilizer_type + rfp + rft + rfr + crop_residue + tillage +
+                         cover_crop_and_crop_rotation + n_dose_scaled + clay_scaled + ph_scaled + map_scaled + mat_scaled + soc_scaled +
+                         n_dose_scaled:soc_scaled + ctm:rfp + ctm + ctw + ctr + ctm:mat_scaled  + ndose2 -1,
                        data = d02,
-                       random = list(~ 1|studyid/g_crop_type), method="REML",sparse = TRUE)
+                       random = list(~ 1|studyid), method="REML",sparse = TRUE)
 
-    # see model structure that need to be filled in to predict NUE as function of the system properties
+    # see model structure that need to be filled in to predict NUE as function of the system properties 
     p1 <- predict(m1,addx=T)
 
     # this is the order of input variables needed for model predictions (=newmods in predict function) 
     m1.cols <- colnames(p1$X)
 
-    # make prediction dataset for situation that soil is fertilized by both organic and inorganic fertilizers, conventional fertilizer strategy
+    # make prediction dataset for situation that soil is fertilized by both organic and inorganic fertilizers, conventional fertilizer strategy 
     dt.new <- copy(r.dt.melt)
 
-    # add the columns required for the ma model, baseline scenario
+    # add the columns required for the ma model, baseline scenario 
     # baseline is here defined as "strategy conventional", and mineral fertilizers, no biochar, no crop residue, no cover crops 
+    dt.new[, fertilizer_typeenhanced := 0]
     dt.new[, fertilizer_typemineral := 1]
     dt.new[, fertilizer_typeorganic := 0]
     dt.new[, fertilizer_typecombined := 0]
     dt.new[, rfpyes := 0]
     dt.new[, rftyes := 0]
     dt.new[, rfryes := 0]
-    dt.new[, biocharyes := 0]
     dt.new[, crop_residueyes := 0]
     dt.new[, cover_crop_and_crop_rotationyes := 0]
-    dt.new[, tillageno_till := 0]
     dt.new[, cover_crop_and_crop_rotationyes := fifelse(cropintensity>1,1,0)]
     dt.new[, `tillageno-till` := fifelse(till_name =='no-till',1,0)]
-    dt.new[, ctoyes := fifelse(cropname=='other',1,0)]
+    #dt.new[,`tillageno-till` := 0]
     dt.new[, ctryes := fifelse(cropname=='rice',1,0)]
     dt.new[, ctwyes := fifelse(cropname=='wheat',1,0)]
     dt.new[, ctmyes := fifelse(cropname=='maize',1,0)]
@@ -530,17 +535,20 @@
     # predict the NUE via MD model
     dt.pred <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
 
-    # add predictions to the data.table 
+    # add predictions to the data.table
     cols <- c('pMDmean','pMDse','pMDcil','pMDciu','pMDpil','pMDpiu')
     dt.new[,c(cols) := dt.pred]
 
+    
     ############################################## scenario SI0 (EE) ################################################################
-
+   
+    # make local copy 
     dt.s10 <- copy(dt.new)
-
+    
+    # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
     
-
+    # update actions taken for scenario 1 
     dt.s10[, fertilizer_typeenhanced := 1]
     dt.s10[, fertilizer_typemineral := 0]
     dt.s10[, fertilizer_typeorganic := 0]
@@ -548,40 +556,56 @@
     dt.s10[, rfpyes := 0]
     dt.s10[, rftyes := 0]
     dt.s10[, rfryes := 0]
-    dt.s10[, biocharyes := 0]
     dt.s10[, crop_residueyes := 0]
     dt.s10[, cover_crop_and_crop_rotationyes := 0]
     dt.s10[, tillageno_till := 0]
     dt.s10[, n_dose_scaled := ((nh4+no3+nam) * 0.7 - dt.fert.bs$mean)/ dt.fert.bs$sd ]
-    dt.s10[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
+    dt.s10[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1)*soc_scaled]
     dt.s10[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s10[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
     
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s10[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model 
     dt.pred.s10 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s10[,c(cols) := dt.pred.s10]
-
+    
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s10[,.(x,y,s10 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s10 - base]
-
+    
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_SI0.tif', overwrite = TRUE)
+    
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_SI0.tif', overwrite = TRUE)
     
     ############################################## scenario SI1 (CF) ################################################################
     # scenario SI1. the  combination of measures with change in Combined fertilizer (CF vs. MF)
-
+    
+    # make local copy 
     dt.s11 <- copy(dt.new)
-
+    
+    # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 1 
     dt.s11[, fertilizer_typeenhanced := 0]
     dt.s11[, fertilizer_typemineral := 0]
     dt.s11[, fertilizer_typeorganic := 0]
@@ -589,7 +613,6 @@
     dt.s11[, rfpyes := 0]
     dt.s11[, rftyes := 0]
     dt.s11[, rfryes := 0]
-    dt.s11[, biocharyes := 0]
     dt.s11[, crop_residueyes := 0]
     dt.s11[, cover_crop_and_crop_rotationyes := 0]
     dt.s11[, tillageno_till := 0]
@@ -597,33 +620,50 @@
     dt.s11[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s11[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s11[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s11[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model 
     dt.pred.s11 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s11[,c(cols) := dt.pred.s11]
 
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s11[,.(x,y,s11 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s11 - base]
-
+    
+    # estimate area weighted mean relative improvement
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+   
+    # make spatial raster of the estimated improvement
+    
+    # convert to spatial raster
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_SI1.tif', overwrite = TRUE)
+    
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_SI1.tif', overwrite = TRUE)
     
     
     ############################################## scenario SI2 (OF) ################################################################
     # scenario SI2. the  combination of measures with change in OF (OF vs. MF)
-
+    
+    # make local copy
     dt.s12 <- copy(dt.new)
-
+    
+    # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 1 
     dt.s12[, fertilizer_typeenhanced := 0]
     dt.s12[, fertilizer_typemineral := 0]
     dt.s12[, fertilizer_typeorganic := 1]
@@ -631,7 +671,6 @@
     dt.s12[, rfpyes := 0]
     dt.s12[, rftyes := 0]
     dt.s12[, rfryes := 0]
-    dt.s12[, biocharyes := 0]
     dt.s12[, crop_residueyes := 0]
     dt.s12[, cover_crop_and_crop_rotationyes := 0]
     dt.s12[, tillageno_till := 0]
@@ -639,33 +678,49 @@
     dt.s12[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s12[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s12[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s12[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model
     dt.pred.s12 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s12[,c(cols) := dt.pred.s12]
-
+   
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge
     dt.fin <- merge(dt.fin,dt.s12[,.(x,y,s12 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s12 - base]
     
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+   
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_SI2.tif', overwrite = TRUE)
+    
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_SI2.tif', overwrite = TRUE)
     
     
     ############################################## scenario SI3 (RFP) ################################################################
     # scenario SI3. the combination of measures with change in RFP. (Optimized fertilizer strategy vs.Conventional fertilizer strategies)
-
+    
+    # make local copy 
     dt.s13 <- copy(dt.new)
-
+    
+    # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 1 
     dt.s13[, fertilizer_typeenhanced := 0]
     dt.s13[, fertilizer_typemineral := 1]
     dt.s13[, fertilizer_typeorganic := 0]
@@ -673,7 +728,6 @@
     dt.s13[, rfpyes := 1]
     dt.s13[, rftyes := 0]
     dt.s13[, rfryes := 0]
-    dt.s13[, biocharyes := 0]
     dt.s13[, crop_residueyes := 0]
     dt.s13[, cover_crop_and_crop_rotationyes := 0]
     dt.s13[, tillageno_till := 0]
@@ -681,25 +735,37 @@
     dt.s13[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s13[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s13[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s13[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model
     dt.pred.s13 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s13[,c(cols) := dt.pred.s13]
-
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s13[,.(x,y,s13 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s13 - base]
- 
+    
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_SI3.tif', overwrite = TRUE)
     
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_SI3.tif', overwrite = TRUE)
     
     
     
@@ -712,7 +778,7 @@
     # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
     
-
+    # update actions taken for scenario 1 
     dt.s14[, fertilizer_typeenhanced := 0]
     dt.s14[, fertilizer_typemineral := 1]
     dt.s14[, fertilizer_typeorganic := 0]
@@ -720,7 +786,6 @@
     dt.s14[, rfpyes := 0]
     dt.s14[, rftyes := 0]
     dt.s14[, rfryes := 1]
-    dt.s14[, biocharyes := 0]
     dt.s14[, crop_residueyes := 0]
     dt.s14[, cover_crop_and_crop_rotationyes := 0]
     dt.s14[, tillageno_till := 0]
@@ -729,35 +794,49 @@
     dt.s14[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s14[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
     
-
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s14[,mget(c(m1.cols))])
     
-
+    # predict the NUE via MD model 
     dt.pred.s14 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s14[,c(cols) := dt.pred.s14]
     
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
     
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s14[,.(x,y,s14 = pMDmean,cropname)],by=c('x','y','cropname'))
     
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s14 - base]
     
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
     
-    terra::writeRaster(r.fin,'scenario_SI4.tif', overwrite = TRUE)
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_SI4.tif', overwrite = TRUE)
+    
     
     
     ############################################## scenario SI5 (RFT) ################################################################
     # scenario SI5. the combination of measures with change in RFT. (Optimized fertilizer strategy vs.Conventional fertilizer strategies)
-
+    
+    # make local copy 
     dt.s15 <- copy(dt.new)
     
     # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 1 
     dt.s15[, fertilizer_typeenhanced := 0]
     dt.s15[, fertilizer_typemineral := 1]
     dt.s15[, fertilizer_typeorganic := 0]
@@ -765,7 +844,6 @@
     dt.s15[, rfpyes := 0]
     dt.s15[, rftyes := 1]
     dt.s15[, rfryes := 0]
-    dt.s15[, biocharyes := 0]
     dt.s15[, crop_residueyes := 0]
     dt.s15[, cover_crop_and_crop_rotationyes := 0]
     dt.s15[, tillageno_till := 0]
@@ -773,76 +851,50 @@
     dt.s15[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s15[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s15[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s15[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model 
     dt.pred.s15 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s15[,c(cols) := dt.pred.s15]
-
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s15[,.(x,y,s15 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s15 - base]
-
+    
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_SI5.tif', overwrite = TRUE)
+    
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_SI5.tif', overwrite = TRUE)
     
     
-    ############################################## scenario SI6 (BC) ################################################################
-    # scenario SI6. the combination of measures with change in BC. (Optimized fertilizer strategy vs.Conventional fertilizer strategies)
-    
-    dt.s16 <- copy(dt.new)
-
-    dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
-    dt.s16[, fertilizer_typeenhanced := 0]
-    dt.s16[, fertilizer_typemineral := 1]
-    dt.s16[, fertilizer_typeorganic := 0]
-    dt.s16[, fertilizer_typecombined := 0]
-    dt.s16[, rfpyes := 0]
-    dt.s16[, rftyes := 0]
-    dt.s16[, rfryes := 0]
-    dt.s16[, biocharyes := 1]
-    dt.s16[, crop_residueyes := 0]
-    dt.s16[, cover_crop_and_crop_rotationyes := 0]
-    dt.s16[, tillageno_till := 0]
-    dt.s16[, n_dose_scaled := ((nh4+no3+nam) * 0.7 - dt.fert.bs$mean)/ dt.fert.bs$sd ]
-    dt.s16[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
-    dt.s16[, `rfpyes:ctmyes` := rfpyes*ctmyes]
-    dt.s16[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
-    dt.newmod <- as.matrix(dt.s16[,mget(c(m1.cols))])
-
-    dt.pred.s16 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
-    dt.s16[,c(cols) := dt.pred.s16]
-
-    dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
-    dt.fin <- merge(dt.fin,dt.s16[,.(x,y,s16 = pMDmean,cropname)],by=c('x','y','cropname'))
-
-    dt.fin[, improvement := s16 - base]
-
-    dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
-    r.fin <- terra::rast(dt.fin,type='xyz')
-    terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_SI6.tif', overwrite = TRUE)
-    
-    
-    
+  
     ############################################## scenario SI7 (RES) ################################################################
     # scenario SI7. the combination of measures with change in RES. (Optimized fertilizer strategy vs.Conventional fertilizer strategies)
-
+    
+    # make local copy 
     dt.s17 <- copy(dt.new)
-
+    
+    # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 1 
     dt.s17[, fertilizer_typeenhanced := 0]
     dt.s17[, fertilizer_typemineral := 1]
     dt.s17[, fertilizer_typeorganic := 0]
@@ -850,7 +902,6 @@
     dt.s17[, rfpyes := 0]
     dt.s17[, rftyes := 0]
     dt.s17[, rfryes := 0]
-    dt.s17[, biocharyes := 0]
     dt.s17[, crop_residueyes := 1]
     dt.s17[, cover_crop_and_crop_rotationyes := 0]
     dt.s17[, tillageno_till := 0]
@@ -858,35 +909,49 @@
     dt.s17[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s17[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s17[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    # convert to matrix, needed for rma models
     dt.newmod <- as.matrix(dt.s17[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model 
     dt.pred.s17 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s17[,c(cols) := dt.pred.s17]
-
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s17[,.(x,y,s17 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s17 - base]
-
+    
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
     
     # write as output
-    terra::writeRaster(r.fin,'scenario_SI7.tif', overwrite = TRUE)
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_SI7.tif', overwrite = TRUE)
     
     
     ############################################## scenario SI8 (CC/ROT) ################################################################
     # scenario SI8. the combination of measures with change in CC/ROT. (Optimized fertilizer strategy vs.Conventional fertilizer strategies)
-
+    
+    # make local copy 
     dt.s18 <- copy(dt.new)
     
     # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 1 
     dt.s18[, fertilizer_typeenhanced := 0]
     dt.s18[, fertilizer_typemineral := 1]
     dt.s18[, fertilizer_typeorganic := 0]
@@ -894,7 +959,6 @@
     dt.s18[, rfpyes := 0]
     dt.s18[, rftyes := 0]
     dt.s18[, rfryes := 0]
-    dt.s18[, biocharyes := 0]
     dt.s18[, crop_residueyes := 0]
     dt.s18[, cover_crop_and_crop_rotationyes := 1]
     dt.s18[, tillageno_till := 0]
@@ -902,76 +966,50 @@
     dt.s18[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s18[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s18[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s18[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model 
     dt.pred.s18 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s18[,c(cols) := dt.pred.s18]
-
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s18[,.(x,y,s18 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s18 - base]
-
+    
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
     
     # write as output
-    terra::writeRaster(r.fin,'scenario_SI8.tif', overwrite = TRUE)
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_SI8.tif', overwrite = TRUE)
     
-    ############################################## scenario SI9 (NT/RT) ################################################################
-    # scenario SI9. the combination of measures with change in NT/RT. (Optimized fertilizer strategy vs.Conventional fertilizer strategies)
-
-    dt.s19 <- copy(dt.new)
-
-    dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
-    dt.s19[, fertilizer_typeenhanced := 0]
-    dt.s19[, fertilizer_typemineral := 1]
-    dt.s19[, fertilizer_typeorganic := 0]
-    dt.s19[, fertilizer_typecombined := 0]
-    dt.s19[, rfpyes := 0]
-    dt.s19[, rftyes := 0]
-    dt.s19[, rfryes := 0]
-    dt.s19[, biocharyes := 0]
-    dt.s19[, crop_residueyes := 0]
-    dt.s19[, cover_crop_and_crop_rotationyes := 0]
-    dt.s19[, tillageno_till := 1]
-    dt.s19[, n_dose_scaled := ((nh4+no3+nam) * 0.7 - dt.fert.bs$mean)/ dt.fert.bs$sd ]
-    dt.s19[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
-    dt.s19[, `rfpyes:ctmyes` := rfpyes*ctmyes]
-    dt.s19[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
-    dt.newmod <- as.matrix(dt.s19[,mget(c(m1.cols))])
-
-    dt.pred.s19 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
-    dt.s19[,c(cols) := dt.pred.s19]
-
-    dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
-    dt.fin <- merge(dt.fin,dt.s19[,.(x,y,s19 = pMDmean,cropname)],by=c('x','y','cropname'))
-
-    dt.fin[, improvement := s19 - base]
-
-    dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
-    r.fin <- terra::rast(dt.fin,type='xyz')
-    terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_SI9.tif', overwrite = TRUE)
-    
-    
+  
     ####################################################################################################################################################    
     ############################################## scenario 1 (Nutrient management) ################################################################
     # scenario 1. the combination of measures with change in RFR, RFT and BC. (Optimized fertilizer strategy vs.Conventional fertilizer strategies)
-
+    
+    # make local copy 
     dt.s1 <- copy(dt.new)
     
+    # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 1 
     dt.s1[, fertilizer_typeenhanced := 1]
     dt.s1[, fertilizer_typemineral := 0]
     dt.s1[, fertilizer_typeorganic := 1]
@@ -979,7 +1017,6 @@
     dt.s1[, rfpyes := 1]
     dt.s1[, rftyes := 1]
     dt.s1[, rfryes := 1]
-    dt.s1[, biocharyes := 1]
     dt.s1[, crop_residueyes := 0]
     dt.s1[, cover_crop_and_crop_rotationyes := 0]
     dt.s1[, tillageno_till := 0]
@@ -987,33 +1024,49 @@
     dt.s1[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s1[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s1[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s1[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model 
     dt.pred.s1 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s1[,c(cols) := dt.pred.s1]
-
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s1[,.(x,y,s1 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s1 - base]
-
+    
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
     
-    terra::writeRaster(r.fin,'scenario_1.tif', overwrite = TRUE)
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_1.tif', overwrite = TRUE)
     
     
     ############################################## scenario 2 (crop management)################################################################
     # scenario 2. the combination of measures with change in RES, CC, ROT (Optimized crop management vs. Conventional crop management)
-
+    
+    # make local copy 
     dt.s2 <- copy(dt.new)
-
+    
+    # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 3 
     dt.s2[, fertilizer_typeenhanced := 0]
     dt.s2[, fertilizer_typemineral := 1]
     dt.s2[, fertilizer_typeorganic := 0]
@@ -1021,7 +1074,6 @@
     dt.s2[, rfpyes := 0]
     dt.s2[, rftyes := 0]
     dt.s2[, rfryes := 0]
-    dt.s2[, biocharyes := 0]
     dt.s2[, crop_residueyes := 1]
     dt.s2[, cover_crop_and_crop_rotationyes := 1]
     dt.s2[, tillageno_till := 0]
@@ -1029,33 +1081,50 @@
     dt.s2[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s2[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s2[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s2[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model 
     dt.pred.s2 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s2[,c(cols) := dt.pred.s2]
-
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s2[,.(x,y,s2 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s2 - base]
-
+    
+    # estimate area weighted mean relative improvement
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_2.tif', overwrite = TRUE)
+    
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_2.tif', overwrite = TRUE)
     
     
     ############################################## scenario 3 (NT/RT) ################################################################
     # scenario 3. the combination of measures with change in NT/RT. (Optimized fertilizer strategy vs.Conventional fertilizer strategies)
-
+    
+    # make local copy 
     dt.s3 <- copy(dt.new)
-
+    
+    # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 1 
     dt.s3[, fertilizer_typeenhanced := 0]
     dt.s3[, fertilizer_typemineral := 1]
     dt.s3[, fertilizer_typeorganic := 0]
@@ -1063,41 +1132,56 @@
     dt.s3[, rfpyes := 0]
     dt.s3[, rftyes := 0]
     dt.s3[, rfryes := 0]
-    dt.s3[, biocharyes := 0]
     dt.s3[, crop_residueyes := 0]
     dt.s3[, cover_crop_and_crop_rotationyes := 0]
-    dt.s3[, tillageno_till := 1]
+    dt.s3[, `tillageno-till` := 1]
     dt.s3[, n_dose_scaled := ((nh4+no3+nam) * 0.7 - dt.fert.bs$mean)/ dt.fert.bs$sd ]
     dt.s3[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s3[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s3[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s3[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model 
     dt.pred.s3 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s3[,c(cols) := dt.pred.s3]
-
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s3[,.(x,y,s3 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s3 - base]
-
+    
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_3.tif', overwrite = TRUE)
+    
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_3.tif', overwrite = TRUE)
     
     
     ############################################## scenario 4 (combination)################################################################
     # scenario 4. the combination of measures with change in EE, CF, RFR, RFT, BC, RES, CC, ROT
-
+    
+    # make local copy 
     dt.s4 <- copy(dt.new)
-
+    
+    # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-
+    
+    # update actions taken for scenario 3 
     dt.s4[, fertilizer_typeenhanced := 1]
     dt.s4[, fertilizer_typemineral := 0]
     dt.s4[, fertilizer_typeorganic := 1]
@@ -1105,7 +1189,6 @@
     dt.s4[, rfpyes := 1]
     dt.s4[, rftyes := 1]
     dt.s4[, rfryes := 1]
-    dt.s4[, biocharyes := 1]
     dt.s4[, crop_residueyes := 1]
     dt.s4[, cover_crop_and_crop_rotationyes := 1]
     dt.s4[, tillageno_till := 1]
@@ -1113,28 +1196,40 @@
     dt.s4[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s4[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s4[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-
+    
+    # convert to matrix, needed for rma models 
     dt.newmod <- as.matrix(dt.s4[,mget(c(m1.cols))])
-
+    
+    # predict the NUE via MD model
     dt.pred.s4 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s4[,c(cols) := dt.pred.s4]
-
+    
+    # compare baseline with scenario 
+    
+    # select relevant columns of the baseline 
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-
+    
+    # select relevant columns of scenario 1 and merge 
     dt.fin <- merge(dt.fin,dt.s4[,.(x,y,s4 = pMDmean,cropname)],by=c('x','y','cropname'))
-
+    
+    # estimate relative improvement via senario 1 
     dt.fin[, improvement := s4 - base]
-
+    
+    # estimate area weighted mean relative improvement 
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-
+    
+    
+    # make spatial raster of the estimated improvement 
+    
+    # convert to spatial raster 
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-
-    terra::writeRaster(r.fin,'scenario_4.tif', overwrite = TRUE)   
     
+    # write as output
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_4.tif', overwrite = TRUE)   
     
-################################################### Plot ####################################################
-    theme_set(theme_bw())
+###############################################################################################################################
+    # plotting
     
     library(ggplot2)
     library(sf)
@@ -1144,338 +1239,448 @@
     library(cowplot)
     library(vcd)
     
-    ######################################### scenario_SI0 ##########################################################
-
+    ######################################### scenario_SI0 (EE) ##########################################################
+    # set theme
     theme_set(theme_bw())
-
-    r10 <- terra::rast('scenario_SI0.tif')
-
+    
+    # get the raster to plot
+    r10 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_SI0.tif')
+    
+    # convert to data.frame
     r10.p <- as.data.frame(r10,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r10.p <- r10.p[r10.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    #plot a basic world map plot
     p10 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r10.p,aes(x=x,y=y, name ='none',
-                                 fill = cut(improvement,breaks= c(-4,0,3,6,300),
-                                            labels = c('< 0','0-3','3-6','> 6') ))) +
+                                 fill = cut(improvement,limits = c(-10,1000), breaks= c(-10,0,5,10,15,1000),
+                                            labels = c('< 0','0-5','5-10','10-15','> 15')))) +
+      
+      # scale_fill_gradientn(colours = rainbow(3)) +
+      #scale_fill_viridis_c()+ 
       theme_void() +
-      theme(legend.position = c(0.1,0.4), text = element_text(size = 15),
-            legend.background = element_rect(fill = "white",color='white'),
+      theme(legend.position = c(0.1,0.45), text = element_text(size = 15),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
-      labs(fill = ' ') +
+      labs(fill = 'NUE\nincreased (%)') +
+      theme(legend.title = element_text(color = "black", size = 10, face = "bold"),
+            legend.text = element_text(color = "black", size = 11))+
+      #theme(legend.position = "none")+
+      #theme(NULL)+
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Enhanced efficiency fertilizer (EE)") +
+      annotate("text",x=0.5,y=-50,label="Mean: 6.43%",size=5, colour="#0070C0",fontface = "bold")+
+      # ggtitle("World map", subtitle = "Mean change for scenario 1") +
       coord_sf(crs = 4326) 
     
-    ggsave(plot = p10, filename = 'nue_effect_sI0.png')
+    ########################################### scenario_SI1 (CF) ########################################################
     
-    ########################################### scenario_SI1 ########################################################
-
+    # set theme
     theme_set(theme_bw())
-
-    r11 <- terra::rast('scenario_SI1.tif')
-
+    
+    # get the raster to plot
+    r11 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_SI1.tif')
+    
+    # convert to data.frame
     r11.p <- as.data.frame(r11,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r11.p <- r11.p[r11.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    # plot a basic world map plot
     p11 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r11.p,aes(x=x,y=y, name ='none',
-                                 fill = cut(improvement,breaks= c(-5,0,3,6,300), 
-                                            labels = c('< 0','0-3','3-6','> 6')))) +
+                                 fill = cut(improvement,breaks= c(-10,0,5,10,15,1000),
+                                            labels = c('< 0','0-5','5-10','10-15','> 15') ))) +
       theme_void() +
-      theme(legend.position = c(0.1,0.4), text = element_text(size = 15),
-            legend.background = element_rect(fill = "white",color='white'),
+      theme(legend.position = c(0.1,0.45), text = element_text(size = 15),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
-      labs(fill = ' ') +
+      labs(fill = 'NUE\nincreased (%)') +
+      theme(legend.title = element_text(color = "black", size = 10, face = "bold"),
+            legend.text = element_text(color = "black", size = 11))+
+      #theme(legend.position = "none")+
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Combined fertilizer (CF)") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 4") +
+      annotate("text",x=0.5,y=-50,label="Mean: 5.91%",size=5, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p11, filename = 'nue_effect_sI1.png')
     
+    ########################################### scenario_SI2 (OF) ########################################################
     
-    ########################################### scenario_SI2 ########################################################
-
+    # set theme
     theme_set(theme_bw())
-
-    r12 <- terra::rast('scenario_SI2.tif')
-
+    
+    # get the raster to plot
+    r12 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_SI2.tif')
+    
+    # convert to data.frame
     r12.p <- as.data.frame(r12,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r12.p <- r12.p[r12.p$improvement <70,]
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    # plot a basic world map plot
     p12 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r12.p,aes(x=x,y=y, name ='none',
-                                 fill = cut(improvement,breaks= c(-6,0,-3,6,300), 
-                                            labels = c('< 0','0-3','3-6','> 6')))) +
+                                 fill = cut(improvement,breaks= c(-10,0,5,10,15,1000),
+                                            labels = c('< 0','0-5','5-10','10-15','> 15') ))) +
       theme_void() +
-      theme(legend.position = c(0.1,0.4), text = element_text(size = 15),
-            legend.background = element_rect(fill = "white",color='white'),
+      theme(legend.position = c(0.1,0.45), text = element_text(size = 15),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
-      labs(fill = ' ') +
+      labs(fill = 'NUE\nincreased (%)') +
+      theme(legend.title = element_text(color = "black", size = 10, face = "bold"),
+            legend.text = element_text(color = "black", size = 11))+
+      #theme(legend.position = "none")+
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Organic fertilizer (OF)") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 4") +
+      annotate("text",x=0.5,y=-50,label="Mean: 2.12%",size=5, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p12, filename = 'nue_effect_sI2.png')
     
+    ########################################### scenario_SI3 (RFP) ########################################################
     
-    ########################################### scenario_SI3 ########################################################
-    
+    # set theme
     theme_set(theme_bw())
-
-    r13 <- terra::rast('scenario_SI3.tif')
-
+    
+    # get the raster to plot
+    r13 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_SI3.tif')
+    
+    # convert to data.frame
     r13.p <- as.data.frame(r13,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r13.p <- r13.p[r13.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    # plot a basic world map plot
     p13 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r13.p,aes(x=x,y=y, name ='none',
-                                 fill = cut(improvement,breaks= c(-5,0,3,6,300), 
-                                            labels = c('< 0','0-3','3-6','> 6')))) +
+                                 fill = cut(improvement,breaks= c(-10,0,5,10,15,1000),
+                                            labels = c('< 0','0-5','5-10','10-15','> 15') ))) +
       theme_void() +
-      theme(legend.position = c(0.1,0.4), text = element_text(size = 15),
-            legend.background = element_rect(fill = "white",color='white'),
+      theme(legend.position = c(0.1,0.45), text = element_text(size = 15),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
-      labs(fill = ' ') +
+      labs(fill = 'NUE\nincreased (%)') +
+      theme(legend.title = element_text(color = "black", size = 10, face = "bold"),
+            legend.text = element_text(color = "black", size = 11))+
+      #theme(legend.position = "none")+
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Right fertilizer placement (RFP)") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 4") +
+      annotate("text",x=0.5,y=-50,label="Mean: 4.65%",size=5, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p13, filename = 'nue_effect_sI3.png')
-    ########################################### scenario_SI4 ########################################################
-
+    
+    ########################################### scenario_SI4 (RFR) ########################################################
+    
+    # set theme
     theme_set(theme_bw())
-
-    r14 <- terra::rast('scenario_SI4.tif')
-
+    
+    # get the raster to plot
+    r14 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_SI4.tif')
+    
+    # convert to data.frame
     r14.p <- as.data.frame(r14,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r14.p <- r14.p[r14.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    # plot a basic world map plot
     p14 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r14.p,aes(x=x,y=y, name ='none',
-                                 fill = cut(improvement,breaks= c(-4,0,3,6,300), 
-                                            labels = c('< 0','0-3','3-6','> 6') ))) +
+                                 fill = cut(improvement,limits = c(-10,1000), breaks= c(0,5,10,15,1000),
+                                            labels = c('0-5','5-10','10-15','> 15') ))) +
       theme_void() +
-      theme(legend.position = c(0.1,0.4), text = element_text(size = 15),
-            legend.background = element_rect(fill = "white",color='white'),
+      theme(legend.position = c(0.1,0.45), text = element_text(size = 15),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
-      labs(fill = ' ') +
+      labs(fill = 'NUE\nincreased (%)') +
+      theme(legend.title = element_text(color = "black", size = 10, face = "bold"),
+            legend.text = element_text(color = "black", size = 11))+
+      scale_fill_manual(values = c("#a3a500", "#00bf7d", "#00b0f6","#e76bf3"))+
+      #theme(legend.position = "none")+
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Right fertilizer rate (RFR)") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 4") +
+      annotate("text",x=0.5,y=-50,label="Mean: 7.49%",size=5, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p14, filename = 'nue_effect_sI4.png')
-    ########################################### scenario_SI5 ########################################################
-
+    
+    ########################################### scenario_SI5 (RFT) ########################################################
+    
+    # set theme
     theme_set(theme_bw())
-
-    r15 <- terra::rast('scenario_SI5.tif')
-
+    
+    # get the raster to plot
+    r15 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_SI5.tif')
+    
+    # convert to data.frame
     r15.p <- as.data.frame(r15,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r15.p <- r15.p[r15.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    # plot a basic world map plot
     p15 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r15.p,aes(x=x,y=y, name ='none',
-                                 fill = cut(improvement,breaks= c(-5,0,3,6,300), 
-                                            labels = c('< 0','0-3','3-6','> 6') ))) +
+                                 fill = cut(improvement,breaks= c(-10,0,5,10,15,1000),
+                                            labels = c('< 0','0-5','5-10','10-15','> 15') ))) +
       theme_void() +
-      theme(legend.position = c(0.1,0.4), text = element_text(size = 15),
-            legend.background = element_rect(fill = "white",color='white'),
+      theme(legend.position = c(0.1,0.45), text = element_text(size = 15),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
-      labs(fill = ' ') +
+      labs(fill = 'NUE\nincreased (%)') +
+      theme(legend.title = element_text(color = "black", size = 10, face = "bold"),
+            legend.text = element_text(color = "black", size = 11))+
+      #theme(legend.position = "none")+
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Right fertilizer timing (RFT)") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 4") +
+      annotate("text",x=0.5,y=-50,label="Mean: 6.42%",size=5, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p15, filename = 'nue_effect_sI5.png')
-    ########################################### scenario_SI6 ########################################################
-
+    
+    ########################################### scenario_SI7 (RES) ########################################################
+    
+    # set theme
     theme_set(theme_bw())
-
-    r16 <- terra::rast('scenario_SI6.tif')
-
-    r16.p <- as.data.frame(r16,xy=TRUE)
-
-    world <- ne_countries(scale = "medium", returnclass = "sf")
-
-    p16 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
-      geom_tile(data = r16.p,aes(x=x,y=y, name ='none',
-                                 fill = cut(improvement,breaks= c(-2,0,3,6,300), 
-                                            labels = c('< 0','0-3','3-6','> 6') ))) +
-      theme_void() +
-      theme(legend.position = c(0.1,0.4), text = element_text(size = 15),
-            legend.background = element_rect(fill = "white",color='white'),
-            panel.border = element_blank()) +
-      labs(fill = ' ') +
-      xlab("Longitude") + ylab("Latitude") +
-      ggtitle("Biochar (BC)") +
-      coord_sf(crs = 4326)
-    ggsave(plot = p16, filename = 'nue_effect_sI6.png')
-    ########################################### scenario_SI7 ########################################################
-
-    theme_set(theme_bw())
-
-    r17 <- terra::rast('scenario_SI7.tif')
-
+    
+    # get the raster to plot
+    r17 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_SI7.tif')
+    
+    # convert to data.frame
     r17.p <- as.data.frame(r17,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r17.p <- r17.p[r17.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    # plot a basic world map plot
     p17 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r17.p,aes(x=x,y=y, name ='none',
-                                 fill = cut(improvement,breaks= c(-6,0,3,6,300), 
-                                            labels = c('< 0','0-3','3-6','> 6') ))) +
+                                 fill = cut(improvement,breaks= c(-10,0,5,10,15,1000),
+                                            labels = c('< 0','0-5','5-10','10-15','> 15') ))) +
       theme_void() +
-      theme(legend.position = c(0.1,0.4), text = element_text(size = 15),
-            legend.background = element_rect(fill = "white",color='white'),
+      theme(legend.position = c(0.1,0.45), text = element_text(size = 15),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
-      labs(fill = ' ') +
+      labs(fill = 'NUE\nincreased (%)') +
+      theme(legend.title = element_text(color = "black", size = 10, face = "bold"),
+            legend.text = element_text(color = "black", size = 11))+
+      # theme(legend.position = c(0.5, 0.1),
+      #       legend.direction = "horizontal")+
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Residue retention (RES)") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 4") +
+      annotate("text",x=0.5,y=-50,label="Mean: 5.04%",size=5, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p17, filename = 'nue_effect_sI7.png')
-    ########################################### scenario_SI8 ########################################################
-
+    
+    ########################################### scenario_SI8 (CC/ROT) ########################################################
+    
+    # set theme
     theme_set(theme_bw())
-
-    r18 <- terra::rast('scenario_SI8.tif')
-
+    
+    # get the raster to plot
+    r18 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_SI8.tif')
+    
+    # convert to data.frame
     r18.p <- as.data.frame(r18,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r18.p <- r18.p[r18.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    # plot a basic world map plot
     p18 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r18.p,aes(x=x,y=y, name ='none',
-                                 fill = cut(improvement,breaks= c(-5,0,3,6,300), 
-                                            labels = c('< 0','0-3','3-6','> 6')))) +
+                                 fill = cut(improvement,breaks= c(-10,0,5,10,15,1000),
+                                            labels = c('< 0','0-5','5-10','10-15','> 15') ))) +
       theme_void() +
-      theme(legend.position = c(0.1,0.4), text = element_text(size = 15),
-            legend.background = element_rect(fill = "white",color='white'),
+      theme(legend.position = c(0.1,0.45), text = element_text(size = 15),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
-      labs(fill = ' ') +
+      labs(fill = 'NUE\nincreased (%)') +
+      theme(legend.title = element_text(color = "black", size = 10, face = "bold"),
+            legend.text = element_text(color = "black", size = 11))+
+      #theme(legend.position = "none")+
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Cover cropping or Crop rotation (CC/ROT)") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 4") +
+      annotate("text",x=0.5,y=-50,label="Mean: 4.70%",size=5, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p18, filename = 'nue_effect_sI8.png')
-
+    
+    #2*2
     library(ggpubr)
-    p_S4<-ggarrange(p10,p11, p12, p13, p14,p15,p16,p17,p18, heights = c(4, 4, 4, 4), ncol = 3, nrow = 3, #common.legend = TRUE,legend = "bottom",
-                    labels = c("a", "b","c","d","e","f","g","h","i"), font.label=list(size=28),hjust = -0.2, vjust = 1)
-    p_S4
+    p_S5<-ggarrange(p10,p11, p12, p13, p14,p15,p17,p18, heights = c(4, 4, 4, 4), ncol = 3, nrow = 3,
+                    labels = c("a", "b","c","d","e","f","g","h"), font.label=list(size=28),hjust = -0.2, vjust = 1)
     
-    ggsave(file = "p_S4.png",width = 410,height = 197, units = "mm")
+    ggsave(p_S5, file = "C:/Users/86188/Desktop/Figures/Figure_S5.png",width = 410,height = 197, units = "mm")
     
-    
-    
-    
-    
-    ######################################### scenario_1 ##########################################################
-
+    ######################################### scenario_1 (optimal nutrient management) ##########################################################
+    # set theme
     theme_set(theme_bw())
-
-    r1 <- terra::rast('scenario_1.tif')
-
+    
+    # get the raster to plot
+    r1 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_1.tif')
+    
+    # convert to data.frame
     r1.p <- as.data.frame(r1,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r1.p <- r1.p[r1.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
     
     #plot a basic world map plot
     p1 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r1.p,aes(x=x,y=y, name ='none',
-                                fill = cut(improvement,breaks= c(18,20,25,30,300),
-                                           labels = c('< 20','20-25','25-30','>30') ))) +
+                                fill = cut(improvement,breaks= c(15,25,30,35,800),
+                                           labels = c('< 25','25-30','30-35','> 35') ))) +
+      
+      # scale_fill_gradientn(colours = rainbow(3)) +
+      #scale_fill_viridis_c()+ 
       theme_void() +
       theme(legend.position = c(0.1,0.4), text = element_text(size = 18),
-            legend.background = element_rect(fill = "white",color='white'),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
       labs(fill = 'NUE increased (%)') +
+      #theme(NULL)+
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Optimal nutrient management") +
+      # ggtitle("World map", subtitle = "Mean change for scenario 1") +
+      annotate("text",x=0.5,y=-50,label="Mean: 26.85%",size=6, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326) 
     
-    ggsave(plot = p1, filename = 'nue_effect_s1.png')
+    ########################################### scenario_2 (optimal crop management) ########################################################
     
-    
-    ########################################### scenario_2 ########################################################
-
+    # set theme
     theme_set(theme_bw())
-
-    r2 <- terra::rast('scenario_2.tif')
-
+    
+    # get the raster to plot
+    r2 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_2.tif')
+    
+    # convert to data.frame
     r2.p <- as.data.frame(r2,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r2.p <- r2.p[r2.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    # plot a basic world map plot
     p2 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r2.p,aes(x=x,y=y, name ='none',
-                                fill = cut(improvement,breaks= c(-4,0,3,6,300), 
-                                           labels = c('< 0','0-3','3-6','> 6') ))) +
+                                fill = cut(improvement,breaks= c(0,5,10,15,800), 
+                                           labels = c('< 5','5-10','10-15','> 15') ))) +
       theme_void() +
       theme(legend.position = c(0.1,0.4), text = element_text(size = 18),
-            legend.background = element_rect(fill = "white",color='white'),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
       labs(fill = 'NUE increased (%)') +
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Optimal crop management") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 3") +
+      annotate("text",x=0.5,y=-50,label="Mean: 6.59%",size=6, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p2, filename = 'nue_effect_s2.png')
     
-    ########################################### scenario_3 ########################################################
-
+    ########################################### scenario_3 (optimal soil management) ########################################################
+    
+    # set theme
     theme_set(theme_bw())
-
-    r3 <- terra::rast('scenario_3.tif')
-
+    
+    # get the raster to plot
+    r3 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_3.tif')
+    
+    # convert to data.frame
     r3.p <- as.data.frame(r3,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r3.p <- r3.p[r3.p$improvement <70,]
+    
+    
+    # write.csv(r3.p, file="E:/phD/Papers/paper2/You_et_al_2022/NC/tillage.csv")
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
     
     # plot a basic world map plot
     p3 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r3.p,aes(x=x,y=y, name ='none',
-                                fill = cut(improvement,breaks= c(-7,0,3,6,300), 
-                                           labels = c('< 0','0-3','3-6','> 6') ))) +
+                                fill = cut(improvement,breaks= c(-7,0,5,10,800), 
+                                           labels = c('< 0','0-5','5-10','> 10') ))) +
       theme_void() +
       theme(legend.position = c(0.1,0.4), text = element_text(size = 18),
-            legend.background = element_rect(fill = "white",color='white'),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
       labs(fill = 'NUE increased (%)') +
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Optimal soil management") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 4") +
+      annotate("text",x=0.5,y=-50,label="Mean: 0.56%",size=6, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p3, filename = 'nue_effect_s3.png')
     
+    ########################################### scenario_4 (combined optimal management practices) ########################################################
     
-    
-    ########################################### scenario_4 ########################################################
-
+    # set theme
     theme_set(theme_bw())
-
-    r4 <- terra::rast('scenario_4.tif')
-
+    
+    # get the raster to plot
+    r4 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_4.tif')
+    
+    # convert to data.frame
     r4.p <- as.data.frame(r4,xy=TRUE)
-
+    # Exclude outliers greater than 70%
+    r4.p <- r4.p[r4.p$improvement <70,]
+    
+    
+    # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-
+    
+    # plot a basic world map plot
     p4 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r4.p,aes(x=x,y=y, name ='none',
-                                fill = cut(improvement,breaks= c(22,25,30,35,300), 
-                                           labels = c('< 25','25-30','30-35','>35') ))) +
+                                fill = cut(improvement,breaks= c(20,25,30,35,800), 
+                                           labels = c('< 25','25-30','30-35','> 35') ))) +
       theme_void() +
       theme(legend.position = c(0.1,0.4), text = element_text(size = 18),
-            legend.background = element_rect(fill = "white",color='white'),
+            legend.background = element_rect(fill = NA,color = NA),
             panel.border = element_blank()) +
       labs(fill = 'NUE increased (%)') +
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Combined optimal management practices") +
+      #ggtitle("World map", subtitle = "Mean change for scenario 4") +
+      annotate("text",x=0.5,y=-50,label="Mean: 30.28%",size=6, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    ggsave(plot = p4, filename = 'nue_effect_s4.png')
     
+    #2*2
     library(ggpubr)
     p<-ggarrange(p1, p2, p3, p4, heights = c(4, 4, 4, 4), ncol = 2, nrow = 2, #common.legend = TRUE,legend = "bottom",
                  labels = c("a", "b","c","d"), font.label=list(size=28),hjust = -0.2, vjust = 1)
     p
     
-    ggsave(file = "p.png",width = 410,height = 197, units = "mm")
+    ggsave(p, file = "C:/Users/86188/Desktop/Figures/Figure_4.png",width = 410,height = 197, units = "mm")
     
     
