@@ -22,7 +22,7 @@ mydata <- metaresult_group[Vari=='NUE' & `Group type` == 'Data']
   scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Fertilizer timing","Fertilizer rate","Fertilizer placement","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),labels = rev(c("RT","ZT","ROT","CC","RES","RFT","RFR","RFP","OF","CF","EE")))+
 
    scale_y_continuous(limits=c(-70,120), breaks = c(-50,0,50,100))+
-  labs(x = "Management practice", y = "Relative change of NUE (%)",colour = 'black')+
+  labs(x = "Management practice", y = "Relative change of NUEr (%)",colour = 'black')+
   theme_bw()+
   theme(legend.title = element_blank(),
         legend.direction = "horizontal",
@@ -56,7 +56,7 @@ mydata <- metaresult_group[Vari=='NUE' & `Group type` == 'Method']
   scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Fertilizer timing","Fertilizer rate","Fertilizer placement","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),labels = rev(c("RT","ZT","ROT","CC","RES","RFT","RFR","RFP","OF","CF","EE")))+
 
   scale_y_continuous(limits=c(-15,20), breaks = c(-10,0,10,20))+
-  labs(x = "\nManagement practices", y = "Absolute change of NUE (%)   ",colour = 'black')+
+  labs(x = "\nManagement practices", y = "Absolute change of NUEr (%)   ",colour = 'black')+
   theme_bw()+
   theme(legend.title = element_blank(),
         legend.direction = "horizontal",
@@ -76,7 +76,7 @@ mydata <- metaresult_group[Vari=='NUE' & `Group type` == 'Method']
 
 # combine figures p1 and p2 into plot p
 p<-ggarrange(p1, p2, ncol = 1, nrow = 2, align = "v",#common.legend = TRUE,legend = "bottom",
-             labels = c("a", "b"), label.x = 0,label.y = 1,
+             labels = c("a", "b"), label.x = 0,label.y = c(1,1.05),
              font.label=list(size=28),hjust = -0.2, vjust = 1)
 
 # save the plot
