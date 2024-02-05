@@ -1,0 +1,1690 @@
+country_code,country,crop_code,crop_name,Element,Unit,fao_cr_resN
+2,Afghanistan,44,Barley,Residues (Crop residues),kg of nutrients,1380965.2676
+2,Afghanistan,56,Maize,Residues (Crop residues),kg of nutrients,1863381.3753
+2,Afghanistan,79,Millet,Residues (Crop residues),kg of nutrients,101602.196
+2,Afghanistan,116,Potatoes,Residues (Crop residues),kg of nutrients,1200040.5244
+2,Afghanistan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,4711482.992
+2,Afghanistan,15,Wheat,Residues (Crop residues),kg of nutrients,58333370.3485
+3,Albania,44,Barley,Residues (Crop residues),kg of nutrients,112634.3177
+3,Albania,176,"Beans, dry",Residues (Crop residues),kg of nutrients,205637.0126
+3,Albania,56,Maize,Residues (Crop residues),kg of nutrients,3084065.368
+3,Albania,75,Oats,Residues (Crop residues),kg of nutrients,397660.7989
+3,Albania,116,Potatoes,Residues (Crop residues),kg of nutrients,463278.5547
+3,Albania,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,
+3,Albania,71,Rye,Residues (Crop residues),kg of nutrients,31284.2734
+3,Albania,83,Sorghum,Residues (Crop residues),kg of nutrients,
+3,Albania,236,Soybeans,Residues (Crop residues),kg of nutrients,7026.4006
+3,Albania,15,Wheat,Residues (Crop residues),kg of nutrients,3486871.573
+4,Algeria,44,Barley,Residues (Crop residues),kg of nutrients,17418786.5474
+4,Algeria,176,"Beans, dry",Residues (Crop residues),kg of nutrients,21737.8262
+4,Algeria,56,Maize,Residues (Crop residues),kg of nutrients,22404.1224
+4,Algeria,75,Oats,Residues (Crop residues),kg of nutrients,1181268.7749
+4,Algeria,116,Potatoes,Residues (Crop residues),kg of nutrients,7804129.8738
+4,Algeria,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3954.9645
+4,Algeria,83,Sorghum,Residues (Crop residues),kg of nutrients,38363.9352
+4,Algeria,15,Wheat,Residues (Crop residues),kg of nutrients,36756649.5649
+7,Angola,176,"Beans, dry",Residues (Crop residues),kg of nutrients,7655035.1843
+7,Angola,56,Maize,Residues (Crop residues),kg of nutrients,30688595.5299
+7,Angola,79,Millet,Residues (Crop residues),kg of nutrients,1055428.416
+7,Angola,116,Potatoes,Residues (Crop residues),kg of nutrients,4642623.9344
+7,Angola,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1579715.8736
+7,Angola,83,Sorghum,Residues (Crop residues),kg of nutrients,3890948.0388
+7,Angola,236,Soybeans,Residues (Crop residues),kg of nutrients,478153.7132
+7,Angola,15,Wheat,Residues (Crop residues),kg of nutrients,55523.3539
+8,Antigua and Barbuda,56,Maize,Residues (Crop residues),kg of nutrients,777.6293
+9,Argentina,44,Barley,Residues (Crop residues),kg of nutrients,44456254.8854
+9,Argentina,176,"Beans, dry",Residues (Crop residues),kg of nutrients,5209859.9666
+9,Argentina,56,Maize,Residues (Crop residues),kg of nutrients,396164435.4733
+9,Argentina,79,Millet,Residues (Crop residues),kg of nutrients,61278.929
+9,Argentina,75,Oats,Residues (Crop residues),kg of nutrients,8915456.6289
+9,Argentina,116,Potatoes,Residues (Crop residues),kg of nutrients,4088687.0661
+9,Argentina,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,14185541.8155
+9,Argentina,71,Rye,Residues (Crop residues),kg of nutrients,952701.7839
+9,Argentina,83,Sorghum,Residues (Crop residues),kg of nutrients,23397204.6781
+9,Argentina,236,Soybeans,Residues (Crop residues),kg of nutrients,682383836.143
+9,Argentina,15,Wheat,Residues (Crop residues),kg of nutrients,237243269.4506
+1,Armenia,44,Barley,Residues (Crop residues),kg of nutrients,1301413.468
+1,Armenia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,31197.2581
+1,Armenia,56,Maize,Residues (Crop residues),kg of nutrients,86554.9577
+1,Armenia,75,Oats,Residues (Crop residues),kg of nutrients,72947.9237
+1,Armenia,116,Potatoes,Residues (Crop residues),kg of nutrients,1089868.7448
+1,Armenia,71,Rye,Residues (Crop residues),kg of nutrients,4526.8078
+1,Armenia,15,Wheat,Residues (Crop residues),kg of nutrients,2381997.2626
+10,Australia,44,Barley,Residues (Crop residues),kg of nutrients,169752538.8341
+10,Australia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,475317.5811
+10,Australia,56,Maize,Residues (Crop residues),kg of nutrients,3535837.4275
+10,Australia,79,Millet,Residues (Crop residues),kg of nutrients,433524.5145
+10,Australia,75,Oats,Residues (Crop residues),kg of nutrients,26476987.8531
+10,Australia,116,Potatoes,Residues (Crop residues),kg of nutrients,1717158.3382
+10,Australia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,7822143.536
+10,Australia,71,Rye,Residues (Crop residues),kg of nutrients,513794.8288
+10,Australia,83,Sorghum,Residues (Crop residues),kg of nutrients,10778848.1649
+10,Australia,236,Soybeans,Residues (Crop residues),kg of nutrients,915692.1585
+10,Australia,15,Wheat,Residues (Crop residues),kg of nutrients,420264681.4815
+11,Austria,44,Barley,Residues (Crop residues),kg of nutrients,9057589.1611
+11,Austria,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+11,Austria,56,Maize,Residues (Crop residues),kg of nutrients,16349725.0021
+11,Austria,79,Millet,Residues (Crop residues),kg of nutrients,119750.5157
+11,Austria,75,Oats,Residues (Crop residues),kg of nutrients,811015.4064
+11,Austria,116,Potatoes,Residues (Crop residues),kg of nutrients,1147369.7826
+11,Austria,71,Rye,Residues (Crop residues),kg of nutrients,1359306.0714
+11,Austria,83,Sorghum,Residues (Crop residues),kg of nutrients,174326.7058
+11,Austria,236,Soybeans,Residues (Crop residues),kg of nutrients,2442022.4995
+11,Austria,15,Wheat,Residues (Crop residues),kg of nutrients,17994943.1608
+52,Azerbaijan,44,Barley,Residues (Crop residues),kg of nutrients,10148176.3995
+52,Azerbaijan,176,"Beans, dry",Residues (Crop residues),kg of nutrients,76860.1785
+52,Azerbaijan,56,Maize,Residues (Crop residues),kg of nutrients,1906340.886
+52,Azerbaijan,79,Millet,Residues (Crop residues),kg of nutrients,1836.7969
+52,Azerbaijan,75,Oats,Residues (Crop residues),kg of nutrients,109440.3732
+52,Azerbaijan,116,Potatoes,Residues (Crop residues),kg of nutrients,2170621.2292
+52,Azerbaijan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,220729.0145
+52,Azerbaijan,71,Rye,Residues (Crop residues),kg of nutrients,8336.9635
+52,Azerbaijan,83,Sorghum,Residues (Crop residues),kg of nutrients,1829.1639
+52,Azerbaijan,236,Soybeans,Residues (Crop residues),kg of nutrients,1588.3792
+52,Azerbaijan,15,Wheat,Residues (Crop residues),kg of nutrients,23056342.9961
+12,Bahamas,56,Maize,Residues (Crop residues),kg of nutrients,6324.591
+13,Bahrain,116,Potatoes,Residues (Crop residues),kg of nutrients,57.2526
+16,Bangladesh,44,Barley,Residues (Crop residues),kg of nutrients,4845.2655
+16,Bangladesh,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1023100.1447
+16,Bangladesh,56,Maize,Residues (Crop residues),kg of nutrients,24184932.8689
+16,Bangladesh,79,Millet,Residues (Crop residues),kg of nutrients,177557.792
+16,Bangladesh,116,Potatoes,Residues (Crop residues),kg of nutrients,20921027.9661
+16,Bangladesh,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,594622496.368
+16,Bangladesh,83,Sorghum,Residues (Crop residues),kg of nutrients,1495.9375
+16,Bangladesh,236,Soybeans,Residues (Crop residues),kg of nutrients,1585102.1816
+16,Bangladesh,15,Wheat,Residues (Crop residues),kg of nutrients,16985558.4334
+14,Barbados,176,"Beans, dry",Residues (Crop residues),kg of nutrients,696.4045
+14,Barbados,56,Maize,Residues (Crop residues),kg of nutrients,886.7729
+57,Belarus,44,Barley,Residues (Crop residues),kg of nutrients,17536625.042
+57,Belarus,176,"Beans, dry",Residues (Crop residues),kg of nutrients,2721746.1056
+57,Belarus,56,Maize,Residues (Crop residues),kg of nutrients,5722884.2379
+57,Belarus,79,Millet,Residues (Crop residues),kg of nutrients,214008.7963
+57,Belarus,75,Oats,Residues (Crop residues),kg of nutrients,5021023.2196
+57,Belarus,116,Potatoes,Residues (Crop residues),kg of nutrients,12333284.7137
+57,Belarus,71,Rye,Residues (Crop residues),kg of nutrients,7526865.1507
+57,Belarus,15,Wheat,Residues (Crop residues),kg of nutrients,33500628.4001
+255,Belgium,44,Barley,Residues (Crop residues),kg of nutrients,4291664.8352
+255,Belgium,176,"Beans, dry",Residues (Crop residues),kg of nutrients,3678.7383
+255,Belgium,56,Maize,Residues (Crop residues),kg of nutrients,4741159.123
+255,Belgium,75,Oats,Residues (Crop residues),kg of nutrients,183519.5436
+255,Belgium,116,Potatoes,Residues (Crop residues),kg of nutrients,6425824.1929
+255,Belgium,71,Rye,Residues (Crop residues),kg of nutrients,24398.2646
+255,Belgium,15,Wheat,Residues (Crop residues),kg of nutrients,20733579.7256
+15,Belgium-Luxembourg,44,Barley,Residues (Crop residues),kg of nutrients,
+15,Belgium-Luxembourg,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+15,Belgium-Luxembourg,56,Maize,Residues (Crop residues),kg of nutrients,
+15,Belgium-Luxembourg,75,Oats,Residues (Crop residues),kg of nutrients,
+15,Belgium-Luxembourg,116,Potatoes,Residues (Crop residues),kg of nutrients,
+15,Belgium-Luxembourg,71,Rye,Residues (Crop residues),kg of nutrients,
+15,Belgium-Luxembourg,15,Wheat,Residues (Crop residues),kg of nutrients,
+23,Belize,176,"Beans, dry",Residues (Crop residues),kg of nutrients,98578.6749
+23,Belize,56,Maize,Residues (Crop residues),kg of nutrients,750035.1047
+23,Belize,116,Potatoes,Residues (Crop residues),kg of nutrients,3401.8185
+23,Belize,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,221082.4818
+23,Belize,83,Sorghum,Residues (Crop residues),kg of nutrients,115956.7429
+23,Belize,236,Soybeans,Residues (Crop residues),kg of nutrients,156782.4763
+53,Benin,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1433446.1099
+53,Benin,56,Maize,Residues (Crop residues),kg of nutrients,15273404.7259
+53,Benin,79,Millet,Residues (Crop residues),kg of nutrients,304300.8301
+53,Benin,116,Potatoes,Residues (Crop residues),kg of nutrients,2569.8081
+53,Benin,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3989822.8062
+53,Benin,83,Sorghum,Residues (Crop residues),kg of nutrients,1848915.8285
+53,Benin,236,Soybeans,Residues (Crop residues),kg of nutrients,3222259.6672
+17,Bermuda,116,Potatoes,Residues (Crop residues),kg of nutrients,1884.375
+18,Bhutan,44,Barley,Residues (Crop residues),kg of nutrients,28851.7592
+18,Bhutan,176,"Beans, dry",Residues (Crop residues),kg of nutrients,48336.5096
+18,Bhutan,56,Maize,Residues (Crop residues),kg of nutrients,785479.4023
+18,Bhutan,79,Millet,Residues (Crop residues),kg of nutrients,20603.7628
+18,Bhutan,116,Potatoes,Residues (Crop residues),kg of nutrients,168054.5085
+18,Bhutan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1066231.0132
+18,Bhutan,236,Soybeans,Residues (Crop residues),kg of nutrients,5917.8953
+18,Bhutan,15,Wheat,Residues (Crop residues),kg of nutrients,53001.286
+19,Bolivia (Plurinational State of),44,Barley,Residues (Crop residues),kg of nutrients,772810.7428
+19,Bolivia (Plurinational State of),176,"Beans, dry",Residues (Crop residues),kg of nutrients,1151977.236
+19,Bolivia (Plurinational State of),56,Maize,Residues (Crop residues),kg of nutrients,9309727.8034
+19,Bolivia (Plurinational State of),75,Oats,Residues (Crop residues),kg of nutrients,281116.1394
+19,Bolivia (Plurinational State of),116,Potatoes,Residues (Crop residues),kg of nutrients,5067639.1523
+19,Bolivia (Plurinational State of),27,"Rice, paddy",Residues (Crop residues),kg of nutrients,6958292.1671
+19,Bolivia (Plurinational State of),71,Rye,Residues (Crop residues),kg of nutrients,4534.8646
+19,Bolivia (Plurinational State of),83,Sorghum,Residues (Crop residues),kg of nutrients,6813927.0452
+19,Bolivia (Plurinational State of),236,Soybeans,Residues (Crop residues),kg of nutrients,41161225.5286
+19,Bolivia (Plurinational State of),15,Wheat,Residues (Crop residues),kg of nutrients,2483007.0156
+80,Bosnia and Herzegovina,44,Barley,Residues (Crop residues),kg of nutrients,924845.3482
+80,Bosnia and Herzegovina,176,"Beans, dry",Residues (Crop residues),kg of nutrients,93303.4459
+80,Bosnia and Herzegovina,56,Maize,Residues (Crop residues),kg of nutrients,6107491.7601
+80,Bosnia and Herzegovina,75,Oats,Residues (Crop residues),kg of nutrients,294316.3737
+80,Bosnia and Herzegovina,116,Potatoes,Residues (Crop residues),kg of nutrients,1082647.1858
+80,Bosnia and Herzegovina,71,Rye,Residues (Crop residues),kg of nutrients,118626.3441
+80,Bosnia and Herzegovina,236,Soybeans,Residues (Crop residues),kg of nutrients,190723.9223
+80,Bosnia and Herzegovina,15,Wheat,Residues (Crop residues),kg of nutrients,3699549.8511
+20,Botswana,56,Maize,Residues (Crop residues),kg of nutrients,346306.9078
+20,Botswana,79,Millet,Residues (Crop residues),kg of nutrients,19327.6758
+20,Botswana,83,Sorghum,Residues (Crop residues),kg of nutrients,466015.7612
+20,Botswana,15,Wheat,Residues (Crop residues),kg of nutrients,
+21,Brazil,44,Barley,Residues (Crop residues),kg of nutrients,3860767.0511
+21,Brazil,176,"Beans, dry",Residues (Crop residues),kg of nutrients,36339997.7397
+21,Brazil,56,Maize,Residues (Crop residues),kg of nutrients,801499063.8642
+21,Brazil,75,Oats,Residues (Crop residues),kg of nutrients,8105224.7159
+21,Brazil,116,Potatoes,Residues (Crop residues),kg of nutrients,6195167.5002
+21,Brazil,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,134924417.6189
+21,Brazil,71,Rye,Residues (Crop residues),kg of nutrients,96123.7549
+21,Brazil,83,Sorghum,Residues (Crop residues),kg of nutrients,23313806.0031
+21,Brazil,236,Soybeans,Residues (Crop residues),kg of nutrients,1396524794.8531
+21,Brazil,15,Wheat,Residues (Crop residues),kg of nutrients,58029995.1532
+26,Brunei Darussalam,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,35757.7601
+27,Bulgaria,44,Barley,Residues (Crop residues),kg of nutrients,7018005.0542
+27,Bulgaria,176,"Beans, dry",Residues (Crop residues),kg of nutrients,33276.4361
+27,Bulgaria,56,Maize,Residues (Crop residues),kg of nutrients,20772522.2982
+27,Bulgaria,79,Millet,Residues (Crop residues),kg of nutrients,51140.7492
+27,Bulgaria,75,Oats,Residues (Crop residues),kg of nutrients,363494.2318
+27,Bulgaria,116,Potatoes,Residues (Crop residues),kg of nutrients,501873.949
+27,Bulgaria,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,652518.5163
+27,Bulgaria,71,Rye,Residues (Crop residues),kg of nutrients,204597.279
+27,Bulgaria,83,Sorghum,Residues (Crop residues),kg of nutrients,129602.8243
+27,Bulgaria,236,Soybeans,Residues (Crop residues),kg of nutrients,310024.4336
+27,Bulgaria,15,Wheat,Residues (Crop residues),kg of nutrients,76347283.4265
+233,Burkina Faso,56,Maize,Residues (Crop residues),kg of nutrients,15468938.2509
+233,Burkina Faso,79,Millet,Residues (Crop residues),kg of nutrients,10374466.946
+233,Burkina Faso,116,Potatoes,Residues (Crop residues),kg of nutrients,16512.838
+233,Burkina Faso,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,5674626.6442
+233,Burkina Faso,83,Sorghum,Residues (Crop residues),kg of nutrients,26637353.5475
+233,Burkina Faso,236,Soybeans,Residues (Crop residues),kg of nutrients,397145.1915
+29,Burundi,176,"Beans, dry",Residues (Crop residues),kg of nutrients,3833908.0862
+29,Burundi,56,Maize,Residues (Crop residues),kg of nutrients,2549344.4352
+29,Burundi,79,Millet,Residues (Crop residues),kg of nutrients,123295.8419
+29,Burundi,116,Potatoes,Residues (Crop residues),kg of nutrients,602520.1863
+29,Burundi,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1594079.005
+29,Burundi,83,Sorghum,Residues (Crop residues),kg of nutrients,366812.273
+29,Burundi,236,Soybeans,Residues (Crop residues),kg of nutrients,72285.4116
+29,Burundi,15,Wheat,Residues (Crop residues),kg of nutrients,117649.7301
+35,Cabo Verde,56,Maize,Residues (Crop residues),kg of nutrients,173715.7789
+35,Cabo Verde,116,Potatoes,Residues (Crop residues),kg of nutrients,9407.8111
+115,Cambodia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,923678.6655
+115,Cambodia,56,Maize,Residues (Crop residues),kg of nutrients,6261161.883
+115,Cambodia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,136518007.2395
+115,Cambodia,236,Soybeans,Residues (Crop residues),kg of nutrients,2688722.0506
+32,Cameroon,176,"Beans, dry",Residues (Crop residues),kg of nutrients,4427757.2317
+32,Cameroon,56,Maize,Residues (Crop residues),kg of nutrients,21992804.319
+32,Cameroon,79,Millet,Residues (Crop residues),kg of nutrients,1199452.863
+32,Cameroon,116,Potatoes,Residues (Crop residues),kg of nutrients,753321.76
+32,Cameroon,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,7945295.904
+32,Cameroon,83,Sorghum,Residues (Crop residues),kg of nutrients,18244463.9979
+32,Cameroon,236,Soybeans,Residues (Crop residues),kg of nutrients,463335.1153
+32,Cameroon,15,Wheat,Residues (Crop residues),kg of nutrients,13219.2423
+33,Canada,44,Barley,Residues (Crop residues),kg of nutrients,95753536.4828
+33,Canada,176,"Beans, dry",Residues (Crop residues),kg of nutrients,2181564.4272
+33,Canada,56,Maize,Residues (Crop residues),kg of nutrients,110658682.7746
+33,Canada,75,Oats,Residues (Crop residues),kg of nutrients,39119687.6957
+33,Canada,116,Potatoes,Residues (Crop residues),kg of nutrients,11721239.8477
+33,Canada,71,Rye,Residues (Crop residues),kg of nutrients,3326082.4047
+33,Canada,236,Soybeans,Residues (Crop residues),kg of nutrients,98146716.9161
+33,Canada,15,Wheat,Residues (Crop residues),kg of nutrients,386564912.2537
+37,Central African Republic,56,Maize,Residues (Crop residues),kg of nutrients,1114605.5475
+37,Central African Republic,79,Millet,Residues (Crop residues),kg of nutrients,119263.2858
+37,Central African Republic,116,Potatoes,Residues (Crop residues),kg of nutrients,39198.6225
+37,Central African Republic,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,245313.8559
+37,Central African Republic,83,Sorghum,Residues (Crop residues),kg of nutrients,525060.7135
+39,Chad,176,"Beans, dry",Residues (Crop residues),kg of nutrients,2336390.5286
+39,Chad,56,Maize,Residues (Crop residues),kg of nutrients,4373677.8078
+39,Chad,79,Millet,Residues (Crop residues),kg of nutrients,8473993.79
+39,Chad,116,Potatoes,Residues (Crop residues),kg of nutrients,131453.8851
+39,Chad,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,5689948.2408
+39,Chad,83,Sorghum,Residues (Crop residues),kg of nutrients,18377387.861
+39,Chad,15,Wheat,Residues (Crop residues),kg of nutrients,25600.8179
+40,Chile,44,Barley,Residues (Crop residues),kg of nutrients,1087367.5167
+40,Chile,176,"Beans, dry",Residues (Crop residues),kg of nutrients,175258.0604
+40,Chile,56,Maize,Residues (Crop residues),kg of nutrients,8315468.5524
+40,Chile,75,Oats,Residues (Crop residues),kg of nutrients,6958059.589
+40,Chile,116,Potatoes,Residues (Crop residues),kg of nutrients,2587570.8669
+40,Chile,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1390147.3863
+40,Chile,71,Rye,Residues (Crop residues),kg of nutrients,38179.6049
+40,Chile,236,Soybeans,Residues (Crop residues),kg of nutrients,
+40,Chile,15,Wheat,Residues (Crop residues),kg of nutrients,16696672.6331
+351,China,44,Barley,Residues (Crop residues),kg of nutrients,22689156.9906
+351,China,176,"Beans, dry",Residues (Crop residues),kg of nutrients,12839546.5444
+351,China,56,Maize,Residues (Crop residues),kg of nutrients,2110489929.6027
+351,China,79,Millet,Residues (Crop residues),kg of nutrients,22736464.8509
+351,China,75,Oats,Residues (Crop residues),kg of nutrients,13355933.2541
+351,China,116,Potatoes,Residues (Crop residues),kg of nutrients,222607411.2359
+351,China,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2253405170.9886
+351,China,71,Rye,Residues (Crop residues),kg of nutrients,14007862.1807
+351,China,83,Sorghum,Residues (Crop residues),kg of nutrients,26116161.7428
+351,China,236,Soybeans,Residues (Crop residues),kg of nutrients,201062022.6306
+351,China,15,Wheat,Residues (Crop residues),kg of nutrients,1670276213.4221
+96,"China, Hong Kong SAR",27,"Rice, paddy",Residues (Crop residues),kg of nutrients,0.8912
+41,"China, mainland",44,Barley,Residues (Crop residues),kg of nutrients,22689156.9906
+41,"China, mainland",176,"Beans, dry",Residues (Crop residues),kg of nutrients,12737732.8703
+41,"China, mainland",56,Maize,Residues (Crop residues),kg of nutrients,2109146782.5281
+41,"China, mainland",79,Millet,Residues (Crop residues),kg of nutrients,22730858.3536
+41,"China, mainland",75,Oats,Residues (Crop residues),kg of nutrients,13355933.2541
+41,"China, mainland",116,Potatoes,Residues (Crop residues),kg of nutrients,222498697.4642
+41,"China, mainland",27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2234318682.8064
+41,"China, mainland",71,Rye,Residues (Crop residues),kg of nutrients,14007862.1807
+41,"China, mainland",83,Sorghum,Residues (Crop residues),kg of nutrients,26085187.4257
+41,"China, mainland",236,Soybeans,Residues (Crop residues),kg of nutrients,201010662.1005
+41,"China, mainland",15,Wheat,Residues (Crop residues),kg of nutrients,1670189213.4346
+214,"China, Taiwan Province of",44,Barley,Residues (Crop residues),kg of nutrients,
+214,"China, Taiwan Province of",176,"Beans, dry",Residues (Crop residues),kg of nutrients,101813.6741
+214,"China, Taiwan Province of",56,Maize,Residues (Crop residues),kg of nutrients,1343147.0746
+214,"China, Taiwan Province of",79,Millet,Residues (Crop residues),kg of nutrients,5606.4973
+214,"China, Taiwan Province of",116,Potatoes,Residues (Crop residues),kg of nutrients,108713.7717
+214,"China, Taiwan Province of",27,"Rice, paddy",Residues (Crop residues),kg of nutrients,19086487.291
+214,"China, Taiwan Province of",83,Sorghum,Residues (Crop residues),kg of nutrients,30974.3171
+214,"China, Taiwan Province of",236,Soybeans,Residues (Crop residues),kg of nutrients,51360.5301
+214,"China, Taiwan Province of",15,Wheat,Residues (Crop residues),kg of nutrients,86999.9876
+44,Colombia,44,Barley,Residues (Crop residues),kg of nutrients,144999.209
+44,Colombia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1619151.4548
+44,Colombia,56,Maize,Residues (Crop residues),kg of nutrients,11275152.2286
+44,Colombia,75,Oats,Residues (Crop residues),kg of nutrients,67167.1169
+44,Colombia,116,Potatoes,Residues (Crop residues),kg of nutrients,6010367.8632
+44,Colombia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,34555862.4376
+44,Colombia,83,Sorghum,Residues (Crop residues),kg of nutrients,94893.7204
+44,Colombia,236,Soybeans,Residues (Crop residues),kg of nutrients,982090.8599
+44,Colombia,15,Wheat,Residues (Crop residues),kg of nutrients,189659.8343
+45,Comoros,56,Maize,Residues (Crop residues),kg of nutrients,59554.5541
+45,Comoros,116,Potatoes,Residues (Crop residues),kg of nutrients,1446.3063
+45,Comoros,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,773113.0735
+46,Congo,176,"Beans, dry",Residues (Crop residues),kg of nutrients,59690.9942
+46,Congo,56,Maize,Residues (Crop residues),kg of nutrients,147036.1326
+46,Congo,79,Millet,Residues (Crop residues),kg of nutrients,185326.7129
+46,Congo,116,Potatoes,Residues (Crop residues),kg of nutrients,19906.8341
+46,Congo,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,47614.1193
+48,Costa Rica,176,"Beans, dry",Residues (Crop residues),kg of nutrients,179918.0969
+48,Costa Rica,56,Maize,Residues (Crop residues),kg of nutrients,69918.6029
+48,Costa Rica,116,Potatoes,Residues (Crop residues),kg of nutrients,151898.2608
+48,Costa Rica,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1819289.7714
+48,Costa Rica,83,Sorghum,Residues (Crop residues),kg of nutrients,
+48,Costa Rica,236,Soybeans,Residues (Crop residues),kg of nutrients,
+107,Côte d'Ivoire,176,"Beans, dry",Residues (Crop residues),kg of nutrients,559657.0776
+107,Côte d'Ivoire,56,Maize,Residues (Crop residues),kg of nutrients,9850221.6777
+107,Côte d'Ivoire,79,Millet,Residues (Crop residues),kg of nutrients,759602.6351
+107,Côte d'Ivoire,116,Potatoes,Residues (Crop residues),kg of nutrients,
+107,Côte d'Ivoire,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,32255514.115
+107,Côte d'Ivoire,83,Sorghum,Residues (Crop residues),kg of nutrients,1349294.0869
+107,Côte d'Ivoire,236,Soybeans,Residues (Crop residues),kg of nutrients,8504.1569
+98,Croatia,44,Barley,Residues (Crop residues),kg of nutrients,3058391.188
+98,Croatia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,18318.5726
+98,Croatia,56,Maize,Residues (Crop residues),kg of nutrients,12662919.4441
+98,Croatia,79,Millet,Residues (Crop residues),kg of nutrients,2021.4798
+98,Croatia,75,Oats,Residues (Crop residues),kg of nutrients,740657.2243
+98,Croatia,116,Potatoes,Residues (Crop residues),kg of nutrients,366373.5066
+98,Croatia,71,Rye,Residues (Crop residues),kg of nutrients,27571.917
+98,Croatia,83,Sorghum,Residues (Crop residues),kg of nutrients,3221.1838
+98,Croatia,236,Soybeans,Residues (Crop residues),kg of nutrients,2810991.8553
+98,Croatia,15,Wheat,Residues (Crop residues),kg of nutrients,8451205.8403
+49,Cuba,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1558297.2276
+49,Cuba,56,Maize,Residues (Crop residues),kg of nutrients,3452616.422
+49,Cuba,116,Potatoes,Residues (Crop residues),kg of nutrients,292032.8643
+49,Cuba,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,5280495.3051
+49,Cuba,83,Sorghum,Residues (Crop residues),kg of nutrients,164085.8422
+50,Cyprus,44,Barley,Residues (Crop residues),kg of nutrients,351658.4661
+50,Cyprus,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1489.3431
+50,Cyprus,75,Oats,Residues (Crop residues),kg of nutrients,6018.049
+50,Cyprus,116,Potatoes,Residues (Crop residues),kg of nutrients,247938.8949
+50,Cyprus,15,Wheat,Residues (Crop residues),kg of nutrients,302293.5807
+167,Czechia,44,Barley,Residues (Crop residues),kg of nutrients,19960879.1638
+167,Czechia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+167,Czechia,56,Maize,Residues (Crop residues),kg of nutrients,4744492.2386
+167,Czechia,79,Millet,Residues (Crop residues),kg of nutrients,11649.0501
+167,Czechia,75,Oats,Residues (Crop residues),kg of nutrients,1513193.8552
+167,Czechia,116,Potatoes,Residues (Crop residues),kg of nutrients,1192305.8892
+167,Czechia,71,Rye,Residues (Crop residues),kg of nutrients,1107431.9822
+167,Czechia,236,Soybeans,Residues (Crop residues),kg of nutrients,502870.1753
+167,Czechia,15,Wheat,Residues (Crop residues),kg of nutrients,58551017.3191
+51,Czechoslovakia,44,Barley,Residues (Crop residues),kg of nutrients,
+51,Czechoslovakia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+51,Czechoslovakia,56,Maize,Residues (Crop residues),kg of nutrients,
+51,Czechoslovakia,79,Millet,Residues (Crop residues),kg of nutrients,
+51,Czechoslovakia,75,Oats,Residues (Crop residues),kg of nutrients,
+51,Czechoslovakia,116,Potatoes,Residues (Crop residues),kg of nutrients,
+51,Czechoslovakia,71,Rye,Residues (Crop residues),kg of nutrients,
+51,Czechoslovakia,83,Sorghum,Residues (Crop residues),kg of nutrients,
+51,Czechoslovakia,236,Soybeans,Residues (Crop residues),kg of nutrients,
+51,Czechoslovakia,15,Wheat,Residues (Crop residues),kg of nutrients,
+116,Democratic People's Republic of Korea,44,Barley,Residues (Crop residues),kg of nutrients,304888.4563
+116,Democratic People's Republic of Korea,176,"Beans, dry",Residues (Crop residues),kg of nutrients,4324897.1115
+116,Democratic People's Republic of Korea,56,Maize,Residues (Crop residues),kg of nutrients,18544256.9291
+116,Democratic People's Republic of Korea,79,Millet,Residues (Crop residues),kg of nutrients,891812.5138
+116,Democratic People's Republic of Korea,75,Oats,Residues (Crop residues),kg of nutrients,166789.285
+116,Democratic People's Republic of Korea,116,Potatoes,Residues (Crop residues),kg of nutrients,5133880.5062
+116,Democratic People's Republic of Korea,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,27532778.434
+116,Democratic People's Republic of Korea,71,Rye,Residues (Crop residues),kg of nutrients,905990.2196
+116,Democratic People's Republic of Korea,83,Sorghum,Residues (Crop residues),kg of nutrients,546274.4434
+116,Democratic People's Republic of Korea,236,Soybeans,Residues (Crop residues),kg of nutrients,3710739.261
+116,Democratic People's Republic of Korea,15,Wheat,Residues (Crop residues),kg of nutrients,715713.9881
+250,Democratic Republic of the Congo,44,Barley,Residues (Crop residues),kg of nutrients,19758.3491
+250,Democratic Republic of the Congo,176,"Beans, dry",Residues (Crop residues),kg of nutrients,4216259.2911
+250,Democratic Republic of the Congo,56,Maize,Residues (Crop residues),kg of nutrients,26028518.5764
+250,Democratic Republic of the Congo,79,Millet,Residues (Crop residues),kg of nutrients,511648.0521
+250,Democratic Republic of the Congo,75,Oats,Residues (Crop residues),kg of nutrients,
+250,Democratic Republic of the Congo,116,Potatoes,Residues (Crop residues),kg of nutrients,579230.3413
+250,Democratic Republic of the Congo,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,30125854.0449
+250,Democratic Republic of the Congo,83,Sorghum,Residues (Crop residues),kg of nutrients,91080.198
+250,Democratic Republic of the Congo,236,Soybeans,Residues (Crop residues),kg of nutrients,796487.608
+250,Democratic Republic of the Congo,15,Wheat,Residues (Crop residues),kg of nutrients,106748.6418
+54,Denmark,44,Barley,Residues (Crop residues),kg of nutrients,46000337.6076
+54,Denmark,56,Maize,Residues (Crop residues),kg of nutrients,311334.1333
+54,Denmark,75,Oats,Residues (Crop residues),kg of nutrients,3401653.8344
+54,Denmark,116,Potatoes,Residues (Crop residues),kg of nutrients,3244853.984
+54,Denmark,71,Rye,Residues (Crop residues),kg of nutrients,7110606.9535
+54,Denmark,15,Wheat,Residues (Crop residues),kg of nutrients,58962502.1425
+72,Djibouti,176,"Beans, dry",Residues (Crop residues),kg of nutrients,61379.7921
+72,Djibouti,56,Maize,Residues (Crop residues),kg of nutrients,126.8874
+55,Dominica,56,Maize,Residues (Crop residues),kg of nutrients,1867.3281
+55,Dominica,116,Potatoes,Residues (Crop residues),kg of nutrients,321.2884
+56,Dominican Republic,176,"Beans, dry",Residues (Crop residues),kg of nutrients,456483.5679
+56,Dominican Republic,56,Maize,Residues (Crop residues),kg of nutrients,436593.1609
+56,Dominican Republic,116,Potatoes,Residues (Crop residues),kg of nutrients,151798.2402
+56,Dominican Republic,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,7886861.6823
+56,Dominican Republic,83,Sorghum,Residues (Crop residues),kg of nutrients,16031.7138
+58,Ecuador,44,Barley,Residues (Crop residues),kg of nutrients,204706.6879
+58,Ecuador,176,"Beans, dry",Residues (Crop residues),kg of nutrients,323554.786
+58,Ecuador,56,Maize,Residues (Crop residues),kg of nutrients,12215432.8952
+58,Ecuador,75,Oats,Residues (Crop residues),kg of nutrients,16204.7552
+58,Ecuador,116,Potatoes,Residues (Crop residues),kg of nutrients,1008074.2559
+58,Ecuador,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,15100297.4364
+58,Ecuador,71,Rye,Residues (Crop residues),kg of nutrients,1471.1841
+58,Ecuador,83,Sorghum,Residues (Crop residues),kg of nutrients,186720.1449
+58,Ecuador,236,Soybeans,Residues (Crop residues),kg of nutrients,635335.1565
+58,Ecuador,15,Wheat,Residues (Crop residues),kg of nutrients,85398.6343
+59,Egypt,44,Barley,Residues (Crop residues),kg of nutrients,1398218.0261
+59,Egypt,176,"Beans, dry",Residues (Crop residues),kg of nutrients,797760.2591
+59,Egypt,56,Maize,Residues (Crop residues),kg of nutrients,56781122.1447
+59,Egypt,116,Potatoes,Residues (Crop residues),kg of nutrients,7845102.031
+59,Egypt,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,62509867.116
+59,Egypt,71,Rye,Residues (Crop residues),kg of nutrients,1121492.9387
+59,Egypt,83,Sorghum,Residues (Crop residues),kg of nutrients,6654949.9088
+59,Egypt,236,Soybeans,Residues (Crop residues),kg of nutrients,568172.6064
+59,Egypt,15,Wheat,Residues (Crop residues),kg of nutrients,108397091.4379
+60,El Salvador,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1489755.016
+60,El Salvador,56,Maize,Residues (Crop residues),kg of nutrients,8001486.042
+60,El Salvador,116,Potatoes,Residues (Crop residues),kg of nutrients,28809.1222
+60,El Salvador,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,273643.9312
+60,El Salvador,83,Sorghum,Residues (Crop residues),kg of nutrients,1328411.0732
+60,El Salvador,236,Soybeans,Residues (Crop residues),kg of nutrients,85431.945
+178,Eritrea,44,Barley,Residues (Crop residues),kg of nutrients,935886.0448
+178,Eritrea,176,"Beans, dry",Residues (Crop residues),kg of nutrients,16240.0446
+178,Eritrea,56,Maize,Residues (Crop residues),kg of nutrients,233602.6096
+178,Eritrea,79,Millet,Residues (Crop residues),kg of nutrients,353975.52
+178,Eritrea,116,Potatoes,Residues (Crop residues),kg of nutrients,3284.3334
+178,Eritrea,83,Sorghum,Residues (Crop residues),kg of nutrients,3739298.9312
+178,Eritrea,15,Wheat,Residues (Crop residues),kg of nutrients,389748.996
+63,Estonia,44,Barley,Residues (Crop residues),kg of nutrients,5077390.3083
+63,Estonia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,329593.4408
+63,Estonia,75,Oats,Residues (Crop residues),kg of nutrients,993823.1426
+63,Estonia,116,Potatoes,Residues (Crop residues),kg of nutrients,206452.5109
+63,Estonia,71,Rye,Residues (Crop residues),kg of nutrients,547248.7907
+63,Estonia,15,Wheat,Residues (Crop residues),kg of nutrients,9021079.8402
+209,Eswatini,176,"Beans, dry",Residues (Crop residues),kg of nutrients,15007.224
+209,Eswatini,56,Maize,Residues (Crop residues),kg of nutrients,1014492.305
+209,Eswatini,116,Potatoes,Residues (Crop residues),kg of nutrients,94349.0578
+209,Eswatini,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1569.5542
+209,Eswatini,83,Sorghum,Residues (Crop residues),kg of nutrients,15655.316
+209,Eswatini,15,Wheat,Residues (Crop residues),kg of nutrients,8149.503
+238,Ethiopia,44,Barley,Residues (Crop residues),kg of nutrients,26781979.8944
+238,Ethiopia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,5240806.8868
+238,Ethiopia,56,Maize,Residues (Crop residues),kg of nutrients,69656600.0825
+238,Ethiopia,79,Millet,Residues (Crop residues),kg of nutrients,12290834.6853
+238,Ethiopia,75,Oats,Residues (Crop residues),kg of nutrients,557111.4212
+238,Ethiopia,116,Potatoes,Residues (Crop residues),kg of nutrients,2377052.0531
+238,Ethiopia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2012906.9782
+238,Ethiopia,83,Sorghum,Residues (Crop residues),kg of nutrients,52805940.14
+238,Ethiopia,236,Soybeans,Residues (Crop residues),kg of nutrients,1191179.4571
+238,Ethiopia,15,Wheat,Residues (Crop residues),kg of nutrients,63287408.5782
+62,Ethiopia PDR,44,Barley,Residues (Crop residues),kg of nutrients,
+62,Ethiopia PDR,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+62,Ethiopia PDR,56,Maize,Residues (Crop residues),kg of nutrients,
+62,Ethiopia PDR,79,Millet,Residues (Crop residues),kg of nutrients,
+62,Ethiopia PDR,75,Oats,Residues (Crop residues),kg of nutrients,
+62,Ethiopia PDR,116,Potatoes,Residues (Crop residues),kg of nutrients,
+62,Ethiopia PDR,83,Sorghum,Residues (Crop residues),kg of nutrients,
+62,Ethiopia PDR,236,Soybeans,Residues (Crop residues),kg of nutrients,
+62,Ethiopia PDR,15,Wheat,Residues (Crop residues),kg of nutrients,
+64,Faroe Islands,116,Potatoes,Residues (Crop residues),kg of nutrients,3734.4974
+66,Fiji,56,Maize,Residues (Crop residues),kg of nutrients,8512.2472
+66,Fiji,116,Potatoes,Residues (Crop residues),kg of nutrients,761.1123
+66,Fiji,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,128145.1367
+66,Fiji,83,Sorghum,Residues (Crop residues),kg of nutrients,268.8444
+67,Finland,44,Barley,Residues (Crop residues),kg of nutrients,17452565.6162
+67,Finland,75,Oats,Residues (Crop residues),kg of nutrients,10445547.0508
+67,Finland,116,Potatoes,Residues (Crop residues),kg of nutrients,1067464.2608
+67,Finland,71,Rye,Residues (Crop residues),kg of nutrients,1186564.8186
+67,Finland,15,Wheat,Residues (Crop residues),kg of nutrients,10156628.4893
+68,France,44,Barley,Residues (Crop residues),kg of nutrients,121032373.4612
+68,France,176,"Beans, dry",Residues (Crop residues),kg of nutrients,67077.6008
+68,France,56,Maize,Residues (Crop residues),kg of nutrients,112017969.491
+68,France,79,Millet,Residues (Crop residues),kg of nutrients,454827.2818
+68,France,75,Oats,Residues (Crop residues),kg of nutrients,3416769.5847
+68,France,116,Potatoes,Residues (Crop residues),kg of nutrients,11088786.9625
+68,France,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,994776.9402
+68,France,71,Rye,Residues (Crop residues),kg of nutrients,1043204.7203
+68,France,83,Sorghum,Residues (Crop residues),kg of nutrients,2347588.4905
+68,France,236,Soybeans,Residues (Crop residues),kg of nutrients,5245289.943
+68,France,15,Wheat,Residues (Crop residues),kg of nutrients,454180464.1364
+69,French Guiana,56,Maize,Residues (Crop residues),kg of nutrients,5452.91
+69,French Guiana,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,63993.2179
+69,French Guiana,236,Soybeans,Residues (Crop residues),kg of nutrients,
+70,French Polynesia,116,Potatoes,Residues (Crop residues),kg of nutrients,1841.6203
+74,Gabon,56,Maize,Residues (Crop residues),kg of nutrients,458303.2417
+74,Gabon,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,24171.4809
+74,Gabon,236,Soybeans,Residues (Crop residues),kg of nutrients,89454.8505
+75,Gambia,56,Maize,Residues (Crop residues),kg of nutrients,473763.9746
+75,Gambia,79,Millet,Residues (Crop residues),kg of nutrients,1198067.2477
+75,Gambia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1653486.1339
+75,Gambia,83,Sorghum,Residues (Crop residues),kg of nutrients,518641.2858
+73,Georgia,44,Barley,Residues (Crop residues),kg of nutrients,586712.3051
+73,Georgia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,73853.8464
+73,Georgia,56,Maize,Residues (Crop residues),kg of nutrients,1394029.0662
+73,Georgia,75,Oats,Residues (Crop residues),kg of nutrients,47083.4564
+73,Georgia,116,Potatoes,Residues (Crop residues),kg of nutrients,600341.5472
+73,Georgia,71,Rye,Residues (Crop residues),kg of nutrients,2245.9001
+73,Georgia,236,Soybeans,Residues (Crop residues),kg of nutrients,22110.5917
+73,Georgia,15,Wheat,Residues (Crop residues),kg of nutrients,1318904.6139
+79,Germany,44,Barley,Residues (Crop residues),kg of nutrients,123727038.7073
+79,Germany,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+79,Germany,56,Maize,Residues (Crop residues),kg of nutrients,35701613.982
+79,Germany,75,Oats,Residues (Crop residues),kg of nutrients,5754063.778
+79,Germany,116,Potatoes,Residues (Crop residues),kg of nutrients,17138667.12
+79,Germany,71,Rye,Residues (Crop residues),kg of nutrients,27629769.9223
+79,Germany,236,Soybeans,Residues (Crop residues),kg of nutrients,754424.4131
+79,Germany,15,Wheat,Residues (Crop residues),kg of nutrients,299502302.7709
+81,Ghana,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1739374.628
+81,Ghana,56,Maize,Residues (Crop residues),kg of nutrients,18868109.0732
+81,Ghana,79,Millet,Residues (Crop residues),kg of nutrients,2006036.4379
+81,Ghana,75,Oats,Residues (Crop residues),kg of nutrients,718.1359
+81,Ghana,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,10526548.6292
+81,Ghana,83,Sorghum,Residues (Crop residues),kg of nutrients,3874033.4983
+84,Greece,44,Barley,Residues (Crop residues),kg of nutrients,4447750.3688
+84,Greece,176,"Beans, dry",Residues (Crop residues),kg of nutrients,157694.0575
+84,Greece,56,Maize,Residues (Crop residues),kg of nutrients,10708751.8708
+84,Greece,79,Millet,Residues (Crop residues),kg of nutrients,1312.2319
+84,Greece,75,Oats,Residues (Crop residues),kg of nutrients,1485209.8568
+84,Greece,116,Potatoes,Residues (Crop residues),kg of nutrients,939938.24
+84,Greece,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2024848.4838
+84,Greece,71,Rye,Residues (Crop residues),kg of nutrients,271346.1189
+84,Greece,83,Sorghum,Residues (Crop residues),kg of nutrients,5793.3122
+84,Greece,236,Soybeans,Residues (Crop residues),kg of nutrients,45922.5735
+84,Greece,15,Wheat,Residues (Crop residues),kg of nutrients,14198239.9978
+86,Grenada,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1365.5034
+86,Grenada,56,Maize,Residues (Crop residues),kg of nutrients,4066.4035
+87,Guadeloupe,56,Maize,Residues (Crop residues),kg of nutrients,
+87,Guadeloupe,116,Potatoes,Residues (Crop residues),kg of nutrients,
+88,Guam,56,Maize,Residues (Crop residues),kg of nutrients,458.1859
+89,Guatemala,44,Barley,Residues (Crop residues),kg of nutrients,274.8966
+89,Guatemala,176,"Beans, dry",Residues (Crop residues),kg of nutrients,3210138.03
+89,Guatemala,56,Maize,Residues (Crop residues),kg of nutrients,18017913.983
+89,Guatemala,116,Potatoes,Residues (Crop residues),kg of nutrients,999859.3831
+89,Guatemala,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,462528.6805
+89,Guatemala,83,Sorghum,Residues (Crop residues),kg of nutrients,665807.5471
+89,Guatemala,236,Soybeans,Residues (Crop residues),kg of nutrients,507379.161
+89,Guatemala,15,Wheat,Residues (Crop residues),kg of nutrients,12021.748
+90,Guinea,56,Maize,Residues (Crop residues),kg of nutrients,8297811.1683
+90,Guinea,79,Millet,Residues (Crop residues),kg of nutrients,2426002.0639
+90,Guinea,116,Potatoes,Residues (Crop residues),kg of nutrients,178872.3111
+90,Guinea,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,49884851.869
+90,Guinea,83,Sorghum,Residues (Crop residues),kg of nutrients,719038.2072
+175,Guinea-Bissau,56,Maize,Residues (Crop residues),kg of nutrients,83554.3561
+175,Guinea-Bissau,79,Millet,Residues (Crop residues),kg of nutrients,178166.7346
+175,Guinea-Bissau,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3449999.2806
+175,Guinea-Bissau,83,Sorghum,Residues (Crop residues),kg of nutrients,322491.9366
+91,Guyana,56,Maize,Residues (Crop residues),kg of nutrients,42157.9174
+91,Guyana,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,8169979.1289
+91,Guyana,236,Soybeans,Residues (Crop residues),kg of nutrients,
+93,Haiti,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1849755.0478
+93,Haiti,56,Maize,Residues (Crop residues),kg of nutrients,2821942.5312
+93,Haiti,116,Potatoes,Residues (Crop residues),kg of nutrients,103736.6049
+93,Haiti,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2736167.0738
+93,Haiti,83,Sorghum,Residues (Crop residues),kg of nutrients,1465209.7395
+95,Honduras,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1739806.2663
+95,Honduras,56,Maize,Residues (Crop residues),kg of nutrients,6699847.4905
+95,Honduras,116,Potatoes,Residues (Crop residues),kg of nutrients,61936.6805
+95,Honduras,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,609784.0043
+95,Honduras,83,Sorghum,Residues (Crop residues),kg of nutrients,603700.7386
+95,Honduras,236,Soybeans,Residues (Crop residues),kg of nutrients,18066.3745
+95,Honduras,15,Wheat,Residues (Crop residues),kg of nutrients,23096.8045
+97,Hungary,44,Barley,Residues (Crop residues),kg of nutrients,16357775.7026
+97,Hungary,176,"Beans, dry",Residues (Crop residues),kg of nutrients,16323.1007
+97,Hungary,56,Maize,Residues (Crop residues),kg of nutrients,54916411.0882
+97,Hungary,79,Millet,Residues (Crop residues),kg of nutrients,46991.5392
+97,Hungary,75,Oats,Residues (Crop residues),kg of nutrients,1012786.3786
+97,Hungary,116,Potatoes,Residues (Crop residues),kg of nutrients,753944.6541
+97,Hungary,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,126544.9256
+97,Hungary,71,Rye,Residues (Crop residues),kg of nutrients,908057.9088
+97,Hungary,83,Sorghum,Residues (Crop residues),kg of nutrients,141623.892
+97,Hungary,236,Soybeans,Residues (Crop residues),kg of nutrients,1498948.1931
+97,Hungary,15,Wheat,Residues (Crop residues),kg of nutrients,65277165.9782
+99,Iceland,116,Potatoes,Residues (Crop residues),kg of nutrients,21827.184
+100,India,44,Barley,Residues (Crop residues),kg of nutrients,22157345.504
+100,India,176,"Beans, dry",Residues (Crop residues),kg of nutrients,147559052.6913
+100,India,56,Maize,Residues (Crop residues),kg of nutrients,252935879.9376
+100,India,79,Millet,Residues (Crop residues),kg of nutrients,136259913.472
+100,India,116,Potatoes,Residues (Crop residues),kg of nutrients,95315652.4
+100,India,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2141331007.312
+100,India,83,Sorghum,Residues (Crop residues),kg of nutrients,92013364.7296
+100,India,236,Soybeans,Residues (Crop residues),kg of nutrients,220700250.3395
+100,India,15,Wheat,Residues (Crop residues),kg of nutrients,1273545245.9184
+101,Indonesia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,2790406.368
+101,Indonesia,56,Maize,Residues (Crop residues),kg of nutrients,230949605.681
+101,Indonesia,116,Potatoes,Residues (Crop residues),kg of nutrients,2781446.5053
+101,Indonesia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,931812360.2768
+101,Indonesia,236,Soybeans,Residues (Crop residues),kg of nutrients,8928260.5126
+102,Iran (Islamic Republic of),44,Barley,Residues (Crop residues),kg of nutrients,41646325.952
+102,Iran (Islamic Republic of),176,"Beans, dry",Residues (Crop residues),kg of nutrients,1962816.8076
+102,Iran (Islamic Republic of),56,Maize,Residues (Crop residues),kg of nutrients,9846789.8988
+102,Iran (Islamic Republic of),79,Millet,Residues (Crop residues),kg of nutrients,210996.0339
+102,Iran (Islamic Republic of),116,Potatoes,Residues (Crop residues),kg of nutrients,8563590.2116
+102,Iran (Islamic Republic of),27,"Rice, paddy",Residues (Crop residues),kg of nutrients,31355439.9749
+102,Iran (Islamic Republic of),71,Rye,Residues (Crop residues),kg of nutrients,5734.8239
+102,Iran (Islamic Republic of),236,Soybeans,Residues (Crop residues),kg of nutrients,2718334.304
+102,Iran (Islamic Republic of),15,Wheat,Residues (Crop residues),kg of nutrients,190071860.16
+103,Iraq,44,Barley,Residues (Crop residues),kg of nutrients,4297432.1363
+103,Iraq,176,"Beans, dry",Residues (Crop residues),kg of nutrients,35208.2062
+103,Iraq,56,Maize,Residues (Crop residues),kg of nutrients,1600259.8988
+103,Iraq,79,Millet,Residues (Crop residues),kg of nutrients,46565.8561
+103,Iraq,75,Oats,Residues (Crop residues),kg of nutrients,4499.6082
+103,Iraq,116,Potatoes,Residues (Crop residues),kg of nutrients,473217.9955
+103,Iraq,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3095695.5537
+103,Iraq,83,Sorghum,Residues (Crop residues),kg of nutrients,42614.5947
+103,Iraq,236,Soybeans,Residues (Crop residues),kg of nutrients,639.9331
+103,Iraq,15,Wheat,Residues (Crop residues),kg of nutrients,38927437.7929
+104,Ireland,44,Barley,Residues (Crop residues),kg of nutrients,16962997.4447
+104,Ireland,176,"Beans, dry",Residues (Crop residues),kg of nutrients,545835.1904
+104,Ireland,75,Oats,Residues (Crop residues),kg of nutrients,1890240.74
+104,Ireland,116,Potatoes,Residues (Crop residues),kg of nutrients,611265.5168
+104,Ireland,71,Rye,Residues (Crop residues),kg of nutrients,6520.5711
+104,Ireland,15,Wheat,Residues (Crop residues),kg of nutrients,8254127.1365
+105,Israel,44,Barley,Residues (Crop residues),kg of nutrients,174617.1224
+105,Israel,56,Maize,Residues (Crop residues),kg of nutrients,666764.8808
+105,Israel,75,Oats,Residues (Crop residues),kg of nutrients,8638.2648
+105,Israel,116,Potatoes,Residues (Crop residues),kg of nutrients,851090.9578
+105,Israel,83,Sorghum,Residues (Crop residues),kg of nutrients,407344.0663
+105,Israel,15,Wheat,Residues (Crop residues),kg of nutrients,1019795.1516
+106,Italy,44,Barley,Residues (Crop residues),kg of nutrients,11814287.9873
+106,Italy,176,"Beans, dry",Residues (Crop residues),kg of nutrients,101900.3386
+106,Italy,56,Maize,Residues (Crop residues),kg of nutrients,47785772.226
+106,Italy,75,Oats,Residues (Crop residues),kg of nutrients,2710276.1373
+106,Italy,116,Potatoes,Residues (Crop residues),kg of nutrients,2390235.2096
+106,Italy,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,16765011.3609
+106,Italy,71,Rye,Residues (Crop residues),kg of nutrients,120752.113
+106,Italy,83,Sorghum,Residues (Crop residues),kg of nutrients,2119475.2414
+106,Italy,236,Soybeans,Residues (Crop residues),kg of nutrients,12668778.5333
+106,Italy,15,Wheat,Residues (Crop residues),kg of nutrients,88682952.8171
+109,Jamaica,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1797.7374
+109,Jamaica,56,Maize,Residues (Crop residues),kg of nutrients,28153.6872
+109,Jamaica,116,Potatoes,Residues (Crop residues),kg of nutrients,39372.8359
+109,Jamaica,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,26.8456
+110,Japan,44,Barley,Residues (Crop residues),kg of nutrients,2296735.8812
+110,Japan,176,"Beans, dry",Residues (Crop residues),kg of nutrients,582555.4816
+110,Japan,56,Maize,Residues (Crop residues),kg of nutrients,1506.6678
+110,Japan,79,Millet,Residues (Crop residues),kg of nutrients,2276.6909
+110,Japan,75,Oats,Residues (Crop residues),kg of nutrients,1713.4895
+110,Japan,116,Potatoes,Residues (Crop residues),kg of nutrients,3730229.901
+110,Japan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,103741041.84
+110,Japan,71,Rye,Residues (Crop residues),kg of nutrients,
+110,Japan,83,Sorghum,Residues (Crop residues),kg of nutrients,
+110,Japan,236,Soybeans,Residues (Crop residues),kg of nutrients,3973189.5818
+110,Japan,15,Wheat,Residues (Crop residues),kg of nutrients,11454121.5341
+112,Jordan,44,Barley,Residues (Crop residues),kg of nutrients,715159.9186
+112,Jordan,56,Maize,Residues (Crop residues),kg of nutrients,169538.844
+112,Jordan,79,Millet,Residues (Crop residues),kg of nutrients,274.5721
+112,Jordan,116,Potatoes,Residues (Crop residues),kg of nutrients,197849.1747
+112,Jordan,83,Sorghum,Residues (Crop residues),kg of nutrients,99770.3839
+112,Jordan,236,Soybeans,Residues (Crop residues),kg of nutrients,
+112,Jordan,15,Wheat,Residues (Crop residues),kg of nutrients,338749.2462
+108,Kazakhstan,44,Barley,Residues (Crop residues),kg of nutrients,46388638.3898
+108,Kazakhstan,176,"Beans, dry",Residues (Crop residues),kg of nutrients,5676550.5804
+108,Kazakhstan,56,Maize,Residues (Crop residues),kg of nutrients,6423285.5169
+108,Kazakhstan,79,Millet,Residues (Crop residues),kg of nutrients,458945.9236
+108,Kazakhstan,75,Oats,Residues (Crop residues),kg of nutrients,3946144.6496
+108,Kazakhstan,116,Potatoes,Residues (Crop residues),kg of nutrients,7467583.1057
+108,Kazakhstan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,5786764.3231
+108,Kazakhstan,71,Rye,Residues (Crop residues),kg of nutrients,537454.2764
+108,Kazakhstan,83,Sorghum,Residues (Crop residues),kg of nutrients,94285.2821
+108,Kazakhstan,236,Soybeans,Residues (Crop residues),kg of nutrients,3675143.6331
+108,Kazakhstan,15,Wheat,Residues (Crop residues),kg of nutrients,219613496.6776
+114,Kenya,44,Barley,Residues (Crop residues),kg of nutrients,932184.5037
+114,Kenya,176,"Beans, dry",Residues (Crop residues),kg of nutrients,13122329.5898
+114,Kenya,56,Maize,Residues (Crop residues),kg of nutrients,32585633.8319
+114,Kenya,79,Millet,Residues (Crop residues),kg of nutrients,685287.5392
+114,Kenya,75,Oats,Residues (Crop residues),kg of nutrients,58872.746
+114,Kenya,116,Potatoes,Residues (Crop residues),kg of nutrients,5621002.568
+114,Kenya,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1199564.4671
+114,Kenya,83,Sorghum,Residues (Crop residues),kg of nutrients,3024967.6625
+114,Kenya,236,Soybeans,Residues (Crop residues),kg of nutrients,44848.2442
+114,Kenya,15,Wheat,Residues (Crop residues),kg of nutrients,2268609.6293
+118,Kuwait,44,Barley,Residues (Crop residues),kg of nutrients,26753.5569
+118,Kuwait,56,Maize,Residues (Crop residues),kg of nutrients,30839.1737
+118,Kuwait,116,Potatoes,Residues (Crop residues),kg of nutrients,69827.9518
+118,Kuwait,15,Wheat,Residues (Crop residues),kg of nutrients,285.0594
+113,Kyrgyzstan,44,Barley,Residues (Crop residues),kg of nutrients,5557513.3291
+113,Kyrgyzstan,176,"Beans, dry",Residues (Crop residues),kg of nutrients,901704.0268
+113,Kyrgyzstan,56,Maize,Residues (Crop residues),kg of nutrients,5295548.6885
+113,Kyrgyzstan,79,Millet,Residues (Crop residues),kg of nutrients,1058.4155
+113,Kyrgyzstan,75,Oats,Residues (Crop residues),kg of nutrients,24579.7291
+113,Kyrgyzstan,116,Potatoes,Residues (Crop residues),kg of nutrients,3192488.9287
+113,Kyrgyzstan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,500132.3266
+113,Kyrgyzstan,71,Rye,Residues (Crop residues),kg of nutrients,3472.1247
+113,Kyrgyzstan,83,Sorghum,Residues (Crop residues),kg of nutrients,823.3985
+113,Kyrgyzstan,236,Soybeans,Residues (Crop residues),kg of nutrients,50731.5303
+113,Kyrgyzstan,15,Wheat,Residues (Crop residues),kg of nutrients,8013671.9279
+120,Lao People's Democratic Republic,176,"Beans, dry",Residues (Crop residues),kg of nutrients,41674.068
+120,Lao People's Democratic Republic,56,Maize,Residues (Crop residues),kg of nutrients,9759453.7856
+120,Lao People's Democratic Republic,116,Potatoes,Residues (Crop residues),kg of nutrients,3085.7591
+120,Lao People's Democratic Republic,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,49548404.1822
+120,Lao People's Democratic Republic,236,Soybeans,Residues (Crop residues),kg of nutrients,119500.3906
+119,Latvia,44,Barley,Residues (Crop residues),kg of nutrients,2940671.5121
+119,Latvia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1004818.7744
+119,Latvia,75,Oats,Residues (Crop residues),kg of nutrients,1515975.448
+119,Latvia,116,Potatoes,Residues (Crop residues),kg of nutrients,868623.0416
+119,Latvia,71,Rye,Residues (Crop residues),kg of nutrients,1345684.2826
+119,Latvia,15,Wheat,Residues (Crop residues),kg of nutrients,26810466.2018
+121,Lebanon,44,Barley,Residues (Crop residues),kg of nutrients,394151.5698
+121,Lebanon,176,"Beans, dry",Residues (Crop residues),kg of nutrients,7111.533
+121,Lebanon,56,Maize,Residues (Crop residues),kg of nutrients,26006.6802
+121,Lebanon,75,Oats,Residues (Crop residues),kg of nutrients,1722.379
+121,Lebanon,116,Potatoes,Residues (Crop residues),kg of nutrients,711443.5926
+121,Lebanon,83,Sorghum,Residues (Crop residues),kg of nutrients,5636.0336
+121,Lebanon,15,Wheat,Residues (Crop residues),kg of nutrients,1673678.1176
+122,Lesotho,44,Barley,Residues (Crop residues),kg of nutrients,15619.1629
+122,Lesotho,176,"Beans, dry",Residues (Crop residues),kg of nutrients,192682.1107
+122,Lesotho,56,Maize,Residues (Crop residues),kg of nutrients,1988055.2662
+122,Lesotho,75,Oats,Residues (Crop residues),kg of nutrients,5707.5881
+122,Lesotho,116,Potatoes,Residues (Crop residues),kg of nutrients,281860.9271
+122,Lesotho,83,Sorghum,Residues (Crop residues),kg of nutrients,691160.7097
+122,Lesotho,15,Wheat,Residues (Crop residues),kg of nutrients,130233.22
+123,Liberia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,6848683.5655
+123,Liberia,236,Soybeans,Residues (Crop residues),kg of nutrients,121281.7506
+124,Libya,44,Barley,Residues (Crop residues),kg of nutrients,356407.3998
+124,Libya,176,"Beans, dry",Residues (Crop residues),kg of nutrients,8591.9347
+124,Libya,56,Maize,Residues (Crop residues),kg of nutrients,31803.598
+124,Libya,79,Millet,Residues (Crop residues),kg of nutrients,77154.71
+124,Libya,116,Potatoes,Residues (Crop residues),kg of nutrients,730470.2822
+124,Libya,15,Wheat,Residues (Crop residues),kg of nutrients,2534718.0833
+126,Lithuania,44,Barley,Residues (Crop residues),kg of nutrients,6289532.0003
+126,Lithuania,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1676298.7137
+126,Lithuania,56,Maize,Residues (Crop residues),kg of nutrients,466395.2828
+126,Lithuania,75,Oats,Residues (Crop residues),kg of nutrients,2194702.7752
+126,Lithuania,116,Potatoes,Residues (Crop residues),kg of nutrients,650319.8572
+126,Lithuania,71,Rye,Residues (Crop residues),kg of nutrients,719834.1278
+126,Lithuania,15,Wheat,Residues (Crop residues),kg of nutrients,49080657.3407
+256,Luxembourg,44,Barley,Residues (Crop residues),kg of nutrients,406923.1168
+256,Luxembourg,56,Maize,Residues (Crop residues),kg of nutrients,5518.9046
+256,Luxembourg,75,Oats,Residues (Crop residues),kg of nutrients,59041.1133
+256,Luxembourg,116,Potatoes,Residues (Crop residues),kg of nutrients,34669.5567
+256,Luxembourg,71,Rye,Residues (Crop residues),kg of nutrients,47040.5496
+256,Luxembourg,15,Wheat,Residues (Crop residues),kg of nutrients,967037.8189
+129,Madagascar,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1014822.8938
+129,Madagascar,56,Maize,Residues (Crop residues),kg of nutrients,2779317.7505
+129,Madagascar,116,Potatoes,Residues (Crop residues),kg of nutrients,1072452.7316
+129,Madagascar,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,37951080.08
+129,Madagascar,83,Sorghum,Residues (Crop residues),kg of nutrients,30584.2538
+129,Madagascar,236,Soybeans,Residues (Crop residues),kg of nutrients,1275.2691
+129,Madagascar,15,Wheat,Residues (Crop residues),kg of nutrients,66592.7366
+130,Malawi,176,"Beans, dry",Residues (Crop residues),kg of nutrients,3487812.1082
+130,Malawi,56,Maize,Residues (Crop residues),kg of nutrients,33104072.219
+130,Malawi,79,Millet,Residues (Crop residues),kg of nutrients,443729.2464
+130,Malawi,116,Potatoes,Residues (Crop residues),kg of nutrients,2652315.3605
+130,Malawi,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2176979.7035
+130,Malawi,83,Sorghum,Residues (Crop residues),kg of nutrients,1697387.172
+130,Malawi,236,Soybeans,Residues (Crop residues),kg of nutrients,4042586.6856
+130,Malawi,15,Wheat,Residues (Crop residues),kg of nutrients,11081.659
+131,Malaysia,56,Maize,Residues (Crop residues),kg of nutrients,584814.4545
+131,Malaysia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,35638866.9838
+131,Malaysia,236,Soybeans,Residues (Crop residues),kg of nutrients,
+132,Maldives,56,Maize,Residues (Crop residues),kg of nutrients,1264.32
+132,Maldives,79,Millet,Residues (Crop residues),kg of nutrients,
+132,Maldives,83,Sorghum,Residues (Crop residues),kg of nutrients,845.8164
+133,Mali,56,Maize,Residues (Crop residues),kg of nutrients,26158523.4296
+133,Mali,79,Millet,Residues (Crop residues),kg of nutrients,22081407.5575
+133,Mali,116,Potatoes,Residues (Crop residues),kg of nutrients,503355.8692
+133,Mali,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,36203387.989
+133,Mali,83,Sorghum,Residues (Crop residues),kg of nutrients,26008249.0275
+133,Mali,236,Soybeans,Residues (Crop residues),kg of nutrients,269397.9061
+133,Mali,15,Wheat,Residues (Crop residues),kg of nutrients,509365.8584
+134,Malta,44,Barley,Residues (Crop residues),kg of nutrients,25600.2242
+134,Malta,176,"Beans, dry",Residues (Crop residues),kg of nutrients,2619.2822
+134,Malta,116,Potatoes,Residues (Crop residues),kg of nutrients,23691.0525
+134,Malta,15,Wheat,Residues (Crop residues),kg of nutrients,155388.8463
+136,Mauritania,44,Barley,Residues (Crop residues),kg of nutrients,18111.4546
+136,Mauritania,176,"Beans, dry",Residues (Crop residues),kg of nutrients,148018.8006
+136,Mauritania,56,Maize,Residues (Crop residues),kg of nutrients,193141.9627
+136,Mauritania,79,Millet,Residues (Crop residues),kg of nutrients,49438.9701
+136,Mauritania,116,Potatoes,Residues (Crop residues),kg of nutrients,10549.469
+136,Mauritania,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2842951.2291
+136,Mauritania,83,Sorghum,Residues (Crop residues),kg of nutrients,2354642.4516
+136,Mauritania,15,Wheat,Residues (Crop residues),kg of nutrients,113169.7359
+137,Mauritius,56,Maize,Residues (Crop residues),kg of nutrients,3541.9731
+137,Mauritius,116,Potatoes,Residues (Crop residues),kg of nutrients,29330.4596
+137,Mauritius,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2308.7525
+138,Mexico,44,Barley,Residues (Crop residues),kg of nutrients,12637923.4367
+138,Mexico,176,"Beans, dry",Residues (Crop residues),kg of nutrients,18160945.0359
+138,Mexico,56,Maize,Residues (Crop residues),kg of nutrients,237799846.3521
+138,Mexico,79,Millet,Residues (Crop residues),kg of nutrients,
+138,Mexico,75,Oats,Residues (Crop residues),kg of nutrients,920663.9128
+138,Mexico,116,Potatoes,Residues (Crop residues),kg of nutrients,2988889.4664
+138,Mexico,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2850461.6529
+138,Mexico,71,Rye,Residues (Crop residues),kg of nutrients,266.9064
+138,Mexico,83,Sorghum,Residues (Crop residues),kg of nutrients,48874873.9944
+138,Mexico,236,Soybeans,Residues (Crop residues),kg of nutrients,6864844.1151
+138,Mexico,15,Wheat,Residues (Crop residues),kg of nutrients,43645627.6731
+145,Micronesia (Federated States of),56,Maize,Residues (Crop residues),kg of nutrients,894.5894
+145,Micronesia (Federated States of),27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2949.2765
+145,Micronesia (Federated States of),83,Sorghum,Residues (Crop residues),kg of nutrients,165.2598
+141,Mongolia,44,Barley,Residues (Crop residues),kg of nutrients,36246.9602
+141,Mongolia,75,Oats,Residues (Crop residues),kg of nutrients,79167.883
+141,Mongolia,116,Potatoes,Residues (Crop residues),kg of nutrients,444809.5538
+141,Mongolia,15,Wheat,Residues (Crop residues),kg of nutrients,4125513.5104
+273,Montenegro,44,Barley,Residues (Crop residues),kg of nutrients,13753.8379
+273,Montenegro,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1669.5682
+273,Montenegro,56,Maize,Residues (Crop residues),kg of nutrients,23117.5167
+273,Montenegro,75,Oats,Residues (Crop residues),kg of nutrients,6219.9323
+273,Montenegro,116,Potatoes,Residues (Crop residues),kg of nutrients,62158.8432
+273,Montenegro,71,Rye,Residues (Crop residues),kg of nutrients,4931.4906
+273,Montenegro,15,Wheat,Residues (Crop residues),kg of nutrients,32177.5434
+142,Montserrat,56,Maize,Residues (Crop residues),kg of nutrients,1015.0333
+142,Montserrat,116,Potatoes,Residues (Crop residues),kg of nutrients,1069.0591
+143,Morocco,44,Barley,Residues (Crop residues),kg of nutrients,37120902.6944
+143,Morocco,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+143,Morocco,56,Maize,Residues (Crop residues),kg of nutrients,1464937.2725
+143,Morocco,79,Millet,Residues (Crop residues),kg of nutrients,59757.8698
+143,Morocco,75,Oats,Residues (Crop residues),kg of nutrients,510938.6838
+143,Morocco,116,Potatoes,Residues (Crop residues),kg of nutrients,3307005.6067
+143,Morocco,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,599881.1619
+143,Morocco,71,Rye,Residues (Crop residues),kg of nutrients,43579.6177
+143,Morocco,83,Sorghum,Residues (Crop residues),kg of nutrients,67102.0818
+143,Morocco,236,Soybeans,Residues (Crop residues),kg of nutrients,14201.202
+143,Morocco,15,Wheat,Residues (Crop residues),kg of nutrients,96233244.0941
+144,Mozambique,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1026083.36
+144,Mozambique,56,Maize,Residues (Crop residues),kg of nutrients,20437068.2718
+144,Mozambique,79,Millet,Residues (Crop residues),kg of nutrients,212083.8701
+144,Mozambique,116,Potatoes,Residues (Crop residues),kg of nutrients,575025.1888
+144,Mozambique,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3578564.6948
+144,Mozambique,83,Sorghum,Residues (Crop residues),kg of nutrients,2845448.128
+144,Mozambique,15,Wheat,Residues (Crop residues),kg of nutrients,230983.9576
+28,Myanmar,44,Barley,Residues (Crop residues),kg of nutrients,
+28,Myanmar,176,"Beans, dry",Residues (Crop residues),kg of nutrients,51678608.3183
+28,Myanmar,56,Maize,Residues (Crop residues),kg of nutrients,16340305.0951
+28,Myanmar,79,Millet,Residues (Crop residues),kg of nutrients,2880574.464
+28,Myanmar,116,Potatoes,Residues (Crop residues),kg of nutrients,1199152.4035
+28,Myanmar,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,327290517.2854
+28,Myanmar,83,Sorghum,Residues (Crop residues),kg of nutrients,3675340.8493
+28,Myanmar,236,Soybeans,Residues (Crop residues),kg of nutrients,3471414.6941
+28,Myanmar,15,Wheat,Residues (Crop residues),kg of nutrients,1698290.9765
+147,Namibia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1313.9486
+147,Namibia,56,Maize,Residues (Crop residues),kg of nutrients,596648.2338
+147,Namibia,79,Millet,Residues (Crop residues),kg of nutrients,739008.5105
+147,Namibia,116,Potatoes,Residues (Crop residues),kg of nutrients,47006.3602
+147,Namibia,83,Sorghum,Residues (Crop residues),kg of nutrients,264586.8727
+147,Namibia,15,Wheat,Residues (Crop residues),kg of nutrients,166331.8567
+149,Nepal,44,Barley,Residues (Crop residues),kg of nutrients,473479.428
+149,Nepal,176,"Beans, dry",Residues (Crop residues),kg of nutrients,266839.5479
+149,Nepal,56,Maize,Residues (Crop residues),kg of nutrients,20942392.8516
+149,Nepal,79,Millet,Residues (Crop residues),kg of nutrients,3639095.2656
+149,Nepal,116,Potatoes,Residues (Crop residues),kg of nutrients,6839202.7443
+149,Nepal,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,70159096.5252
+149,Nepal,236,Soybeans,Residues (Crop residues),kg of nutrients,530998.8674
+149,Nepal,15,Wheat,Residues (Crop residues),kg of nutrients,24881721.5252
+150,Netherlands,44,Barley,Residues (Crop residues),kg of nutrients,2331998.2661
+150,Netherlands,176,"Beans, dry",Residues (Crop residues),kg of nutrients,33827.3262
+150,Netherlands,56,Maize,Residues (Crop residues),kg of nutrients,906034.0665
+150,Netherlands,75,Oats,Residues (Crop residues),kg of nutrients,66857.7384
+150,Netherlands,116,Potatoes,Residues (Crop residues),kg of nutrients,10868974.9915
+150,Netherlands,71,Rye,Residues (Crop residues),kg of nutrients,47632.7357
+150,Netherlands,15,Wheat,Residues (Crop residues),kg of nutrients,12819485.604
+153,New Caledonia,56,Maize,Residues (Crop residues),kg of nutrients,74552.6984
+153,New Caledonia,116,Potatoes,Residues (Crop residues),kg of nutrients,6274.6963
+153,New Caledonia,83,Sorghum,Residues (Crop residues),kg of nutrients,3156.9235
+153,New Caledonia,15,Wheat,Residues (Crop residues),kg of nutrients,151.8923
+156,New Zealand,44,Barley,Residues (Crop residues),kg of nutrients,3387245.2389
+156,New Zealand,56,Maize,Residues (Crop residues),kg of nutrients,1381765.0383
+156,New Zealand,75,Oats,Residues (Crop residues),kg of nutrients,336617.5607
+156,New Zealand,116,Potatoes,Residues (Crop residues),kg of nutrients,670592.7733
+156,New Zealand,236,Soybeans,Residues (Crop residues),kg of nutrients,
+156,New Zealand,15,Wheat,Residues (Crop residues),kg of nutrients,4910845.0565
+157,Nicaragua,176,"Beans, dry",Residues (Crop residues),kg of nutrients,2663033.6011
+157,Nicaragua,56,Maize,Residues (Crop residues),kg of nutrients,4392832.1265
+157,Nicaragua,116,Potatoes,Residues (Crop residues),kg of nutrients,132542.1087
+157,Nicaragua,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,4569765.4755
+157,Nicaragua,83,Sorghum,Residues (Crop residues),kg of nutrients,1009500.9739
+157,Nicaragua,236,Soybeans,Residues (Crop residues),kg of nutrients,88483.3966
+158,Niger,176,"Beans, dry",Residues (Crop residues),kg of nutrients,389284.4154
+158,Niger,56,Maize,Residues (Crop residues),kg of nutrients,399421.9864
+158,Niger,79,Millet,Residues (Crop residues),kg of nutrients,48978721.6909
+158,Niger,116,Potatoes,Residues (Crop residues),kg of nutrients,287166.9081
+158,Niger,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1326916.7204
+158,Niger,83,Sorghum,Residues (Crop residues),kg of nutrients,52659313.6061
+158,Niger,15,Wheat,Residues (Crop residues),kg of nutrients,78830.0713
+159,Nigeria,56,Maize,Residues (Crop residues),kg of nutrients,105288941.3616
+159,Nigeria,79,Millet,Residues (Crop residues),kg of nutrients,18787143.8809
+159,Nigeria,116,Potatoes,Residues (Crop residues),kg of nutrients,8634295.3481
+159,Nigeria,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,170229580.2905
+159,Nigeria,83,Sorghum,Residues (Crop residues),kg of nutrients,108348222.9331
+159,Nigeria,236,Soybeans,Residues (Crop residues),kg of nutrients,15207767.8816
+159,Nigeria,15,Wheat,Residues (Crop residues),kg of nutrients,1054786.6087
+154,North Macedonia,44,Barley,Residues (Crop residues),kg of nutrients,1233563.8256
+154,North Macedonia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,84206.4484
+154,North Macedonia,56,Maize,Residues (Crop residues),kg of nutrients,1051715.4884
+154,North Macedonia,79,Millet,Residues (Crop residues),kg of nutrients,751.7681
+154,North Macedonia,75,Oats,Residues (Crop residues),kg of nutrients,70396.3218
+154,North Macedonia,116,Potatoes,Residues (Crop residues),kg of nutrients,466014.7793
+154,North Macedonia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,194809.1234
+154,North Macedonia,71,Rye,Residues (Crop residues),kg of nutrients,99872.1925
+154,North Macedonia,83,Sorghum,Residues (Crop residues),kg of nutrients,678.9336
+154,North Macedonia,236,Soybeans,Residues (Crop residues),kg of nutrients,614.5261
+154,North Macedonia,15,Wheat,Residues (Crop residues),kg of nutrients,2628393.8141
+162,Norway,44,Barley,Residues (Crop residues),kg of nutrients,6717653.9333
+162,Norway,75,Oats,Residues (Crop residues),kg of nutrients,2846567.2068
+162,Norway,116,Potatoes,Residues (Crop residues),kg of nutrients,564778.7448
+162,Norway,71,Rye,Residues (Crop residues),kg of nutrients,424327.5196
+162,Norway,15,Wheat,Residues (Crop residues),kg of nutrients,4936413.3961
+221,Oman,44,Barley,Residues (Crop residues),kg of nutrients,21300.2057
+221,Oman,56,Maize,Residues (Crop residues),kg of nutrients,57019.737
+221,Oman,116,Potatoes,Residues (Crop residues),kg of nutrients,28298.8662
+221,Oman,83,Sorghum,Residues (Crop residues),kg of nutrients,366594.4662
+221,Oman,15,Wheat,Residues (Crop residues),kg of nutrients,50267.1773
+164,Pacific Islands Trust Territory,56,Maize,Residues (Crop residues),kg of nutrients,
+164,Pacific Islands Trust Territory,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,
+164,Pacific Islands Trust Territory,83,Sorghum,Residues (Crop residues),kg of nutrients,
+165,Pakistan,44,Barley,Residues (Crop residues),kg of nutrients,950217.4972
+165,Pakistan,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1964401.7376
+165,Pakistan,56,Maize,Residues (Crop residues),kg of nutrients,47671329.8971
+165,Pakistan,79,Millet,Residues (Crop residues),kg of nutrients,4190318.112
+165,Pakistan,116,Potatoes,Residues (Crop residues),kg of nutrients,8086230.4695
+165,Pakistan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,141944772.0017
+165,Pakistan,83,Sorghum,Residues (Crop residues),kg of nutrients,3685654.0403
+165,Pakistan,236,Soybeans,Residues (Crop residues),kg of nutrients,5030.9273
+165,Pakistan,15,Wheat,Residues (Crop residues),kg of nutrients,347493643.7482
+299,Palestine,44,Barley,Residues (Crop residues),kg of nutrients,208882.8627
+299,Palestine,116,Potatoes,Residues (Crop residues),kg of nutrients,90645.4869
+299,Palestine,83,Sorghum,Residues (Crop residues),kg of nutrients,5815.3191
+299,Palestine,15,Wheat,Residues (Crop residues),kg of nutrients,464944.6457
+166,Panama,176,"Beans, dry",Residues (Crop residues),kg of nutrients,108768.9335
+166,Panama,56,Maize,Residues (Crop residues),kg of nutrients,1237383.7422
+166,Panama,116,Potatoes,Residues (Crop residues),kg of nutrients,55267.0029
+166,Panama,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,4309800.0738
+166,Panama,83,Sorghum,Residues (Crop residues),kg of nutrients,47085.0933
+166,Panama,236,Soybeans,Residues (Crop residues),kg of nutrients,4323.8129
+168,Papua New Guinea,56,Maize,Residues (Crop residues),kg of nutrients,108772.999
+168,Papua New Guinea,116,Potatoes,Residues (Crop residues),kg of nutrients,6239.1895
+168,Papua New Guinea,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,14387.3275
+168,Papua New Guinea,83,Sorghum,Residues (Crop residues),kg of nutrients,46065.755
+169,Paraguay,176,"Beans, dry",Residues (Crop residues),kg of nutrients,849379.6224
+169,Paraguay,56,Maize,Residues (Crop residues),kg of nutrients,42382223.1186
+169,Paraguay,116,Potatoes,Residues (Crop residues),kg of nutrients,9317.3331
+169,Paraguay,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,9829847.5296
+169,Paraguay,83,Sorghum,Residues (Crop residues),kg of nutrients,1078921.9676
+169,Paraguay,236,Soybeans,Residues (Crop residues),kg of nutrients,130963682.2458
+169,Paraguay,15,Wheat,Residues (Crop residues),kg of nutrients,13932489.9168
+170,Peru,44,Barley,Residues (Crop residues),kg of nutrients,2882110.006
+170,Peru,176,"Beans, dry",Residues (Crop residues),kg of nutrients,879029.5495
+170,Peru,56,Maize,Residues (Crop residues),kg of nutrients,13234150.8497
+170,Peru,75,Oats,Residues (Crop residues),kg of nutrients,272092.4803
+170,Peru,116,Potatoes,Residues (Crop residues),kg of nutrients,11413180.4339
+170,Peru,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,31600053.3485
+170,Peru,71,Rye,Residues (Crop residues),kg of nutrients,1049.7067
+170,Peru,83,Sorghum,Residues (Crop residues),kg of nutrients,1608.3572
+170,Peru,236,Soybeans,Residues (Crop residues),kg of nutrients,22515.747
+170,Peru,15,Wheat,Residues (Crop residues),kg of nutrients,2740465.5639
+171,Philippines,176,"Beans, dry",Residues (Crop residues),kg of nutrients,493133.1009
+171,Philippines,56,Maize,Residues (Crop residues),kg of nutrients,69756803.0611
+171,Philippines,116,Potatoes,Residues (Crop residues),kg of nutrients,284243.5007
+171,Philippines,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,241192387.4784
+171,Philippines,83,Sorghum,Residues (Crop residues),kg of nutrients,5182.1517
+171,Philippines,236,Soybeans,Residues (Crop residues),kg of nutrients,11858.8225
+173,Poland,44,Barley,Residues (Crop residues),kg of nutrients,45463907.9298
+173,Poland,176,"Beans, dry",Residues (Crop residues),kg of nutrients,389654.3072
+173,Poland,56,Maize,Residues (Crop residues),kg of nutrients,32334079.9501
+173,Poland,79,Millet,Residues (Crop residues),kg of nutrients,355072.7495
+173,Poland,75,Oats,Residues (Crop residues),kg of nutrients,15840098.7898
+173,Poland,116,Potatoes,Residues (Crop residues),kg of nutrients,16245862.8341
+173,Poland,71,Rye,Residues (Crop residues),kg of nutrients,29141432.2433
+173,Poland,236,Soybeans,Residues (Crop residues),kg of nutrients,286626.8362
+173,Poland,15,Wheat,Residues (Crop residues),kg of nutrients,146058601.2555
+174,Portugal,44,Barley,Residues (Crop residues),kg of nutrients,634769.0303
+174,Portugal,176,"Beans, dry",Residues (Crop residues),kg of nutrients,31782.9824
+174,Portugal,56,Maize,Residues (Crop residues),kg of nutrients,5916289.5165
+174,Portugal,79,Millet,Residues (Crop residues),kg of nutrients,
+174,Portugal,75,Oats,Residues (Crop residues),kg of nutrients,643730.4396
+174,Portugal,116,Potatoes,Residues (Crop residues),kg of nutrients,1023716.4282
+174,Portugal,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1945102.0662
+174,Portugal,71,Rye,Residues (Crop residues),kg of nutrients,228714.8631
+174,Portugal,15,Wheat,Residues (Crop residues),kg of nutrients,811196.1107
+177,Puerto Rico,176,"Beans, dry",Residues (Crop residues),kg of nutrients,324.5579
+177,Puerto Rico,56,Maize,Residues (Crop residues),kg of nutrients,1471.9345
+177,Puerto Rico,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1044.6656
+179,Qatar,44,Barley,Residues (Crop residues),kg of nutrients,8446.2369
+179,Qatar,56,Maize,Residues (Crop residues),kg of nutrients,5396.0049
+179,Qatar,116,Potatoes,Residues (Crop residues),kg of nutrients,94.7142
+179,Qatar,15,Wheat,Residues (Crop residues),kg of nutrients,136.9508
+117,Republic of Korea,44,Barley,Residues (Crop residues),kg of nutrients,758512.2743
+117,Republic of Korea,176,"Beans, dry",Residues (Crop residues),kg of nutrients,84647.3158
+117,Republic of Korea,56,Maize,Residues (Crop residues),kg of nutrients,604462.3623
+117,Republic of Korea,79,Millet,Residues (Crop residues),kg of nutrients,18875.7781
+117,Republic of Korea,116,Potatoes,Residues (Crop residues),kg of nutrients,1147254.7476
+117,Republic of Korea,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,55339183.6747
+117,Republic of Korea,71,Rye,Residues (Crop residues),kg of nutrients,57.9284
+117,Republic of Korea,83,Sorghum,Residues (Crop residues),kg of nutrients,34492.2639
+117,Republic of Korea,236,Soybeans,Residues (Crop residues),kg of nutrients,1082154.7219
+117,Republic of Korea,15,Wheat,Residues (Crop residues),kg of nutrients,411161.2902
+146,Republic of Moldova,44,Barley,Residues (Crop residues),kg of nutrients,3085159.4861
+146,Republic of Moldova,176,"Beans, dry",Residues (Crop residues),kg of nutrients,154218.9412
+146,Republic of Moldova,56,Maize,Residues (Crop residues),kg of nutrients,15241840.525
+146,Republic of Moldova,79,Millet,Residues (Crop residues),kg of nutrients,711.6476
+146,Republic of Moldova,75,Oats,Residues (Crop residues),kg of nutrients,48112.688
+146,Republic of Moldova,116,Potatoes,Residues (Crop residues),kg of nutrients,623753.744
+146,Republic of Moldova,71,Rye,Residues (Crop residues),kg of nutrients,5543.3241
+146,Republic of Moldova,83,Sorghum,Residues (Crop residues),kg of nutrients,4569.002
+146,Republic of Moldova,236,Soybeans,Residues (Crop residues),kg of nutrients,810195.1222
+146,Republic of Moldova,15,Wheat,Residues (Crop residues),kg of nutrients,15969939.2798
+182,Réunion,176,"Beans, dry",Residues (Crop residues),kg of nutrients,33877.8775
+182,Réunion,56,Maize,Residues (Crop residues),kg of nutrients,113553.2466
+182,Réunion,116,Potatoes,Residues (Crop residues),kg of nutrients,29504.1224
+182,Réunion,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3089.5683
+183,Romania,44,Barley,Residues (Crop residues),kg of nutrients,22722746.0871
+183,Romania,176,"Beans, dry",Residues (Crop residues),kg of nutrients,172522.529
+183,Romania,56,Maize,Residues (Crop residues),kg of nutrients,116888218.0642
+183,Romania,75,Oats,Residues (Crop residues),kg of nutrients,4624027.2536
+183,Romania,116,Potatoes,Residues (Crop residues),kg of nutrients,6785337.3787
+183,Romania,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,505925.5023
+183,Romania,71,Rye,Residues (Crop residues),kg of nutrients,309360.4789
+183,Romania,83,Sorghum,Residues (Crop residues),kg of nutrients,526494.4046
+183,Romania,236,Soybeans,Residues (Crop residues),kg of nutrients,5568669.9202
+183,Romania,15,Wheat,Residues (Crop residues),kg of nutrients,125623476.5595
+185,Russian Federation,44,Barley,Residues (Crop residues),kg of nutrients,261498606.1188
+185,Russian Federation,176,"Beans, dry",Residues (Crop residues),kg of nutrients,57912.9585
+185,Russian Federation,56,Maize,Residues (Crop residues),kg of nutrients,110024052.8641
+185,Russian Federation,79,Millet,Residues (Crop residues),kg of nutrients,3723537.7232
+185,Russian Federation,75,Oats,Residues (Crop residues),kg of nutrients,65957898.3124
+185,Russian Federation,116,Potatoes,Residues (Crop residues),kg of nutrients,69988628.5768
+185,Russian Federation,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,11186747.061
+185,Russian Federation,71,Rye,Residues (Crop residues),kg of nutrients,29878045.3665
+185,Russian Federation,83,Sorghum,Residues (Crop residues),kg of nutrients,1729632.7546
+185,Russian Federation,236,Soybeans,Residues (Crop residues),kg of nutrients,61876686.8763
+185,Russian Federation,15,Wheat,Residues (Crop residues),kg of nutrients,1113311524.5302
+184,Rwanda,44,Barley,Residues (Crop residues),kg of nutrients,
+184,Rwanda,176,"Beans, dry",Residues (Crop residues),kg of nutrients,6424362.7166
+184,Rwanda,56,Maize,Residues (Crop residues),kg of nutrients,3928367.0622
+184,Rwanda,79,Millet,Residues (Crop residues),kg of nutrients,69064.7377
+184,Rwanda,116,Potatoes,Residues (Crop residues),kg of nutrients,2851096.4025
+184,Rwanda,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1447069.0796
+184,Rwanda,83,Sorghum,Residues (Crop residues),kg of nutrients,2532382.2404
+184,Rwanda,236,Soybeans,Residues (Crop residues),kg of nutrients,838788.9915
+184,Rwanda,15,Wheat,Residues (Crop residues),kg of nutrients,169689.0905
+188,Saint Kitts and Nevis,116,Potatoes,Residues (Crop residues),kg of nutrients,147.2823
+189,Saint Lucia,56,Maize,Residues (Crop residues),kg of nutrients,
+191,Saint Vincent and the Grenadines,56,Maize,Residues (Crop residues),kg of nutrients,4817.1239
+191,Saint Vincent and the Grenadines,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,
+193,Sao Tome and Principe,56,Maize,Residues (Crop residues),kg of nutrients,9141.8429
+194,Saudi Arabia,44,Barley,Residues (Crop residues),kg of nutrients,7285972.3182
+194,Saudi Arabia,56,Maize,Residues (Crop residues),kg of nutrients,122774.5911
+194,Saudi Arabia,79,Millet,Residues (Crop residues),kg of nutrients,93219.7691
+194,Saudi Arabia,116,Potatoes,Residues (Crop residues),kg of nutrients,878925.7727
+194,Saudi Arabia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,
+194,Saudi Arabia,83,Sorghum,Residues (Crop residues),kg of nutrients,1615571.8529
+194,Saudi Arabia,15,Wheat,Residues (Crop residues),kg of nutrients,7655269.4531
+195,Senegal,56,Maize,Residues (Crop residues),kg of nutrients,2710191.5269
+195,Senegal,79,Millet,Residues (Crop residues),kg of nutrients,7097884.9638
+195,Senegal,116,Potatoes,Residues (Crop residues),kg of nutrients,232051.5741
+195,Senegal,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,8771978.0248
+195,Senegal,83,Sorghum,Residues (Crop residues),kg of nutrients,2712445.2739
+195,Senegal,236,Soybeans,Residues (Crop residues),kg of nutrients,
+272,Serbia,44,Barley,Residues (Crop residues),kg of nutrients,3704742.4465
+272,Serbia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,164866.4678
+272,Serbia,56,Maize,Residues (Crop residues),kg of nutrients,34172822.9451
+272,Serbia,79,Millet,Residues (Crop residues),kg of nutrients,1129.5131
+272,Serbia,75,Oats,Residues (Crop residues),kg of nutrients,790489.1052
+272,Serbia,116,Potatoes,Residues (Crop residues),kg of nutrients,1411816.7424
+272,Serbia,71,Rye,Residues (Crop residues),kg of nutrients,128779.2546
+272,Serbia,83,Sorghum,Residues (Crop residues),kg of nutrients,82442.0624
+272,Serbia,236,Soybeans,Residues (Crop residues),kg of nutrients,6391055.2948
+272,Serbia,15,Wheat,Residues (Crop residues),kg of nutrients,28837309.3805
+186,Serbia and Montenegro,44,Barley,Residues (Crop residues),kg of nutrients,
+186,Serbia and Montenegro,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+186,Serbia and Montenegro,56,Maize,Residues (Crop residues),kg of nutrients,
+186,Serbia and Montenegro,79,Millet,Residues (Crop residues),kg of nutrients,
+186,Serbia and Montenegro,75,Oats,Residues (Crop residues),kg of nutrients,
+186,Serbia and Montenegro,116,Potatoes,Residues (Crop residues),kg of nutrients,
+186,Serbia and Montenegro,71,Rye,Residues (Crop residues),kg of nutrients,
+186,Serbia and Montenegro,83,Sorghum,Residues (Crop residues),kg of nutrients,
+186,Serbia and Montenegro,236,Soybeans,Residues (Crop residues),kg of nutrients,
+186,Serbia and Montenegro,15,Wheat,Residues (Crop residues),kg of nutrients,
+197,Sierra Leone,56,Maize,Residues (Crop residues),kg of nutrients,286408.4126
+197,Sierra Leone,79,Millet,Residues (Crop residues),kg of nutrients,453799.2164
+197,Sierra Leone,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,23206142.5131
+197,Sierra Leone,83,Sorghum,Residues (Crop residues),kg of nutrients,532008.5816
+199,Slovakia,44,Barley,Residues (Crop residues),kg of nutrients,6444029.0912
+199,Slovakia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1043.8033
+199,Slovakia,56,Maize,Residues (Crop residues),kg of nutrients,8736412.5878
+199,Slovakia,79,Millet,Residues (Crop residues),kg of nutrients,8348.1233
+199,Slovakia,75,Oats,Residues (Crop residues),kg of nutrients,400718.2882
+199,Slovakia,116,Potatoes,Residues (Crop residues),kg of nutrients,309277.6862
+199,Slovakia,71,Rye,Residues (Crop residues),kg of nutrients,349874.4374
+199,Slovakia,83,Sorghum,Residues (Crop residues),kg of nutrients,17990.5459
+199,Slovakia,236,Soybeans,Residues (Crop residues),kg of nutrients,1408743.9109
+199,Slovakia,15,Wheat,Residues (Crop residues),kg of nutrients,22210280.7268
+198,Slovenia,44,Barley,Residues (Crop residues),kg of nutrients,1150507.2176
+198,Slovenia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,9307.7372
+198,Slovenia,56,Maize,Residues (Crop residues),kg of nutrients,2189382.1953
+198,Slovenia,79,Millet,Residues (Crop residues),kg of nutrients,4399.3063
+198,Slovenia,75,Oats,Residues (Crop residues),kg of nutrients,49393.1193
+198,Slovenia,116,Potatoes,Residues (Crop residues),kg of nutrients,144974.7828
+198,Slovenia,71,Rye,Residues (Crop residues),kg of nutrients,45888.7708
+198,Slovenia,236,Soybeans,Residues (Crop residues),kg of nutrients,101369.4188
+198,Slovenia,15,Wheat,Residues (Crop residues),kg of nutrients,1761460.4452
+25,Solomon Islands,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,54440.4494
+201,Somalia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,793672.1202
+201,Somalia,56,Maize,Residues (Crop residues),kg of nutrients,907309.1612
+201,Somalia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,39952.85
+201,Somalia,83,Sorghum,Residues (Crop residues),kg of nutrients,3289235.6242
+201,Somalia,15,Wheat,Residues (Crop residues),kg of nutrients,22075.9229
+202,South Africa,44,Barley,Residues (Crop residues),kg of nutrients,3757352.4666
+202,South Africa,176,"Beans, dry",Residues (Crop residues),kg of nutrients,686253.1528
+202,South Africa,56,Maize,Residues (Crop residues),kg of nutrients,136409623.5264
+202,South Africa,79,Millet,Residues (Crop residues),kg of nutrients,71011.5029
+202,South Africa,75,Oats,Residues (Crop residues),kg of nutrients,795382.32
+202,South Africa,116,Potatoes,Residues (Crop residues),kg of nutrients,3910273.2304
+202,South Africa,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,45136.3691
+202,South Africa,71,Rye,Residues (Crop residues),kg of nutrients,36000.3602
+202,South Africa,83,Sorghum,Residues (Crop residues),kg of nutrients,1506650.7034
+202,South Africa,236,Soybeans,Residues (Crop residues),kg of nutrients,18215460.7107
+202,South Africa,15,Wheat,Residues (Crop residues),kg of nutrients,19901695.4136
+277,South Sudan,176,"Beans, dry",Residues (Crop residues),kg of nutrients,11400.4276
+277,South Sudan,56,Maize,Residues (Crop residues),kg of nutrients,1061392.0762
+277,South Sudan,79,Millet,Residues (Crop residues),kg of nutrients,59353.5959
+277,South Sudan,83,Sorghum,Residues (Crop residues),kg of nutrients,9269226.1991
+203,Spain,44,Barley,Residues (Crop residues),kg of nutrients,75602992.5946
+203,Spain,176,"Beans, dry",Residues (Crop residues),kg of nutrients,177497.164
+203,Spain,56,Maize,Residues (Crop residues),kg of nutrients,29535310.2955
+203,Spain,79,Millet,Residues (Crop residues),kg of nutrients,14653.7909
+203,Spain,75,Oats,Residues (Crop residues),kg of nutrients,11153457.9575
+203,Spain,116,Potatoes,Residues (Crop residues),kg of nutrients,3764099.1835
+203,Spain,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,8523182.0599
+203,Spain,71,Rye,Residues (Crop residues),kg of nutrients,1904324.7926
+203,Spain,83,Sorghum,Residues (Crop residues),kg of nutrients,284083.604
+203,Spain,236,Soybeans,Residues (Crop residues),kg of nutrients,59947.2309
+203,Spain,15,Wheat,Residues (Crop residues),kg of nutrients,64617423.9701
+38,Sri Lanka,176,"Beans, dry",Residues (Crop residues),kg of nutrients,67334.7092
+38,Sri Lanka,56,Maize,Residues (Crop residues),kg of nutrients,1680372.1071
+38,Sri Lanka,79,Millet,Residues (Crop residues),kg of nutrients,65508.9645
+38,Sri Lanka,116,Potatoes,Residues (Crop residues),kg of nutrients,168694.3103
+38,Sri Lanka,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,27672017.2825
+38,Sri Lanka,83,Sorghum,Residues (Crop residues),kg of nutrients,17689.9723
+38,Sri Lanka,236,Soybeans,Residues (Crop residues),kg of nutrients,223066.5187
+276,Sudan,176,"Beans, dry",Residues (Crop residues),kg of nutrients,105195.2124
+276,Sudan,56,Maize,Residues (Crop residues),kg of nutrients,519953.1254
+276,Sudan,79,Millet,Residues (Crop residues),kg of nutrients,12736329.4689
+276,Sudan,116,Potatoes,Residues (Crop residues),kg of nutrients,1129938.48
+276,Sudan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,364814.6959
+276,Sudan,83,Sorghum,Residues (Crop residues),kg of nutrients,81575478.7939
+276,Sudan,15,Wheat,Residues (Crop residues),kg of nutrients,6078366.6081
+206,Sudan (former),44,Barley,Residues (Crop residues),kg of nutrients,
+206,Sudan (former),176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+206,Sudan (former),56,Maize,Residues (Crop residues),kg of nutrients,
+206,Sudan (former),79,Millet,Residues (Crop residues),kg of nutrients,
+206,Sudan (former),116,Potatoes,Residues (Crop residues),kg of nutrients,
+206,Sudan (former),27,"Rice, paddy",Residues (Crop residues),kg of nutrients,
+206,Sudan (former),83,Sorghum,Residues (Crop residues),kg of nutrients,
+206,Sudan (former),15,Wheat,Residues (Crop residues),kg of nutrients,
+207,Suriname,56,Maize,Residues (Crop residues),kg of nutrients,768.9469
+207,Suriname,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3298948.5969
+207,Suriname,236,Soybeans,Residues (Crop residues),kg of nutrients,128.8457
+210,Sweden,44,Barley,Residues (Crop residues),kg of nutrients,19042910.5095
+210,Sweden,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+210,Sweden,75,Oats,Residues (Crop residues),kg of nutrients,6758868.9364
+210,Sweden,116,Potatoes,Residues (Crop residues),kg of nutrients,1381621.5552
+210,Sweden,71,Rye,Residues (Crop residues),kg of nutrients,1390786.6776
+210,Sweden,15,Wheat,Residues (Crop residues),kg of nutrients,40510510.2992
+211,Switzerland,44,Barley,Residues (Crop residues),kg of nutrients,2355997.5857
+211,Switzerland,56,Maize,Residues (Crop residues),kg of nutrients,1274352.4216
+211,Switzerland,79,Millet,Residues (Crop residues),kg of nutrients,8823.3287
+211,Switzerland,75,Oats,Residues (Crop residues),kg of nutrients,99181.9809
+211,Switzerland,116,Potatoes,Residues (Crop residues),kg of nutrients,702269.7162
+211,Switzerland,71,Rye,Residues (Crop residues),kg of nutrients,122703.83
+211,Switzerland,236,Soybeans,Residues (Crop residues),kg of nutrients,69040.9258
+211,Switzerland,15,Wheat,Residues (Crop residues),kg of nutrients,6558827.2528
+212,Syrian Arab Republic,44,Barley,Residues (Crop residues),kg of nutrients,12675765.3508
+212,Syrian Arab Republic,176,"Beans, dry",Residues (Crop residues),kg of nutrients,10550.4246
+212,Syrian Arab Republic,56,Maize,Residues (Crop residues),kg of nutrients,1587787.0923
+212,Syrian Arab Republic,79,Millet,Residues (Crop residues),kg of nutrients,41778.881
+212,Syrian Arab Republic,75,Oats,Residues (Crop residues),kg of nutrients,2867.4775
+212,Syrian Arab Republic,116,Potatoes,Residues (Crop residues),kg of nutrients,1278340.7375
+212,Syrian Arab Republic,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,
+212,Syrian Arab Republic,83,Sorghum,Residues (Crop residues),kg of nutrients,17476.6953
+212,Syrian Arab Republic,236,Soybeans,Residues (Crop residues),kg of nutrients,4142.5326
+212,Syrian Arab Republic,15,Wheat,Residues (Crop residues),kg of nutrients,30050468.448
+208,Tajikistan,44,Barley,Residues (Crop residues),kg of nutrients,1965545.3995
+208,Tajikistan,176,"Beans, dry",Residues (Crop residues),kg of nutrients,132715.9874
+208,Tajikistan,56,Maize,Residues (Crop residues),kg of nutrients,1697831.8978
+208,Tajikistan,79,Millet,Residues (Crop residues),kg of nutrients,766.8922
+208,Tajikistan,75,Oats,Residues (Crop residues),kg of nutrients,45385.8302
+208,Tajikistan,116,Potatoes,Residues (Crop residues),kg of nutrients,1652566.4636
+208,Tajikistan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,996380.5794
+208,Tajikistan,71,Rye,Residues (Crop residues),kg of nutrients,1752.7017
+208,Tajikistan,83,Sorghum,Residues (Crop residues),kg of nutrients,211.9108
+208,Tajikistan,236,Soybeans,Residues (Crop residues),kg of nutrients,889.3159
+208,Tajikistan,15,Wheat,Residues (Crop residues),kg of nutrients,11655534.8927
+216,Thailand,44,Barley,Residues (Crop residues),kg of nutrients,370912.187
+216,Thailand,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1056310.6994
+216,Thailand,56,Maize,Residues (Crop residues),kg of nutrients,41638408.6187
+216,Thailand,116,Potatoes,Residues (Crop residues),kg of nutrients,292427.3707
+216,Thailand,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,461286106.3784
+216,Thailand,83,Sorghum,Residues (Crop residues),kg of nutrients,512954.1254
+216,Thailand,236,Soybeans,Residues (Crop residues),kg of nutrients,835517.0477
+216,Thailand,15,Wheat,Residues (Crop residues),kg of nutrients,19699.1032
+176,Timor-Leste,176,"Beans, dry",Residues (Crop residues),kg of nutrients,101905.7177
+176,Timor-Leste,56,Maize,Residues (Crop residues),kg of nutrients,939621.346
+176,Timor-Leste,116,Potatoes,Residues (Crop residues),kg of nutrients,24899.0493
+176,Timor-Leste,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1225934.2752
+176,Timor-Leste,236,Soybeans,Residues (Crop residues),kg of nutrients,18371.1858
+217,Togo,176,"Beans, dry",Residues (Crop residues),kg of nutrients,3772081.5252
+217,Togo,56,Maize,Residues (Crop residues),kg of nutrients,9304717.5632
+217,Togo,79,Millet,Residues (Crop residues),kg of nutrients,332086.8382
+217,Togo,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2700272.0294
+217,Togo,83,Sorghum,Residues (Crop residues),kg of nutrients,5166415.0938
+217,Togo,236,Soybeans,Residues (Crop residues),kg of nutrients,76217.409
+220,Trinidad and Tobago,56,Maize,Residues (Crop residues),kg of nutrients,29593.2209
+220,Trinidad and Tobago,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,69385.4855
+222,Tunisia,44,Barley,Residues (Crop residues),kg of nutrients,7483586.0298
+222,Tunisia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,2645.0665
+222,Tunisia,75,Oats,Residues (Crop residues),kg of nutrients,42524.4932
+222,Tunisia,116,Potatoes,Residues (Crop residues),kg of nutrients,967359.0926
+222,Tunisia,83,Sorghum,Residues (Crop residues),kg of nutrients,29177.4684
+222,Tunisia,15,Wheat,Residues (Crop residues),kg of nutrients,15163944.8969
+223,Turkey,44,Barley,Residues (Crop residues),kg of nutrients,88565009.5483
+223,Turkey,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1891384.5539
+223,Turkey,56,Maize,Residues (Crop residues),kg of nutrients,46645731.0392
+223,Turkey,79,Millet,Residues (Crop residues),kg of nutrients,54171.1681
+223,Turkey,75,Oats,Residues (Crop residues),kg of nutrients,2917544.066
+223,Turkey,116,Potatoes,Residues (Crop residues),kg of nutrients,7875090.4354
+223,Turkey,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,9061489.043
+223,Turkey,71,Rye,Residues (Crop residues),kg of nutrients,3466185.85
+223,Turkey,83,Sorghum,Residues (Crop residues),kg of nutrients,31.4076
+223,Turkey,236,Soybeans,Residues (Crop residues),kg of nutrients,1590329.9216
+223,Turkey,15,Wheat,Residues (Crop residues),kg of nutrients,281752355.2422
+213,Turkmenistan,44,Barley,Residues (Crop residues),kg of nutrients,196880.6409
+213,Turkmenistan,56,Maize,Residues (Crop residues),kg of nutrients,507676.3697
+213,Turkmenistan,116,Potatoes,Residues (Crop residues),kg of nutrients,640673.3438
+213,Turkmenistan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3644445.3771
+213,Turkmenistan,71,Rye,Residues (Crop residues),kg of nutrients,
+213,Turkmenistan,15,Wheat,Residues (Crop residues),kg of nutrients,15207303.8208
+226,Uganda,176,"Beans, dry",Residues (Crop residues),kg of nutrients,9961174.5894
+226,Uganda,56,Maize,Residues (Crop residues),kg of nutrients,27474425.5253
+226,Uganda,79,Millet,Residues (Crop residues),kg of nutrients,2502013.0287
+226,Uganda,116,Potatoes,Residues (Crop residues),kg of nutrients,1001804.928
+226,Uganda,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3891457.654
+226,Uganda,83,Sorghum,Residues (Crop residues),kg of nutrients,6512106.6326
+226,Uganda,236,Soybeans,Residues (Crop residues),kg of nutrients,795135.3272
+226,Uganda,15,Wheat,Residues (Crop residues),kg of nutrients,340310.7282
+230,Ukraine,44,Barley,Residues (Crop residues),kg of nutrients,101592249.666
+230,Ukraine,176,"Beans, dry",Residues (Crop residues),kg of nutrients,630155.7002
+230,Ukraine,56,Maize,Residues (Crop residues),kg of nutrients,202709534.9821
+230,Ukraine,79,Millet,Residues (Crop residues),kg of nutrients,984243.6088
+230,Ukraine,75,Oats,Residues (Crop residues),kg of nutrients,5390871.0365
+230,Ukraine,116,Potatoes,Residues (Crop residues),kg of nutrients,50515204.9174
+230,Ukraine,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,737752.6946
+230,Ukraine,71,Rye,Residues (Crop residues),kg of nutrients,5567081.3503
+230,Ukraine,83,Sorghum,Residues (Crop residues),kg of nutrients,2127339.7949
+230,Ukraine,236,Soybeans,Residues (Crop residues),kg of nutrients,57298830.9739
+230,Ukraine,15,Wheat,Residues (Crop residues),kg of nutrients,332021027.8144
+225,United Arab Emirates,44,Barley,Residues (Crop residues),kg of nutrients,1461.7087
+225,United Arab Emirates,56,Maize,Residues (Crop residues),kg of nutrients,48924.8721
+225,United Arab Emirates,116,Potatoes,Residues (Crop residues),kg of nutrients,7997.4688
+225,United Arab Emirates,15,Wheat,Residues (Crop residues),kg of nutrients,1069.7938
+229,United Kingdom,44,Barley,Residues (Crop residues),kg of nutrients,82505378.5965
+229,United Kingdom,56,Maize,Residues (Crop residues),kg of nutrients,
+229,United Kingdom,75,Oats,Residues (Crop residues),kg of nutrients,8487066.7
+229,United Kingdom,116,Potatoes,Residues (Crop residues),kg of nutrients,9371312.096
+229,United Kingdom,71,Rye,Residues (Crop residues),kg of nutrients,676999.0519
+229,United Kingdom,15,Wheat,Residues (Crop residues),kg of nutrients,180937419.1061
+215,United Republic of Tanzania,44,Barley,Residues (Crop residues),kg of nutrients,179613.9711
+215,United Republic of Tanzania,176,"Beans, dry",Residues (Crop residues),kg of nutrients,14406459.0276
+215,United Republic of Tanzania,56,Maize,Residues (Crop residues),kg of nutrients,61566691.5383
+215,United Republic of Tanzania,79,Millet,Residues (Crop residues),kg of nutrients,3834717.0411
+215,United Republic of Tanzania,116,Potatoes,Residues (Crop residues),kg of nutrients,6268562.6985
+215,United Republic of Tanzania,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,44588650.3685
+215,United Republic of Tanzania,83,Sorghum,Residues (Crop residues),kg of nutrients,13604658.7117
+215,United Republic of Tanzania,236,Soybeans,Residues (Crop residues),kg of nutrients,115797.8788
+215,United Republic of Tanzania,15,Wheat,Residues (Crop residues),kg of nutrients,1588002.5565
+231,United States of America,44,Barley,Residues (Crop residues),kg of nutrients,37112633.5184
+231,United States of America,176,"Beans, dry",Residues (Crop residues),kg of nutrients,14388988.4896
+231,United States of America,56,Maize,Residues (Crop residues),kg of nutrients,2904788829.3948
+231,United States of America,79,Millet,Residues (Crop residues),kg of nutrients,3790824.8678
+231,United States of America,75,Oats,Residues (Crop residues),kg of nutrients,8370390.0745
+231,United States of America,116,Potatoes,Residues (Crop residues),kg of nutrients,28999374.9608
+231,United States of America,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,80957738.4025
+231,United States of America,71,Rye,Residues (Crop residues),kg of nutrients,2902791.4957
+231,United States of America,83,Sorghum,Residues (Crop residues),kg of nutrients,86177127.5896
+231,United States of America,236,Soybeans,Residues (Crop residues),kg of nutrients,1466353422.2381
+231,United States of America,15,Wheat,Residues (Crop residues),kg of nutrients,614329550.6031
+234,Uruguay,44,Barley,Residues (Crop residues),kg of nutrients,4872865.1552
+234,Uruguay,176,"Beans, dry",Residues (Crop residues),kg of nutrients,58153.1367
+234,Uruguay,56,Maize,Residues (Crop residues),kg of nutrients,2640158.7263
+234,Uruguay,75,Oats,Residues (Crop residues),kg of nutrients,407009.104
+234,Uruguay,116,Potatoes,Residues (Crop residues),kg of nutrients,188946.7252
+234,Uruguay,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,13588351.424
+234,Uruguay,83,Sorghum,Residues (Crop residues),kg of nutrients,1346257.4873
+234,Uruguay,236,Soybeans,Residues (Crop residues),kg of nutrients,24506334.7827
+234,Uruguay,15,Wheat,Residues (Crop residues),kg of nutrients,5878809.0816
+228,USSR,44,Barley,Residues (Crop residues),kg of nutrients,
+228,USSR,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+228,USSR,56,Maize,Residues (Crop residues),kg of nutrients,
+228,USSR,79,Millet,Residues (Crop residues),kg of nutrients,
+228,USSR,75,Oats,Residues (Crop residues),kg of nutrients,
+228,USSR,116,Potatoes,Residues (Crop residues),kg of nutrients,
+228,USSR,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,
+228,USSR,71,Rye,Residues (Crop residues),kg of nutrients,
+228,USSR,83,Sorghum,Residues (Crop residues),kg of nutrients,
+228,USSR,236,Soybeans,Residues (Crop residues),kg of nutrients,
+228,USSR,15,Wheat,Residues (Crop residues),kg of nutrients,
+235,Uzbekistan,44,Barley,Residues (Crop residues),kg of nutrients,1969199.0175
+235,Uzbekistan,56,Maize,Residues (Crop residues),kg of nutrients,3059046.162
+235,Uzbekistan,79,Millet,Residues (Crop residues),kg of nutrients,76789.6413
+235,Uzbekistan,75,Oats,Residues (Crop residues),kg of nutrients,
+235,Uzbekistan,116,Potatoes,Residues (Crop residues),kg of nutrients,4479470.5943
+235,Uzbekistan,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,4423951.4397
+235,Uzbekistan,71,Rye,Residues (Crop residues),kg of nutrients,28581.6264
+235,Uzbekistan,83,Sorghum,Residues (Crop residues),kg of nutrients,58258.4669
+235,Uzbekistan,15,Wheat,Residues (Crop residues),kg of nutrients,76738425.4436
+155,Vanuatu,56,Maize,Residues (Crop residues),kg of nutrients,12949.6798
+236,Venezuela (Bolivarian Republic of),176,"Beans, dry",Residues (Crop residues),kg of nutrients,350543.1401
+236,Venezuela (Bolivarian Republic of),56,Maize,Residues (Crop residues),kg of nutrients,9302123.404
+236,Venezuela (Bolivarian Republic of),116,Potatoes,Residues (Crop residues),kg of nutrients,435443.36
+236,Venezuela (Bolivarian Republic of),27,"Rice, paddy",Residues (Crop residues),kg of nutrients,5237560.092
+236,Venezuela (Bolivarian Republic of),83,Sorghum,Residues (Crop residues),kg of nutrients,243318.3616
+236,Venezuela (Bolivarian Republic of),236,Soybeans,Residues (Crop residues),kg of nutrients,164068.9434
+236,Venezuela (Bolivarian Republic of),15,Wheat,Residues (Crop residues),kg of nutrients,1817.742
+237,Viet Nam,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1948230.5145
+237,Viet Nam,56,Maize,Residues (Crop residues),kg of nutrients,42712541.6285
+237,Viet Nam,79,Millet,Residues (Crop residues),kg of nutrients,43577.9573
+237,Viet Nam,116,Potatoes,Residues (Crop residues),kg of nutrients,741487.8301
+237,Viet Nam,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,478414801.1382
+237,Viet Nam,236,Soybeans,Residues (Crop residues),kg of nutrients,1688536.9611
+205,Western Sahara,44,Barley,Residues (Crop residues),kg of nutrients,38065.7625
+249,Yemen,44,Barley,Residues (Crop residues),kg of nutrients,397889.154
+249,Yemen,176,"Beans, dry",Residues (Crop residues),kg of nutrients,45869.6622
+249,Yemen,56,Maize,Residues (Crop residues),kg of nutrients,473178.7867
+249,Yemen,79,Millet,Residues (Crop residues),kg of nutrients,829696.1129
+249,Yemen,116,Potatoes,Residues (Crop residues),kg of nutrients,607150.8702
+249,Yemen,83,Sorghum,Residues (Crop residues),kg of nutrients,6361660.6289
+249,Yemen,15,Wheat,Residues (Crop residues),kg of nutrients,1364483.2656
+248,Yugoslav SFR,44,Barley,Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,176,"Beans, dry",Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,56,Maize,Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,79,Millet,Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,75,Oats,Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,116,Potatoes,Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,71,Rye,Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,83,Sorghum,Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,236,Soybeans,Residues (Crop residues),kg of nutrients,
+248,Yugoslav SFR,15,Wheat,Residues (Crop residues),kg of nutrients,
+251,Zambia,44,Barley,Residues (Crop residues),kg of nutrients,169208.1646
+251,Zambia,56,Maize,Residues (Crop residues),kg of nutrients,32931696.0611
+251,Zambia,79,Millet,Residues (Crop residues),kg of nutrients,405450.9593
+251,Zambia,116,Potatoes,Residues (Crop residues),kg of nutrients,53353.1751
+251,Zambia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,862471.4083
+251,Zambia,83,Sorghum,Residues (Crop residues),kg of nutrients,402314.1596
+251,Zambia,236,Soybeans,Residues (Crop residues),kg of nutrients,5716570.6991
+251,Zambia,15,Wheat,Residues (Crop residues),kg of nutrients,2375250.5751
+181,Zimbabwe,44,Barley,Residues (Crop residues),kg of nutrients,652016.9963
+181,Zimbabwe,176,"Beans, dry",Residues (Crop residues),kg of nutrients,313904.937
+181,Zimbabwe,56,Maize,Residues (Crop residues),kg of nutrients,12420081.9191
+181,Zimbabwe,79,Millet,Residues (Crop residues),kg of nutrients,554544.8935
+181,Zimbabwe,75,Oats,Residues (Crop residues),kg of nutrients,7556.9072
+181,Zimbabwe,116,Potatoes,Residues (Crop residues),kg of nutrients,150124.9781
+181,Zimbabwe,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,11941.9472
+181,Zimbabwe,83,Sorghum,Residues (Crop residues),kg of nutrients,2886057.0023
+181,Zimbabwe,236,Soybeans,Residues (Crop residues),kg of nutrients,1195045.5552
+181,Zimbabwe,15,Wheat,Residues (Crop residues),kg of nutrients,539297.1776
+5100,Africa,44,Barley,Residues (Crop residues),kg of nutrients,97277697.4679
+5100,Africa,176,"Beans, dry",Residues (Crop residues),kg of nutrients,88316416.9788
+5100,Africa,56,Maize,Residues (Crop residues),kg of nutrients,798631273.9533
+5100,Africa,79,Millet,Residues (Crop residues),kg of nutrients,161809179.8299
+5100,Africa,75,Oats,Residues (Crop residues),kg of nutrients,3160081.0703
+5100,Africa,116,Potatoes,Residues (Crop residues),kg of nutrients,65446887.748
+5100,Africa,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,568881128.8512
+5100,Africa,71,Rye,Residues (Crop residues),kg of nutrients,1201072.9165
+5100,Africa,83,Sorghum,Residues (Crop residues),kg of nutrients,468495566.8491
+5100,Africa,236,Soybeans,Residues (Crop residues),kg of nutrients,53941353.2885
+5100,Africa,15,Wheat,Residues (Crop residues),kg of nutrients,358734370.3461
+5101,Eastern Africa,44,Barley,Residues (Crop residues),kg of nutrients,29650889.5749
+5101,Eastern Africa,176,"Beans, dry",Residues (Crop residues),kg of nutrients,59748234.4572
+5101,Eastern Africa,56,Maize,Residues (Crop residues),kg of nutrients,301812379.205
+5101,Eastern Africa,79,Millet,Residues (Crop residues),kg of nutrients,21534350.9591
+5101,Eastern Africa,75,Oats,Residues (Crop residues),kg of nutrients,623541.0744
+5101,Eastern Africa,116,Potatoes,Residues (Crop residues),kg of nutrients,23288875.4921
+5101,Eastern Africa,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,100133229.6304
+5101,Eastern Africa,83,Sorghum,Residues (Crop residues),kg of nutrients,103006419.1305
+5101,Eastern Africa,236,Soybeans,Residues (Crop residues),kg of nutrients,14013513.5194
+5101,Eastern Africa,15,Wheat,Residues (Crop residues),kg of nutrients,71406701.3375
+5102,Middle Africa,44,Barley,Residues (Crop residues),kg of nutrients,19758.3491
+5102,Middle Africa,176,"Beans, dry",Residues (Crop residues),kg of nutrients,18695133.2298
+5102,Middle Africa,56,Maize,Residues (Crop residues),kg of nutrients,84812682.9977
+5102,Middle Africa,79,Millet,Residues (Crop residues),kg of nutrients,11545113.1198
+5102,Middle Africa,75,Oats,Residues (Crop residues),kg of nutrients,
+5102,Middle Africa,116,Potatoes,Residues (Crop residues),kg of nutrients,6165735.3774
+5102,Middle Africa,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,45657913.5195
+5102,Middle Africa,83,Sorghum,Residues (Crop residues),kg of nutrients,41128940.8091
+5102,Middle Africa,236,Soybeans,Residues (Crop residues),kg of nutrients,1827431.287
+5102,Middle Africa,15,Wheat,Residues (Crop residues),kg of nutrients,201092.0559
+5103,Northern Africa,44,Barley,Residues (Crop residues),kg of nutrients,63815966.4599
+5103,Northern Africa,176,"Beans, dry",Residues (Crop residues),kg of nutrients,935930.2989
+5103,Northern Africa,56,Maize,Residues (Crop residues),kg of nutrients,58820220.263
+5103,Northern Africa,79,Millet,Residues (Crop residues),kg of nutrients,12873242.0488
+5103,Northern Africa,75,Oats,Residues (Crop residues),kg of nutrients,1734731.9519
+5103,Northern Africa,116,Potatoes,Residues (Crop residues),kg of nutrients,21784005.3661
+5103,Northern Africa,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,63478517.9382
+5103,Northern Africa,71,Rye,Residues (Crop residues),kg of nutrients,1165072.5563
+5103,Northern Africa,83,Sorghum,Residues (Crop residues),kg of nutrients,88365072.1881
+5103,Northern Africa,236,Soybeans,Residues (Crop residues),kg of nutrients,582373.8084
+5103,Northern Africa,15,Wheat,Residues (Crop residues),kg of nutrients,265164014.6851
+5104,Southern Africa,44,Barley,Residues (Crop residues),kg of nutrients,3772971.6294
+5104,Southern Africa,176,"Beans, dry",Residues (Crop residues),kg of nutrients,895256.4361
+5104,Southern Africa,56,Maize,Residues (Crop residues),kg of nutrients,140355126.2392
+5104,Southern Africa,79,Millet,Residues (Crop residues),kg of nutrients,829347.6892
+5104,Southern Africa,75,Oats,Residues (Crop residues),kg of nutrients,801089.9081
+5104,Southern Africa,116,Potatoes,Residues (Crop residues),kg of nutrients,4333489.5755
+5104,Southern Africa,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,46705.9233
+5104,Southern Africa,71,Rye,Residues (Crop residues),kg of nutrients,36000.3602
+5104,Southern Africa,83,Sorghum,Residues (Crop residues),kg of nutrients,2944069.3629
+5104,Southern Africa,236,Soybeans,Residues (Crop residues),kg of nutrients,18215460.7107
+5104,Southern Africa,15,Wheat,Residues (Crop residues),kg of nutrients,20206409.9934
+5105,Western Africa,44,Barley,Residues (Crop residues),kg of nutrients,18111.4546
+5105,Western Africa,176,"Beans, dry",Residues (Crop residues),kg of nutrients,8041862.5569
+5105,Western Africa,56,Maize,Residues (Crop residues),kg of nutrients,212830865.2485
+5105,Western Africa,79,Millet,Residues (Crop residues),kg of nutrients,115027126.013
+5105,Western Africa,75,Oats,Residues (Crop residues),kg of nutrients,718.1359
+5105,Western Africa,116,Potatoes,Residues (Crop residues),kg of nutrients,9874781.9367
+5105,Western Africa,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,359564761.8398
+5105,Western Africa,83,Sorghum,Residues (Crop residues),kg of nutrients,233051065.3585
+5105,Western Africa,236,Soybeans,Residues (Crop residues),kg of nutrients,19302573.963
+5105,Western Africa,15,Wheat,Residues (Crop residues),kg of nutrients,1756152.2743
+5200,Americas,44,Barley,Residues (Crop residues),kg of nutrients,203786249.5887
+5200,Americas,176,"Beans, dry",Residues (Crop residues),kg of nutrients,95047121.3103
+5200,Americas,56,Maize,Residues (Crop residues),kg of nutrients,4605593218.1423
+5200,Americas,79,Millet,Residues (Crop residues),kg of nutrients,3852103.7968
+5200,Americas,75,Oats,Residues (Crop residues),kg of nutrients,73433072.2128
+5200,Americas,116,Potatoes,Residues (Crop residues),kg of nutrients,82737975.7586
+5200,Americas,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,390951367.7314
+5200,Americas,71,Rye,Residues (Crop residues),kg of nutrients,7323201.706
+5200,Americas,83,Sorghum,Residues (Crop residues),kg of nutrients,196944448.8141
+5200,Americas,236,Soybeans,Residues (Crop residues),kg of nutrients,3849569463.541
+5200,Americas,15,Wheat,Residues (Crop residues),kg of nutrients,1381856794.1076
+5203,Northern America,44,Barley,Residues (Crop residues),kg of nutrients,132866170.0013
+5203,Northern America,176,"Beans, dry",Residues (Crop residues),kg of nutrients,16570552.9168
+5203,Northern America,56,Maize,Residues (Crop residues),kg of nutrients,3015447512.1694
+5203,Northern America,79,Millet,Residues (Crop residues),kg of nutrients,3790824.8678
+5203,Northern America,75,Oats,Residues (Crop residues),kg of nutrients,47490077.7703
+5203,Northern America,116,Potatoes,Residues (Crop residues),kg of nutrients,40722499.1834
+5203,Northern America,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,80957738.4025
+5203,Northern America,71,Rye,Residues (Crop residues),kg of nutrients,6228873.9004
+5203,Northern America,83,Sorghum,Residues (Crop residues),kg of nutrients,86177127.5896
+5203,Northern America,236,Soybeans,Residues (Crop residues),kg of nutrients,1564500139.1542
+5203,Northern America,15,Wheat,Residues (Crop residues),kg of nutrients,1000894462.8568
+5204,Central America,44,Barley,Residues (Crop residues),kg of nutrients,12638198.3333
+5204,Central America,176,"Beans, dry",Residues (Crop residues),kg of nutrients,27650943.6547
+5204,Central America,56,Maize,Residues (Crop residues),kg of nutrients,276969263.444
+5204,Central America,79,Millet,Residues (Crop residues),kg of nutrients,
+5204,Central America,75,Oats,Residues (Crop residues),kg of nutrients,920663.9128
+5204,Central America,116,Potatoes,Residues (Crop residues),kg of nutrients,4422603.8432
+5204,Central America,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,15116356.0714
+5204,Central America,71,Rye,Residues (Crop residues),kg of nutrients,266.9064
+5204,Central America,83,Sorghum,Residues (Crop residues),kg of nutrients,52645336.1635
+5204,Central America,236,Soybeans,Residues (Crop residues),kg of nutrients,7725311.2812
+5204,Central America,15,Wheat,Residues (Crop residues),kg of nutrients,43680746.2255
+5206,Caribbean,176,"Beans, dry",Residues (Crop residues),kg of nutrients,3868720.0466
+5206,Caribbean,56,Maize,Residues (Crop residues),kg of nutrients,6790125.8387
+5206,Caribbean,116,Potatoes,Residues (Crop residues),kg of nutrients,588478.1752
+5206,Caribbean,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,15973981.0579
+5206,Caribbean,83,Sorghum,Residues (Crop residues),kg of nutrients,1645327.2956
+5207,South America,44,Barley,Residues (Crop residues),kg of nutrients,58281881.2542
+5207,South America,176,"Beans, dry",Residues (Crop residues),kg of nutrients,46956904.6922
+5207,South America,56,Maize,Residues (Crop residues),kg of nutrients,1306386316.6902
+5207,South America,79,Millet,Residues (Crop residues),kg of nutrients,61278.929
+5207,South America,75,Oats,Residues (Crop residues),kg of nutrients,25022330.5297
+5207,South America,116,Potatoes,Residues (Crop residues),kg of nutrients,37004394.5568
+5207,South America,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,278903292.1997
+5207,South America,71,Rye,Residues (Crop residues),kg of nutrients,1094060.8991
+5207,South America,83,Sorghum,Residues (Crop residues),kg of nutrients,56476657.7654
+5207,South America,236,Soybeans,Residues (Crop residues),kg of nutrients,2277344013.1056
+5207,South America,15,Wheat,Residues (Crop residues),kg of nutrients,337281585.0253
+5300,Asia,44,Barley,Residues (Crop residues),kg of nutrients,276337062.5279
+5300,Asia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,238641971.6542
+5300,Asia,56,Maize,Residues (Crop residues),kg of nutrients,2980299228.9196
+5300,Asia,79,Millet,Residues (Crop residues),kg of nutrients,172844281.8826
+5300,Asia,75,Oats,Residues (Crop residues),kg of nutrients,20790475.7183
+5300,Asia,116,Potatoes,Residues (Crop residues),kg of nutrients,414264405.6271
+5300,Asia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,8143573449.0619
+5300,Asia,71,Rye,Residues (Crop residues),kg of nutrients,18972201.4032
+5300,Asia,83,Sorghum,Residues (Crop residues),kg of nutrients,135687379.7435
+5300,Asia,236,Soybeans,Residues (Crop residues),kg of nutrients,458704564.7316
+5300,Asia,15,Wheat,Residues (Crop residues),kg of nutrients,4321652026.8046
+5301,Central Asia,44,Barley,Residues (Crop residues),kg of nutrients,56077776.7768
+5301,Central Asia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,6710970.5946
+5301,Central Asia,56,Maize,Residues (Crop residues),kg of nutrients,16983388.6349
+5301,Central Asia,79,Millet,Residues (Crop residues),kg of nutrients,537560.8726
+5301,Central Asia,75,Oats,Residues (Crop residues),kg of nutrients,4016110.2089
+5301,Central Asia,116,Potatoes,Residues (Crop residues),kg of nutrients,17432782.4361
+5301,Central Asia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,15351674.0459
+5301,Central Asia,71,Rye,Residues (Crop residues),kg of nutrients,571260.7292
+5301,Central Asia,83,Sorghum,Residues (Crop residues),kg of nutrients,153579.0583
+5301,Central Asia,236,Soybeans,Residues (Crop residues),kg of nutrients,3726764.4793
+5301,Central Asia,15,Wheat,Residues (Crop residues),kg of nutrients,331228432.7627
+5302,Eastern Asia,44,Barley,Residues (Crop residues),kg of nutrients,26085540.5626
+5302,Eastern Asia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,17831646.4533
+5302,Eastern Asia,56,Maize,Residues (Crop residues),kg of nutrients,2129640155.5619
+5302,Eastern Asia,79,Millet,Residues (Crop residues),kg of nutrients,23649429.8337
+5302,Eastern Asia,75,Oats,Residues (Crop residues),kg of nutrients,13603603.9117
+5302,Eastern Asia,116,Potatoes,Residues (Crop residues),kg of nutrients,233063585.9445
+5302,Eastern Asia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2440018174.9373
+5302,Eastern Asia,71,Rye,Residues (Crop residues),kg of nutrients,14913910.3286
+5302,Eastern Asia,83,Sorghum,Residues (Crop residues),kg of nutrients,26696928.4502
+5302,Eastern Asia,236,Soybeans,Residues (Crop residues),kg of nutrients,209828106.1953
+5302,Eastern Asia,15,Wheat,Residues (Crop residues),kg of nutrients,1686982723.7449
+5303,Southern Asia,44,Barley,Residues (Crop residues),kg of nutrients,66642030.6735
+5303,Southern Asia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,152891882.1479
+5303,Southern Asia,56,Maize,Residues (Crop residues),kg of nutrients,359911822.6586
+5303,Southern Asia,79,Millet,Residues (Crop residues),kg of nutrients,144665595.5988
+5303,Southern Asia,116,Potatoes,Residues (Crop residues),kg of nutrients,141262493.1347
+5303,Southern Asia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3012862543.4695
+5303,Southern Asia,71,Rye,Residues (Crop residues),kg of nutrients,5734.8239
+5303,Southern Asia,83,Sorghum,Residues (Crop residues),kg of nutrients,95719050.4962
+5303,Southern Asia,236,Soybeans,Residues (Crop residues),kg of nutrients,225768701.0338
+5303,Southern Asia,15,Wheat,Residues (Crop residues),kg of nutrients,1911364401.4197
+5304,South-Eastern Asia,44,Barley,Residues (Crop residues),kg of nutrients,370912.187
+5304,South-Eastern Asia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,59033947.4523
+5304,South-Eastern Asia,56,Maize,Residues (Crop residues),kg of nutrients,418942715.5534
+5304,South-Eastern Asia,79,Millet,Residues (Crop residues),kg of nutrients,2924152.4213
+5304,South-Eastern Asia,116,Potatoes,Residues (Crop residues),kg of nutrients,5326742.4187
+5304,South-Eastern Asia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2662963142.9979
+5304,South-Eastern Asia,83,Sorghum,Residues (Crop residues),kg of nutrients,4193477.1264
+5304,South-Eastern Asia,236,Soybeans,Residues (Crop residues),kg of nutrients,17762181.665
+5304,South-Eastern Asia,15,Wheat,Residues (Crop residues),kg of nutrients,1717990.0797
+5305,Western Asia,44,Barley,Residues (Crop residues),kg of nutrients,127160802.328
+5305,Western Asia,176,"Beans, dry",Residues (Crop residues),kg of nutrients,2173525.006
+5305,Western Asia,56,Maize,Residues (Crop residues),kg of nutrients,54821146.5108
+5305,Western Asia,79,Millet,Residues (Crop residues),kg of nutrients,1067543.1562
+5305,Western Asia,75,Oats,Residues (Crop residues),kg of nutrients,3170761.5977
+5305,Western Asia,116,Potatoes,Residues (Crop residues),kg of nutrients,17178801.6931
+5305,Western Asia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,12377913.6113
+5305,Western Asia,71,Rye,Residues (Crop residues),kg of nutrients,3481295.5214
+5305,Western Asia,83,Sorghum,Residues (Crop residues),kg of nutrients,8924344.6124
+5305,Western Asia,236,Soybeans,Residues (Crop residues),kg of nutrients,1618811.3582
+5305,Western Asia,15,Wheat,Residues (Crop residues),kg of nutrients,390358478.7975
+5400,Europe,44,Barley,Residues (Crop residues),kg of nutrients,1070596844.3903
+5400,Europe,176,"Beans, dry",Residues (Crop residues),kg of nutrients,8886786.7435
+5400,Europe,56,Maize,Residues (Crop residues),kg of nutrients,897102189.8697
+5400,Europe,79,Millet,Residues (Crop residues),kg of nutrients,6003373.2036
+5400,Europe,75,Oats,Residues (Crop residues),kg of nutrients,167438926.3001
+5400,Europe,116,Potatoes,Residues (Crop residues),kg of nutrients,236787234.4227
+5400,Europe,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,43657218.7341
+5400,Europe,71,Rye,Residues (Crop residues),kg of nutrients,121663010.539
+5400,Europe,83,Sorghum,Residues (Crop residues),kg of nutrients,9694862.7519
+5400,Europe,236,Soybeans,Residues (Crop residues),kg of nutrients,160348803.9788
+5400,Europe,15,Wheat,Residues (Crop residues),kg of nutrients,3407659559.9016
+5401,Eastern Europe,44,Barley,Residues (Crop residues),kg of nutrients,501679983.3417
+5401,Eastern Europe,176,"Beans, dry",Residues (Crop residues),kg of nutrients,4176853.8816
+5401,Eastern Europe,56,Maize,Residues (Crop residues),kg of nutrients,572090448.8362
+5401,Eastern Europe,79,Millet,Residues (Crop residues),kg of nutrients,5395703.9872
+5401,Eastern Europe,75,Oats,Residues (Crop residues),kg of nutrients,100172224.0538
+5401,Eastern Europe,116,Potatoes,Residues (Crop residues),kg of nutrients,159249474.3433
+5401,Eastern Europe,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,13209488.6997
+5401,Eastern Europe,71,Rye,Residues (Crop residues),kg of nutrients,74998289.5211
+5401,Eastern Europe,83,Sorghum,Residues (Crop residues),kg of nutrients,4677253.2182
+5401,Eastern Europe,236,Soybeans,Residues (Crop residues),kg of nutrients,129561596.4415
+5401,Eastern Europe,15,Wheat,Residues (Crop residues),kg of nutrients,1988870945.2901
+5402,Northern Europe,44,Barley,Residues (Crop residues),kg of nutrients,202989437.5286
+5402,Northern Europe,176,"Beans, dry",Residues (Crop residues),kg of nutrients,3556546.1193
+5402,Northern Europe,56,Maize,Residues (Crop residues),kg of nutrients,777729.4161
+5402,Northern Europe,75,Oats,Residues (Crop residues),kg of nutrients,38534445.8342
+5402,Northern Europe,116,Potatoes,Residues (Crop residues),kg of nutrients,17992253.2487
+5402,Northern Europe,71,Rye,Residues (Crop residues),kg of nutrients,13408572.7935
+5402,Northern Europe,15,Wheat,Residues (Crop residues),kg of nutrients,388669803.9525
+5403,Southern Europe,44,Barley,Residues (Crop residues),kg of nutrients,102723838.3866
+5403,Southern Europe,176,"Beans, dry",Residues (Crop residues),kg of nutrients,1048803.0774
+5403,Southern Europe,56,Maize,Residues (Crop residues),kg of nutrients,153237638.6264
+5403,Southern Europe,79,Millet,Residues (Crop residues),kg of nutrients,24268.0901
+5403,Southern Europe,75,Oats,Residues (Crop residues),kg of nutrients,18341807.2666
+5403,Southern Europe,116,Potatoes,Residues (Crop residues),kg of nutrients,12138944.5085
+5403,Southern Europe,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,29452953.0942
+5403,Southern Europe,71,Rye,Residues (Crop residues),kg of nutrients,2982092.1306
+5403,Southern Europe,83,Sorghum,Residues (Crop residues),kg of nutrients,2495694.3374
+5403,Southern Europe,236,Soybeans,Residues (Crop residues),kg of nutrients,22276429.7558
+5403,Southern Europe,15,Wheat,Residues (Crop residues),kg of nutrients,217362170.1895
+5404,Western Europe,44,Barley,Residues (Crop residues),kg of nutrients,263203585.1334
+5404,Western Europe,176,"Beans, dry",Residues (Crop residues),kg of nutrients,104583.6652
+5404,Western Europe,56,Maize,Residues (Crop residues),kg of nutrients,170996372.991
+5404,Western Europe,79,Millet,Residues (Crop residues),kg of nutrients,583401.1263
+5404,Western Europe,75,Oats,Residues (Crop residues),kg of nutrients,10390449.1454
+5404,Western Europe,116,Potatoes,Residues (Crop residues),kg of nutrients,47406562.3222
+5404,Western Europe,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,994776.9402
+5404,Western Europe,71,Rye,Residues (Crop residues),kg of nutrients,30274056.0938
+5404,Western Europe,83,Sorghum,Residues (Crop residues),kg of nutrients,2521915.1962
+5404,Western Europe,236,Soybeans,Residues (Crop residues),kg of nutrients,8510777.7814
+5404,Western Europe,15,Wheat,Residues (Crop residues),kg of nutrients,812756640.4695
+5500,Oceania,44,Barley,Residues (Crop residues),kg of nutrients,173139784.073
+5500,Oceania,176,"Beans, dry",Residues (Crop residues),kg of nutrients,475317.5811
+5500,Oceania,56,Maize,Residues (Crop residues),kg of nutrients,5123742.8656
+5500,Oceania,79,Millet,Residues (Crop residues),kg of nutrients,433524.5145
+5500,Oceania,75,Oats,Residues (Crop residues),kg of nutrients,26813605.4138
+5500,Oceania,116,Potatoes,Residues (Crop residues),kg of nutrients,2402867.7299
+5500,Oceania,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,8022065.7261
+5500,Oceania,71,Rye,Residues (Crop residues),kg of nutrients,513794.8288
+5500,Oceania,83,Sorghum,Residues (Crop residues),kg of nutrients,10828504.9476
+5500,Oceania,236,Soybeans,Residues (Crop residues),kg of nutrients,915692.1585
+5500,Oceania,15,Wheat,Residues (Crop residues),kg of nutrients,425175678.4303
+5501,Australia and New Zealand,44,Barley,Residues (Crop residues),kg of nutrients,173139784.073
+5501,Australia and New Zealand,176,"Beans, dry",Residues (Crop residues),kg of nutrients,475317.5811
+5501,Australia and New Zealand,56,Maize,Residues (Crop residues),kg of nutrients,4917602.4658
+5501,Australia and New Zealand,79,Millet,Residues (Crop residues),kg of nutrients,433524.5145
+5501,Australia and New Zealand,75,Oats,Residues (Crop residues),kg of nutrients,26813605.4138
+5501,Australia and New Zealand,116,Potatoes,Residues (Crop residues),kg of nutrients,2387751.1115
+5501,Australia and New Zealand,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,7822143.536
+5501,Australia and New Zealand,71,Rye,Residues (Crop residues),kg of nutrients,513794.8288
+5501,Australia and New Zealand,83,Sorghum,Residues (Crop residues),kg of nutrients,10778848.1649
+5501,Australia and New Zealand,236,Soybeans,Residues (Crop residues),kg of nutrients,915692.1585
+5501,Australia and New Zealand,15,Wheat,Residues (Crop residues),kg of nutrients,425175526.538
+5502,Melanesia,56,Maize,Residues (Crop residues),kg of nutrients,204787.6244
+5502,Melanesia,116,Potatoes,Residues (Crop residues),kg of nutrients,13274.9982
+5502,Melanesia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,196972.9136
+5502,Melanesia,83,Sorghum,Residues (Crop residues),kg of nutrients,49491.5229
+5502,Melanesia,15,Wheat,Residues (Crop residues),kg of nutrients,151.8923
+5503,Micronesia,56,Maize,Residues (Crop residues),kg of nutrients,1352.7754
+5503,Micronesia,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,2949.2765
+5503,Micronesia,83,Sorghum,Residues (Crop residues),kg of nutrients,165.2598
+5504,Polynesia,116,Potatoes,Residues (Crop residues),kg of nutrients,1841.6203
+5706,European Union,44,Barley,Residues (Crop residues),kg of nutrients,672172671.2486
+5706,European Union,176,"Beans, dry",Residues (Crop residues),kg of nutrients,4774559.4383
+5706,European Union,56,Maize,Residues (Crop residues),kg of nutrients,517690311.7606
+5706,European Union,79,Millet,Residues (Crop residues),kg of nutrients,1070166.8179
+5706,European Union,75,Oats,Residues (Crop residues),kg of nutrients,86522207.3729
+5706,European Union,116,Potatoes,Residues (Crop residues),kg of nutrients,98795775.118
+5706,European Union,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,31537909.8551
+5706,European Union,71,Rye,Residues (Crop residues),kg of nutrients,77754950.4427
+5706,European Union,83,Sorghum,Residues (Crop residues),kg of nutrients,5750200.2043
+5706,European Union,236,Soybeans,Residues (Crop residues),kg of nutrients,33704629.9366
+5706,European Union,15,Wheat,Residues (Crop residues),kg of nutrients,1862979190.6469
+5801,Least Developed Countries,44,Barley,Residues (Crop residues),kg of nutrients,30406207.9157
+5801,Least Developed Countries,176,"Beans, dry",Residues (Crop residues),kg of nutrients,122506282.9131
+5801,Least Developed Countries,56,Maize,Residues (Crop residues),kg of nutrients,484446792.893
+5801,Least Developed Countries,79,Millet,Residues (Crop residues),kg of nutrients,144314654.1917
+5801,Least Developed Countries,75,Oats,Residues (Crop residues),kg of nutrients,562819.0093
+5801,Least Developed Countries,116,Potatoes,Residues (Crop residues),kg of nutrients,56560648.7623
+5801,Least Developed Countries,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1471407867.8154
+5801,Least Developed Countries,83,Sorghum,Residues (Crop residues),kg of nutrients,333229732.7758
+5801,Least Developed Countries,236,Soybeans,Residues (Crop residues),kg of nutrients,26554590.231
+5801,Least Developed Countries,15,Wheat,Residues (Crop residues),kg of nutrients,179013058.6732
+5802,Land Locked Developing Countries,44,Barley,Residues (Crop residues),kg of nutrients,102157268.332
+5802,Land Locked Developing Countries,176,"Beans, dry",Residues (Crop residues),kg of nutrients,41622394.4351
+5802,Land Locked Developing Countries,56,Maize,Residues (Crop residues),kg of nutrients,354302499.7105
+5802,Land Locked Developing Countries,79,Millet,Residues (Crop residues),kg of nutrients,110797630.2443
+5802,Land Locked Developing Countries,75,Oats,Residues (Crop residues),kg of nutrients,5247667.4546
+5802,Land Locked Developing Countries,116,Potatoes,Residues (Crop residues),kg of nutrients,46557355.7004
+5802,Land Locked Developing Countries,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,219179235.3731
+5802,Land Locked Developing Countries,71,Rye,Residues (Crop residues),kg of nutrients,694074.8817
+5802,Land Locked Developing Countries,83,Sorghum,Residues (Crop residues),kg of nutrients,209905927.5322
+5802,Land Locked Developing Countries,236,Soybeans,Residues (Crop residues),kg of nutrients,191838622.6595
+5802,Land Locked Developing Countries,15,Wheat,Residues (Crop residues),kg of nutrients,546667076.7271
+5803,Small Island Developing States,176,"Beans, dry",Residues (Crop residues),kg of nutrients,4069204.4392
+5803,Small Island Developing States,56,Maize,Residues (Crop residues),kg of nutrients,9059622.3786
+5803,Small Island Developing States,79,Millet,Residues (Crop residues),kg of nutrients,178166.7346
+5803,Small Island Developing States,116,Potatoes,Residues (Crop residues),kg of nutrients,674021.8661
+5803,Small Island Developing States,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,33315268.8374
+5803,Small Island Developing States,83,Sorghum,Residues (Crop residues),kg of nutrients,2134278.5742
+5803,Small Island Developing States,236,Soybeans,Residues (Crop residues),kg of nutrients,175282.5077
+5803,Small Island Developing States,15,Wheat,Residues (Crop residues),kg of nutrients,151.8923
+5815,Low Income Food Deficit Countries,44,Barley,Residues (Crop residues),kg of nutrients,76422606.5492
+5815,Low Income Food Deficit Countries,176,"Beans, dry",Residues (Crop residues),kg of nutrients,239819943.265
+5815,Low Income Food Deficit Countries,56,Maize,Residues (Crop residues),kg of nutrients,812817141.526
+5815,Low Income Food Deficit Countries,79,Millet,Residues (Crop residues),kg of nutrients,282658545.4442
+5815,Low Income Food Deficit Countries,75,Oats,Residues (Crop residues),kg of nutrients,869589.1202
+5815,Low Income Food Deficit Countries,116,Potatoes,Residues (Crop residues),kg of nutrients,168940265.6415
+5815,Low Income Food Deficit Countries,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,3663071882.4251
+5815,Low Income Food Deficit Countries,71,Rye,Residues (Crop residues),kg of nutrients,939796.6724
+5815,Low Income Food Deficit Countries,83,Sorghum,Residues (Crop residues),kg of nutrients,448285856.5945
+5815,Low Income Food Deficit Countries,236,Soybeans,Residues (Crop residues),kg of nutrients,242011446.011
+5815,Low Income Food Deficit Countries,15,Wheat,Residues (Crop residues),kg of nutrients,1578371179.1495
+5817,Net Food Importing Developing Countries,44,Barley,Residues (Crop residues),kg of nutrients,81924833.5517
+5817,Net Food Importing Developing Countries,176,"Beans, dry",Residues (Crop residues),kg of nutrients,145514506.9382
+5817,Net Food Importing Developing Countries,56,Maize,Residues (Crop residues),kg of nutrients,678267485.1843
+5817,Net Food Importing Developing Countries,79,Millet,Residues (Crop residues),kg of nutrients,150833740.0707
+5817,Net Food Importing Developing Countries,75,Oats,Residues (Crop residues),kg of nutrients,1526415.2956
+5817,Net Food Importing Developing Countries,116,Potatoes,Residues (Crop residues),kg of nutrients,95792429.5544
+5817,Net Food Importing Developing Countries,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,1788575344.4416
+5817,Net Food Importing Developing Countries,71,Rye,Residues (Crop residues),kg of nutrients,1166122.263
+5817,Net Food Importing Developing Countries,83,Sorghum,Residues (Crop residues),kg of nutrients,351262598.2337
+5817,Net Food Importing Developing Countries,236,Soybeans,Residues (Crop residues),kg of nutrients,27797951.7468
+5817,Net Food Importing Developing Countries,15,Wheat,Residues (Crop residues),kg of nutrients,755973716.706
+5848,Annex I countries,44,Barley,Residues (Crop residues),kg of nutrients,1458741503.0982
+5848,Annex I countries,176,"Beans, dry",Residues (Crop residues),kg of nutrients,27738387.1713
+5848,Annex I countries,56,Maize,Residues (Crop residues),kg of nutrients,3904629992.6174
+5848,Annex I countries,79,Millet,Residues (Crop residues),kg of nutrients,10281577.5162
+5848,Annex I countries,75,Oats,Residues (Crop residues),kg of nutrients,243060689.8687
+5848,Annex I countries,116,Potatoes,Residues (Crop residues),kg of nutrients,287679763.5976
+5848,Annex I countries,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,245112949.884
+5848,Annex I countries,71,Rye,Residues (Crop residues),kg of nutrients,131482828.239
+5848,Annex I countries,83,Sorghum,Residues (Crop residues),kg of nutrients,106566336.8394
+5848,Annex I countries,236,Soybeans,Residues (Crop residues),kg of nutrients,1723928539.5287
+5848,Annex I countries,15,Wheat,Residues (Crop residues),kg of nutrients,5072584230.1039
+5849,Non-Annex I countries,44,Barley,Residues (Crop residues),kg of nutrients,362149186.3244
+5849,Non-Annex I countries,176,"Beans, dry",Residues (Crop residues),kg of nutrients,403629227.0966
+5849,Non-Annex I countries,56,Maize,Residues (Crop residues),kg of nutrients,5382119661.1331
+5849,Non-Annex I countries,79,Millet,Residues (Crop residues),kg of nutrients,334660885.7112
+5849,Non-Annex I countries,75,Oats,Residues (Crop residues),kg of nutrients,48575470.8465
+5849,Non-Annex I countries,116,Potatoes,Residues (Crop residues),kg of nutrients,513868962.2018
+5849,Non-Annex I countries,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,8909972280.2207
+5849,Non-Annex I countries,71,Rye,Residues (Crop residues),kg of nutrients,18190453.1544
+5849,Non-Annex I countries,83,Sorghum,Residues (Crop residues),kg of nutrients,715078610.9477
+5849,Non-Annex I countries,236,Soybeans,Residues (Crop residues),kg of nutrients,2799551338.1697
+5849,Non-Annex I countries,15,Wheat,Residues (Crop residues),kg of nutrients,4822029254.8407
+5873,OECD,44,Barley,Residues (Crop residues),kg of nutrients,1053306509.6016
+5873,OECD,176,"Beans, dry",Residues (Crop residues),kg of nutrients,40810695.5073
+5873,OECD,56,Maize,Residues (Crop residues),kg of nutrients,3682573503.5829
+5873,OECD,79,Millet,Residues (Crop residues),kg of nutrients,5325500.937
+5873,OECD,75,Oats,Residues (Crop residues),kg of nutrients,166649359.5329
+5873,OECD,116,Potatoes,Residues (Crop residues),kg of nutrients,153797608.4191
+5873,OECD,27,"Rice, paddy",Residues (Crop residues),kg of nutrients,291541671.372
+5873,OECD,71,Rye,Residues (Crop residues),kg of nutrients,87287977.0085
+5873,OECD,83,Sorghum,Residues (Crop residues),kg of nutrients,151363599.2784
+5873,OECD,236,Soybeans,Residues (Crop residues),kg of nutrients,1604010334.3065
+5873,OECD,15,Wheat,Residues (Crop residues),kg of nutrients,3395563848.6209
