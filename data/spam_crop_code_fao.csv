@@ -1,0 +1,172 @@
+no;SPAM_short_name;SPAM_long_name;FAONAMES;FAOCODE;GROUP
+1;WHEA;wheat;wheat;15;cereals
+2;RICE;rice;rice;27;cereals
+4;BARL;barley;barley;44;cereals
+3;MAIZ;maize;maize;56;cereals
+8;OCER;other cereals;other cereals 1;68;cereals
+8;OCER;other cereals;rye;71;cereals
+8;OCER;other cereals;oats;75;cereals
+5;PMIL;pearl millet;millet;79;cereals
+6;SMIL;small millet;millet;79;cereals
+7;SORG;sorghum;sorghum;83;cereals
+8;OCER;other cereals;buckwheat;89;cereals
+8;OCER;other cereals;quinoa;92;cereals
+8;OCER;other cereals;fonio;94;cereals
+8;OCER;other cereals;triticale;97;cereals
+8;OCER;other cereals;canary seed;101;cereals
+8;OCER;other cereals;grain, mixed;103;cereals
+8;OCER;other cereals;cereals nes;108;cereals
+9;POTA;potato;potato;116;roots&tubers or starchy roots
+10;SWPO;sweet potato;sweet potato;122;roots&tubers or starchy roots
+12;CASS;cassava;cassava;125;roots&tubers or starchy roots
+13;ORTS;other roots;yautia cocoyam;135;roots&tubers or starchy roots
+13;ORTS;other roots;taro cocoyam;136;roots&tubers or starchy roots
+11;YAMS;yams;yam;137;roots&tubers or starchy roots
+13;ORTS;other roots;yautia 3;149;roots&tubers or starchy roots
+28;SUGC;sugarcane;sugar cane;156;sugar crops
+29;SUGB;sugarbeet;sugarbeet;157;sugar crops
+42;REST;rest of crops;sugar crops nes;161;other
+14;BEAN;bean;beans, dry;176;pulses
+19;OPUL;other pulses;broad beans, horse beans, dry;181;pulses
+19;OPUL;other pulses;peas, dry;187;pulses
+15;CHIC;chickpea;chickpea;191;pulses
+16;COWP;cowpea;cowpea;195;pulses
+17;PIGE;pigeonpea;pigeon pea;197;pulses
+18;LENT;lentil;lentils;201;pulses
+19;OPUL;other pulses;bambara beans;203;pulses
+19;OPUL;other pulses;vetches;205;pulses
+19;OPUL;other pulses;lupins;210;pulses
+19;OPUL;other pulses;pulses nes;211;pulses
+42;REST;rest of crops;brazil nuts, with shell;216;other
+42;REST;rest of crops;cashew nuts, with shell;217;other
+42;REST;rest of crops;chestnut;220;other
+42;REST;rest of crops;almonds, with shell;221;other
+42;REST;rest of crops;walnuts, with shell;222;other
+42;REST;rest of crops;pistachios;223;other
+42;REST;rest of crops;kola nuts;224;other
+42;REST;rest of crops;hazelnuts, with shell;225;other
+42;REST;rest of crops;areca nuts;226;other
+42;REST;rest of crops;nuts nes;234;other
+20;SOYB;soybean;soybean;236;oilcrops
+21;GROU;groundnut;groundnut, with shell;242;oilcrops
+22;CNUT;coconut;coconut;249;oilcrops
+23;OILP;oilpalm;palmoil;254;oilcrops
+23;OILP;oilpalm;palm kernels;256;oilcrops
+23;OILP;oilpalm;oil, palm;257;oilcrops
+27;OOIL;other oil crops;olives;260;oilcrops
+27;OOIL;other oil crops;karite nuts (sheanuts);263;oilcrops
+27;OOIL;other oil crops;castor oil seed;265;oilcrops
+24;SUNF;sunflower;sunflower seed;267;oilcrops
+25;RAPE;rapeseed;rapeseed;270;oilcrops
+27;OOIL;other oil crops;tung nuts;275;oilcrops
+27;OOIL;other oil crops;jojoba seed;277;oilcrops
+27;OOIL;other oil crops;safflower seed;280;oilcrops
+26;SESA;sesameseed;sesame seed;289;oilcrops
+25;RAPE;rapeseed;mustard seed;292;oilcrops
+27;OOIL;other oil crops;poppy seed;296;oilcrops
+27;OOIL;other oil crops;melonseed;299;oilcrops
+27;OOIL;other oil crops;tallowtree seed;305;oilcrops
+27;OOIL;other oil crops;kapok fruit;310;oilcrops
+27;OOIL;other oil crops;kapokseed in shell;311;oilcrops
+30;COTT;cotton;seed cotton;328;fibres
+27;OOIL;other oil crops;cottonseed;329;oilcrops
+27;OOIL;other oil crops;linseed;333;oilcrops
+27;OOIL;other oil crops;hempseed;336;oilcrops
+27;OOIL;other oil crops;oilseeds nes;339;oilcrops
+41;VEGE;vegetables;cabbages and other brassicas;358;vegetables
+42;VEGE;vegetables;artichokes;366;vegetables
+43;VEGE;vegetables;asparagus;367;vegetables
+44;VEGE;vegetables;lettuce and chicory;372;vegetables
+45;VEGE;vegetables;spinach;373;vegetables
+46;VEGE;vegetables;cassava leaves;378;vegetables
+47;VEGE;vegetables;tomatoes;388;vegetables
+48;VEGE;vegetables;cauliflowers and broccoli;393;vegetables
+49;VEGE;vegetables;pumpkins, squash and gourds;394;vegetables
+50;VEGE;vegetables;cucumbers and gherkins;397;vegetables
+51;VEGE;vegetables;eggplants (aubergines);399;vegetables
+52;VEGE;vegetables;chillies and peppers, green;401;vegetables
+53;VEGE;vegetables;onions, shallots, green;402;vegetables
+54;VEGE;vegetables;onions, dry;403;vegetables
+55;VEGE;vegetables;garlic;406;vegetables
+56;VEGE;vegetables;leeks, other alliaceous vegetables;407;vegetables
+57;VEGE;vegetables;beans, green;414;vegetables
+58;VEGE;vegetables;peas, green;417;vegetables
+59;VEGE;vegetables;vegetables, leguminous nes;420;vegetables
+60;VEGE;vegetables;string beans;423;vegetables
+61;VEGE;vegetables;carrots and turnips;426;vegetables
+62;VEGE;vegetables;okra;430;vegetables
+63;VEGE;vegetables;maize, green;446;vegetables
+64;VEGE;vegetables;mushrooms and truffles;449;vegetables
+65;VEGE;vegetables;chicory roots;459;vegetables
+66;VEGE;vegetables;carobs;461;vegetables
+67;VEGE;vegetables;vegetables, fresh nes;463;vegetables
+37;BANA;banana;banana;486;fruits
+38;PLNT;plantain;plantain;489;fruits
+39;TROF;tropical fruit;oranges;490;fruits
+39;TROF;tropical fruit;tangerines, mandarins, clementines, satsumas;495;fruits
+39;TROF;tropical fruit;lemons and limes;497;fruits
+39;TROF;tropical fruit;grapefruit (inc. pomelos);507;fruits
+39;TROF;tropical fruit;fruit, citrus nes;512;fruits
+40;TEMF;temperate fruit;apples;515;fruits
+40;TEMF;temperate fruit;pears;521;fruits
+40;TEMF;temperate fruit;quinces;523;fruits
+40;TEMF;temperate fruit;apricots;526;fruits
+40;TEMF;temperate fruit;cherries, sour;530;fruits
+40;TEMF;temperate fruit;cherries;531;fruits
+40;TEMF;temperate fruit;peaches and nectarines;534;fruits
+40;TEMF;temperate fruit;plums and sloes;536;fruits
+40;TEMF;temperate fruit;fruit, stone nes;541;fruits
+40;TEMF;temperate fruit;fruit, pome nes;542;fruits
+40;TEMF;temperate fruit;strawberries;544;fruits
+40;TEMF;temperate fruit;raspberries;547;fruits
+40;TEMF;temperate fruit;gooseberries;549;fruits
+40;TEMF;temperate fruit;currants;550;fruits
+40;TEMF;temperate fruit;blueberries;552;fruits
+40;TEMF;temperate fruit;cranberries;554;fruits
+40;TEMF;temperate fruit;berries nes;558;fruits
+40;TEMF;temperate fruit;grapes;560;fruits
+39;TROF;tropical fruit;watermelons;567;fruits
+39;TROF;tropical fruit;melons, other (inc.cantaloupes);568;fruits
+39;TROF;tropical fruit;figs;569;fruits
+39;TROF;tropical fruit;mangoes, mangosteens, guavas;571;fruits
+39;TROF;tropical fruit;avocados;572;fruits
+39;TROF;tropical fruit;pineapples;574;fruits
+39;TROF;tropical fruit;dates;577;fruits
+39;TROF;tropical fruit;persimmons;587;fruits
+39;TROF;tropical fruit;cashewapple;591;fruits
+40;TEMF;temperate fruit;kiwi fruit;592;fruits
+39;TROF;tropical fruit;papayas;600;fruits
+39;TROF;tropical fruit;fruit, tropical fresh nes;603;fruits
+40;TEMF;temperate fruit;fruit, fresh nes;619;fruits
+32;ACOF;arabica coffee;coffee;656;stimulant
+33;RCOF;robusta coffee;coffee;656;stimulant
+34;COCO;cocoa;cocoa;661;stimulant
+35;TEAS;tea;tea;667;stimulant
+42;REST;rest of crops;matã©;671;other
+42;REST;rest of crops;hops;677;other
+42;REST;rest of crops;pepper (piper spp.);687;other
+42;REST;rest of crops;chillies and peppers, dry;689;other
+42;REST;rest of crops;vanilla;692;other
+42;REST;rest of crops;cinnamon (cannella);693;other
+42;REST;rest of crops;cloves;698;other
+42;REST;rest of crops;nutmeg, mace and cardamoms;702;other
+42;REST;rest of crops;anise, badian, fennel, coriander;711;other
+42;REST;rest of crops;ginger;720;other
+42;REST;rest of crops;spices nes;723;other
+42;REST;rest of crops;peppermint;748;other
+42;REST;rest of crops;pyrethrum, dried;754;other
+42;REST;rest of crops;cotton lint;767;other
+31;OFIB;other fibre crops;flax fibre and tow;773;fibres
+31;OFIB;other fibre crops;hemp tow waste;777;fibres
+31;OFIB;other fibre crops;kapok fibre;778;fibres
+31;OFIB;other fibre crops;jute;780;fibres
+31;OFIB;other fibre crops;bastfibres, other;782;fibres
+31;OFIB;other fibre crops;ramie;788;fibres
+31;OFIB;other fibre crops;sisal;789;fibres
+31;OFIB;other fibre crops;agave fibres nes;800;fibres
+31;OFIB;other fibre crops;manila fibre (abaca);809;fibres
+31;OFIB;other fibre crops;coir;813;fibres
+31;OFIB;other fibre crops;fibre crops nes;821;fibres
+36;TOBA;tobacco;tobacco leaves;826;stimulant
+42;REST;rest of crops;rubber, natural;836;other
+42;REST;rest of crops;gums, natural;839;other
