@@ -169,8 +169,8 @@ easiest solution is to replace them with the median value.
   
   # update the missing values for n_dose and p2o5_dose (as example)
   d02[is.na(n_dose), n_dose := median(d02$n_dose,na.rm=TRUE)]
-  d02[is.na(p_dose), p_dose := median(d02$p_dose,na.rm=TRUE)]
-  d02[is.na(k_dose), k_dose := median(d02$k_dose,na.rm=TRUE)]
+  #d02[is.na(p_dose), p_dose := median(d02$p_dose,na.rm=TRUE)]
+  #d02[is.na(k_dose), k_dose := median(d02$k_dose,na.rm=TRUE)]
 
 
 # # scale the variables to unit variance
@@ -331,9 +331,11 @@ This might also include adding squared or squared-root transformations to test f
 #   print(paste0('model improved the log likelyhood with ',round(out$ll_impr,1),'%'))
 #   summary(r_nue_3) 
 #   
+  d[management %in% c('EE','OF'), management := 'EE-OF']
  
   r_nue_4 <- rma.mv(yi,vi, 
-                  mods = ~fertilizer_type + fertilizer_strategy + biochar + crop_residue + tillage + cover_crop_and_crop_rotation + g_crop_type + n_dose_scaled + clay_scaled + ph_scaled + map_scaled + mat_scaled + soc_scaled : n_dose_scaled - 1, 
+                  mods = ~fertilizer_type * fertilizer_strategy + biochar + crop_residue + tillage + cover_crop_and_crop_rotation + g_crop_type + n_dose_scaled + clay_scaled + ph_scaled + map_scaled + mat_scaled + 
+                    soc_scaled : n_dose_scaled - 1, 
                   data = d02,
                   random = list(~ 1|studyid), method="REML",sparse = TRUE)
 
