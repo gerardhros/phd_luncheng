@@ -1,0 +1,97 @@
+Vari,Management,Group type,Group,n,mean,ci.lb,ci.ub
+N2O emission,Biochar,N2O,Meta-analytical data,20,-23,-61.7647,-3.71585
+N2O emission,Cover cropping,N2O,Meta-analytical data,4,-13,-52,24.7368
+N2O emission,Combined fertilizer,N2O,Meta-analytical data,26,-2.5,-25.635,84.8341
+N2O emission,Enhanced efficiency,N2O,Meta-analytical data,37,-12,-70,36.4763062
+N2O emission,No tillage,N2O,Meta-analytical data,18,5.8,-5.97701,59.0494
+N2O emission,Organic fertilizer,N2O,Meta-analytical data,31,2.5,-67.205,41
+N2O emission,Residue retention,N2O,Meta-analytical data,23,4.5,-16.3504,24
+N2O emission,Fertilizer placement,N2O,Meta-analytical data,3,-19,-22.276,5.422116528
+N2O emission,Fertilizer rate,N2O,Meta-analytical data,5,-19,-49,55.52913199
+N2O emission,Fertilizer timing,N2O,Meta-analytical data,4,-4.4,-18.4211,6.75386445
+N2O emission,Crop rotation,N2O,Meta-analytical data,2,9.5,-3.900118908,71.6636
+N2O emission,Reduced tillage,N2O,Meta-analytical data,6,6.3,-6.58797,31.9588
+N2O emission,Biochar,N2O,Primary data,1021,-27.29771385,-36.72,-17.87
+N2O emission,Cover cropping,N2O,Primary data,145,25.1879953,0.28,50.09
+N2O emission,Combined fertilizer,N2O,Primary data,239,8.164271766,-3.9,20.23
+N2O emission,Enhanced efficiency,N2O,Primary data,416,-29.2633452,-38.73,-19.8
+N2O emission,No tillage,N2O,Primary data,116,-16.2236754,-27.86,-4.58
+N2O emission,Organic fertilizer,N2O,Primary data,230,10.04353221,-5.86,25.94
+N2O emission,Residue retention,N2O,Primary data,627,0.387267151,-10.7,11.48
+N2O emission,Fertilizer placement,N2O,Primary data,159,-39.33914072,-71.44,-7.24
+N2O emission,Fertilizer rate,N2O,Primary data,156,-33.23331631,-45.58,-20.89
+N2O emission,Fertilizer timing,N2O,Primary data,246,-15.3510713,-48.26,17.95
+N2O emission,Crop rotation,N2O,Primary data,73,-4.350451895,-21.72,13.02
+N2O emission,Reduced tillage,N2O,Primary data,196,-3.013570929,-15.79,9.76
+NH3 volatilization,Biochar,NH3,Meta-analytical data,4,2.5,-1.88679,11.039
+NH3 volatilization,Cover cropping,NH3,Meta-analytical data,,,,
+NH3 volatilization,Combined fertilizer,NH3,Meta-analytical data,32,-26,-68.0017,4.52261
+NH3 volatilization,Enhanced efficiency,NH3,Meta-analytical data,31,-20,-74.29719,57.6531
+NH3 volatilization,No tillage,NH3,Meta-analytical data,5,11,3.01257,71.3661
+NH3 volatilization,Organic fertilizer,NH3,Meta-analytical data,12,-68,-90.5166,-19.3252
+NH3 volatilization,Residue retention,NH3,Meta-analytical data,8,4.9,-11.3668,25.6281
+NH3 volatilization,Fertilizer placement,NH3,Meta-analytical data,6,-16,-68,6
+NH3 volatilization,Fertilizer rate,NH3,Meta-analytical data,1,-31,-30.70234,-30.70234
+NH3 volatilization,Fertilizer timing,NH3,Meta-analytical data,6,-21,-61.59496,6.77966
+NH3 volatilization,Crop rotation,NH3,Meta-analytical data,1,-15,-15.3147,-15.3147
+NH3 volatilization,Reduced tillage,NH3,Meta-analytical data,1,-15,-14.9351,-14.9351
+NH3 volatilization,Biochar,NH3,Primary data,166,-0.098388575,-26.55,26.35
+NH3 volatilization,Cover cropping,NH3,Primary data,,,,
+NH3 volatilization,Combined fertilizer,NH3,Primary data,177,-18.28207474,-32.67,-3.89
+NH3 volatilization,Enhanced efficiency,NH3,Primary data,529,-35.08204821,-47.94,-22.23
+NH3 volatilization,No tillage,NH3,Primary data,58,25.95421811,12.29,39.62
+NH3 volatilization,Organic fertilizer,NH3,Primary data,117,-17.08744134,-71.17,37
+NH3 volatilization,Residue retention,NH3,Primary data,122,15.732165,-1.38,32.85
+NH3 volatilization,Fertilizer placement,NH3,Primary data,55,-64.57592328,-111.84,-17.31
+NH3 volatilization,Fertilizer rate,NH3,Primary data,144,-68.09392586,-94.38,-41.8
+NH3 volatilization,Fertilizer timing,NH3,Primary data,169,-24.97995151,-38.63,-11.33
+NH3 volatilization,Crop rotation,NH3,Primary data,32,-15.24210998,-36.93,6.44
+NH3 volatilization,Reduced tillage,NH3,Primary data,13,16.47568514,-1.55,34.5
+N runoff,Biochar,runoff,Meta-analytical data,,,,
+N runoff,Cover cropping,runoff,Meta-analytical data,,,,
+N runoff,Combined fertilizer,runoff,Meta-analytical data,6,-19,-31.2121,-2.11842
+N runoff,Enhanced efficiency,runoff,Meta-analytical data,1,-65,-64.909,-64.909
+N runoff,No tillage,runoff,Meta-analytical data,4,-2.2,-27.1631,15.45
+N runoff,Organic fertilizer,runoff,Meta-analytical data,3,-54,-82,-35.0668
+N runoff,Residue retention,runoff,Meta-analytical data,,,,
+N runoff,Fertilizer placement,runoff,Meta-analytical data,,,,
+N runoff,Fertilizer rate,runoff,Meta-analytical data,13,-41,-89.069,-27.54181
+N runoff,Fertilizer timing,runoff,Meta-analytical data,1,-37,-36.6631,-36.6631
+N runoff,Crop rotation,runoff,Meta-analytical data,,,,
+N runoff,Reduced tillage,runoff,Meta-analytical data,,,,
+N runoff,Biochar,runoff,Primary data,,,,
+N runoff,Cover cropping,runoff,Primary data,,,,
+N runoff,Combined fertilizer,runoff,Primary data,68,-21.93530674,-32.04,-11.83
+N runoff,Enhanced efficiency,runoff,Primary data,43,-34.3225206,-57.59,-11.05
+N runoff,No tillage,runoff,Primary data,63,-22.96148744,-53.38,7.46
+N runoff,Organic fertilizer,runoff,Primary data,15,-36.73015887,-52.39,-21.07
+N runoff,Residue retention,runoff,Primary data,,,,
+N runoff,Fertilizer placement,runoff,Primary data,,,,
+N runoff,Fertilizer rate,runoff,Primary data,76,-36.42915937,-51.63,-21.22
+N runoff,Fertilizer timing,runoff,Primary data,42,-21.17743233,-35.33,-7.03
+N runoff,Crop rotation,runoff,Primary data,,,,
+N runoff,Reduced tillage,runoff,Primary data,,,,
+N leaching,Biochar,leaching,Meta-analytical data,3,-17,-36.55410062,-10
+N leaching,Cover cropping,leaching,Meta-analytical data,15,-55,-81,-30
+N leaching,Combined fertilizer,leaching,Meta-analytical data,13,-18,-70.2397,55.8629
+N leaching,Enhanced efficiency,leaching,Meta-analytical data,16,-33,-57.83133,24.49799
+N leaching,No tillage,leaching,Meta-analytical data,2,5.3,-2.763157895,20.26315789
+N leaching,Organic fertilizer,leaching,Meta-analytical data,5,-37,-56.5753,20.0045
+N leaching,Residue retention,leaching,Meta-analytical data,3,-37,-62.0049,-14.9538
+N leaching,Fertilizer placement,leaching,Meta-analytical data,,,,
+N leaching,Fertilizer rate,leaching,Meta-analytical data,3,-41,-48.65822785,-35.21739
+N leaching,Fertilizer timing,leaching,Meta-analytical data,1,-22,-22.2278481,-22.2278481
+N leaching,Crop rotation,leaching,Meta-analytical data,,,,
+N leaching,Reduced tillage,leaching,Meta-analytical data,,,,
+N leaching,Biochar,leaching,Primary data,115,-18.89581168,-44.58,6.79
+N leaching,Cover cropping,leaching,Primary data,632,-41.07588851,-57.72,-24.43
+N leaching,Combined fertilizer,leaching,Primary data,51,-25.31981161,-41.9,-8.7
+N leaching,Enhanced efficiency,leaching,Primary data,36,-27.70395945,-40.78,-14.63
+N leaching,No tillage,leaching,Primary data,178,7.61305496,-7.37,22.6
+N leaching,Organic fertilizer,leaching,Primary data,27,-51.73574513,-98.23,-5.24
+N leaching,Residue retention,leaching,Primary data,97,-22.86745897,-35.82,-9.91
+N leaching,Fertilizer placement,leaching,Primary data,,,,
+N leaching,Fertilizer rate,leaching,Primary data,83,-37.5127068,-59.22,-15.8
+N leaching,Fertilizer timing,leaching,Primary data,21,-35.86336981,-61.5,-10.23
+N leaching,Crop rotation,leaching,Primary data,,,,
+N leaching,Reduced tillage,leaching,Primary data,,,,
