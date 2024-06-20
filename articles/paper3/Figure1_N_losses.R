@@ -65,7 +65,8 @@ p2<- ggplot(data = mydata,aes(x=Management,y=mean,shape=Group,fill=Group)) +
   geom_point(position=position_dodge(0.7), size=2, stroke = 0) +  
   scale_shape_manual(values=c("Meta-analytical data"=21,"Primary data"=23))+
   geom_text(aes(x = Management, y = ci.ub +6, label = n),position = position_dodge(width = 0.7),vjust = 0, hjust=0.5, size = 3, check_overlap = FALSE)+
-  scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),labels = rev(c("RT","ZT","ROT","CC","RES","BC","RFP","RFT","RFR","OF","CF","EE")))+
+  scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),
+                   labels = rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")))+
   scale_y_continuous(limits=c(-100,100), breaks = c(-100,-50,0,50,100))+
   labs(x = "Management practice", y = expression("N"[2]*"O emission (%)"),colour = 'black')+
   theme_bw()+
@@ -97,7 +98,8 @@ p3<- ggplot(data = mydata,aes(x=Management,y=mean,shape=Group,fill=Group)) +
   geom_point(position=position_dodge(0.7), size=2, stroke = 0) +  
   scale_shape_manual(values=c("Meta-analytical data"=21,"Primary data"=23))+
   geom_text(aes(x = Management, y = ci.ub +6, label = n),position = position_dodge(width = 0.7),vjust = 0, hjust=0.5, size = 3, check_overlap = FALSE)+
-  scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),labels = rev(c("RT","ZT","ROT","CC","RES","BC","RFP","RFT","RFR","OF","CF","EE")))+
+  scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),
+                   labels = rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")))+
   scale_y_continuous(limits=c(-100,100), breaks = c(-100,-50,0,50,100))+
   labs(x = "Management practice", y = expression("NH"[3]*" emission (%)"),colour = 'black')+
   theme_bw()+
@@ -128,7 +130,8 @@ p4<- ggplot(data = mydata,aes(x=Management,y=mean,shape=Group,fill=Group)) +
   geom_point(position=position_dodge(0.7), size=2, stroke = 0) +  
   scale_shape_manual(values=c("Meta-analytical data"=21,"Primary data"=23))+
   geom_text(aes(x = Management, y = ci.ub +6, label = n),position = position_dodge(width = 0.7),vjust = 0, hjust=0.5, size = 3, check_overlap = FALSE)+
-  scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),labels = rev(c("RT","ZT","ROT","CC","RES","BC","RFP","RFT","RFR","OF","CF","EE")))+
+  scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),
+                   labels = rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")))+
   scale_y_continuous(limits=c(-100,100), breaks = c(-100,-50,0,50,100))+
   labs(x = "Management practice", y = expression("N runoff (%)"),colour = 'black')+
   theme_bw()+
@@ -160,7 +163,8 @@ p5<- ggplot(data = mydata,aes(x=Management,y=mean,shape=Group,fill=Group)) +
   geom_point(position=position_dodge(0.7), size=2, stroke = 0) +  
   scale_shape_manual(values=c("Meta-analytical data"=21,"Primary data"=23))+
   geom_text(aes(x = Management, y = ci.ub +6, label = n),position = position_dodge(width = 0.7),vjust = 0, hjust=0.5, size = 3, check_overlap = FALSE)+
-  scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),labels = rev(c("RT","ZT","ROT","CC","RES","BC","RFP","RFT","RFR","OF","CF","EE")))+
+  scale_x_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")),
+                   labels = rev(c("Reduced tillage","No tillage","Crop rotation","Cover cropping","Residue retention","Biochar","Fertilizer placement","Fertilizer timing","Fertilizer rate","Organic fertilizer","Combined fertilizer","Enhanced efficiency")))+
   scale_y_continuous(limits=c(-100,100), breaks = c(-100,-50,0,50,100))+
   labs(x = "Management practice", y = expression("N leaching (%)"),colour = 'black')+
   theme_bw()+
@@ -178,9 +182,9 @@ p5<- ggplot(data = mydata,aes(x=Management,y=mean,shape=Group,fill=Group)) +
         axis.title.x = element_text(size=12, colour = 'black', face='bold'),
         #axis.title.x=element_blank(),
         axis.text.y = element_text(colour = 'black', size = 12),
-        axis.text.x = element_text(colour = 'black', size = 12, hjust = 0.5, vjust = 0.5))
+        axis.text.x = element_text(colour = 'black', size = 12, angle=45, hjust = 1, vjust = 1))
 
-p<-ggarrange(p1, p2, p3, p4, p5, ncol = 1, nrow = 5, align = "v",heights = c(3,2,2,2,2.5),
+p<-ggarrange(p1, p2, p3, p4, p5, ncol = 1, nrow = 5, align = "v",heights = c(3,2,2,2,4.3),
              labels = c("a", "b","c","d","e"), label.x = 0.96,label.y = 0.9,
              font.label=list(size=12,color = "black", face = "bold"),hjust = -0.2, vjust = 1)
 

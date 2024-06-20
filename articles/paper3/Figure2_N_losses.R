@@ -29,7 +29,7 @@ p1 <- ggplot(data, aes(x = Moderator, y = Parameter_estimate, fill = Moderator))
   theme(panel.grid = element_blank()) +
   guides(fill = FALSE) +
   
-  labs(x = "Management practices & Site factors", y = expression(atop(paste("N"[2], "O emission"), "Parameter estimate")), fill = "Moderator") +
+  labs(x = "Management practices & Site conditions", y = expression(atop(paste("N"[2], "O emission"), "Parameter estimate")), fill = "Moderator") +
   theme(axis.title.x = element_blank())+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8, family = "Arial", color = "black"),
         axis.text.y = element_text(hjust = 1, size = 8, family = "Arial", color = "black"),
@@ -69,7 +69,7 @@ p2 <- ggplot(data, aes(x = Moderator, y = Parameter_estimate, fill = Moderator))
   theme(panel.grid = element_blank()) +
   guides(fill = FALSE) +
   
-  labs(x = "Management practices & Site factors", y = expression(atop(paste("NH"[3], " emission"), "Parameter estimate")), fill = "Moderator") +
+  labs(x = "Management practices & Site conditions", y = expression(atop(paste("NH"[3], " emission"), "Parameter estimate")), fill = "Moderator") +
   theme(axis.title.x = element_blank())+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8, family = "Arial", color = "black"),
         axis.text.y = element_text(hjust = 1, size = 8, family = "Arial", color = "black"),
@@ -109,7 +109,7 @@ p3 <- ggplot(data, aes(x = Moderator, y = Parameter_estimate, fill = Moderator))
   theme(panel.grid = element_blank()) + 
   guides(fill = FALSE) +
   
-  labs(x = "Management practices & Site factors", y = expression(atop(paste("N runoff"), "Parameter estimate")), fill = "Moderator") +
+  labs(x = "Management practices & Site conditions", y = expression(atop(paste("N runoff"), "Parameter estimate")), fill = "Moderator") +
   theme(axis.title.x = element_blank())+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8, family = "Arial", color = "black"),
         axis.text.y = element_text(hjust = 1, size = 8, family = "Arial", color = "black"),
@@ -121,7 +121,7 @@ print(p3)
 
 
 #
-data <- readxl::read_xlsx('E:/phD/Papers/paper3/you_et_al_2023/meta_regression_result_paper3.xlsx',sheet = 4)
+data <- readxl::read_xlsx('.../meta_regression_result_paper3.xlsx',sheet = 4)
 data <- as.data.table(data)
 
 data$significance <- ifelse(data$p_value < 0.001, "***",
@@ -150,7 +150,7 @@ p4 <- ggplot(data, aes(x = Moderator, y = Parameter_estimate, fill = Moderator))
   theme(panel.grid = element_blank()) +  
   guides(fill = FALSE) + 
   
-  labs(x = "Management practices & Site factors", y = expression(atop( paste("N leaching"), "Parameter estimate")), fill = "Moderator") +
+  labs(x = "Management practices & Site conditions", y = expression(atop( paste("N leaching"), "Parameter estimate")), fill = "Moderator") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8, family = "Arial", color = "black"),
         axis.text.y = element_text(hjust = 1, size = 8, family = "Arial", color = "black"),
         text = element_text(size = 12, family = "Arial", color = "black"),
