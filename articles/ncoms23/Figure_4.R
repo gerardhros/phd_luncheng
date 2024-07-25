@@ -321,28 +321,29 @@
   require(metafor)
 
   # Luncheng add
-  
-  # read the raster with climatic data 
-  r.clim <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/climate.tif')
-  
+
+  # read the raster with climatic data
+  r.clim <- terra::rast('data/climate.tif')
+
   # read the raster with cropping data
-  r.crop <- rast('C:/Users/86188/Desktop/Figures/upscaling/ma_crops.tif')
-  
+  r.crop <- rast('data/ma_crops.tif')
+
   # read the raster with soil data
-  r.soil <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/soil.tif')
-  
+  r.soil <- terra::rast('data/soil.tif')
+
   # read the earlier prepared file with tillage practices
-  r.till <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/tillage.tif')
-  
+  r.till <- terra::rast('data/tillage.tif')
+
   # read the earlier prepared file with manure N dose
-  r.nman <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/nofert.tif')
-  
+  r.nman <- terra::rast('data/nofert.tif')
+
   # read the earlier prepared file with fertilizer N dose
-  r.nfert <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/nifert.tif')
-  
+  r.nfert <- terra::rast('data/nifert.tif')
+
   # read the earlier prepared file with cropping intensity
-  r.cropint <- terra::rast('C:/Users/86188/Desktop/Figures/upscaling/cropintensity.tif')
-  
+  r.cropint <- terra::rast('data/cropintensity.tif')
+
+
 #########################################################################
 # add all rasters
 
@@ -350,8 +351,8 @@
     rm(list= ls())
 
     # what rasters are in data
-    rfiles <- list.files('C:/Users/86188/Desktop/Figures/upscaling', pattern = 'tif$',full.names = TRUE)
-    rfiles <- rfiles[!grepl('cropland',rfiles)]
+    rfiles <- list.files('data', pattern = 'tif$',full.names = TRUE)
+    rfiles <- rfiles[!grepl('cropland|climzone|soc',rfiles)]
 
     # read in raster files
     r.ma <- terra::sds(rfiles)
@@ -361,7 +362,7 @@
 
 # convert rasters to data.table
 
-    # set first to xy data.frame (NA=FALSE otherwise gridcels are removed) 
+    # set first to xy data.frame (NA=FALSE otherwise gridcels are removed)
     r.df <- as.data.frame(r.ma,xy = TRUE, na.rm = FALSE)
 
     # convert to data.table
@@ -394,30 +395,30 @@
     # set the crop names (be aware, its the order in ma_crops)
     r.dt.melt[,cropname := c('rice','maize','other','wheat')[as.numeric(croptype)]]
 
-    # set names to tillage practices 
+    # set names to tillage practices
     r.dt.melt[, till_name := 'conventional']
     r.dt.melt[tillage %in% c(3,4,7), till_name := 'no-till']
 
 # derive the meta-analytical model
 
-    # read data  
-    d1 <- readxl::read_xlsx('C:/Users/86188/Desktop/Source Data.xlsx',sheet = "Figure4")
+    # read data
+    d1 <- readxl::read_xlsx('articles/ncoms23/Source Data.xlsx',sheet = "Figure4")
     d1 <- as.data.table(d1)
 
-    
-    # add CV for NUE treatment and estimate the SD for missing ones 
+
+    # add CV for NUE treatment and estimate the SD for missing ones
     d2<-d1
     CV_nuet_bar<-mean(d2$nuet_sd[is.na(d2$nuet_sd)==FALSE]/d2$nuet_mean[is.na(d2$nuet_sd)==FALSE])
     d2$nuet_sd[is.na(d2$nuet_sd)==TRUE]<-d2$nuet_mean[is.na(d2$nuet_sd)==TRUE]*1.25*CV_nuet_bar
-    
+
     CV_nuec_bar<-mean(d2$nuec_sd[is.na(d2$nuec_sd)==FALSE]/d2$nuec_mean[is.na(d2$nuec_sd)==FALSE])
     d2$nuec_sd[is.na(d2$nuec_sd)==TRUE]<-d2$nuec_mean[is.na(d2$nuec_sd)==TRUE]*1.25*CV_nuec_bar
-    
-    
+
+
     # clean up column names
     setnames(d2,gsub('\\/','_',gsub(' |\\(|\\)','',colnames(d2))))
     setnames(d2,tolower(colnames(d2)))
-    
+
 
     # calculate effect size (NUE)
     es21 <- escalc(measure = "MD", data = d2,
@@ -444,10 +445,10 @@
     d02.treat[treatment=='NT',desc := 'No tillage']
     d02.treat[treatment=='CC',desc := 'Crop cover']
 
-    
+
     # update the missing values for n_dose and p2o5_dose (as example)
     d02[is.na(n_dose), n_dose := median(d02$n_dose,na.rm=TRUE)]
-   
+
     # scale the variables to unit variance
     d02[,clay_scaled := scale(clay)]
     d02[,soc_scaled := scale(soc)]
@@ -455,24 +456,24 @@
     d02[,mat_scaled := scale(mat)]
     d02[,map_scaled := scale(map)]
     d02[,n_dose_scaled := scale(n_dose)]
-    
+
     # update the database (it looks like typos)
     d02[g_crop_type=='marize', g_crop_type := 'maize']
 
-    
+
     #Combining different factors
 
     d02[tillage=='reduced', tillage := 'no-till']
 
     # # Combining different factors
-    
+
     d02[,fertilizer_type := factor(fertilizer_type,
                                   levels = c('mineral','organic', 'combined','enhanced'))]
     d02[,fertilizer_strategy := factor(fertilizer_strategy,
                                       levels = c("conventional", "placement","rate","timing"))]
     d02[,g_crop_type := factor(g_crop_type,
                               levels = c('maize','wheat','rice'))]
-    
+
     d02[,rfp := fifelse(fertilizer_strategy=='placement','yes','no')]
     d02[,rft := fifelse(fertilizer_strategy=='timing','yes','no')]
     d02[,rfr := fifelse(fertilizer_strategy=='rate','yes','no')]
@@ -481,10 +482,10 @@
     d02[,ctr := fifelse(g_crop_type=='rice','yes','no')]
     #d02[,cto := fifelse(g_crop_type=='other','yes','no')]
     d02[,ndose2 := scale(n_dose^2)]
-    
+
 
     # make metafor model
-    
+
     m1 <- rma.mv(yi,vi,
                        mods = ~fertilizer_type + rfp + rft + rfr + crop_residue + tillage +
                          cover_crop_and_crop_rotation + n_dose_scaled + clay_scaled + ph_scaled + map_scaled + mat_scaled + soc_scaled +
@@ -492,17 +493,17 @@
                        data = d02,
                        random = list(~ 1|studyid), method="REML",sparse = TRUE)
 
-    # see model structure that need to be filled in to predict NUE as function of the system properties 
+    # see model structure that need to be filled in to predict NUE as function of the system properties
     p1 <- predict(m1,addx=T)
 
-    # this is the order of input variables needed for model predictions (=newmods in predict function) 
+    # this is the order of input variables needed for model predictions (=newmods in predict function)
     m1.cols <- colnames(p1$X)
 
-    # make prediction dataset for situation that soil is fertilized by both organic and inorganic fertilizers, conventional fertilizer strategy 
+    # make prediction dataset for situation that soil is fertilized by both organic and inorganic fertilizers, conventional fertilizer strategy
     dt.new <- copy(r.dt.melt)
 
-    # add the columns required for the ma model, baseline scenario 
-    # baseline is here defined as "strategy conventional", and mineral fertilizers, no biochar, no crop residue, no cover crops 
+    # add the columns required for the ma model, baseline scenario
+    # baseline is here defined as "strategy conventional", and mineral fertilizers, no biochar, no crop residue, no cover crops
     dt.new[, fertilizer_typeenhanced := 0]
     dt.new[, fertilizer_typemineral := 1]
     dt.new[, fertilizer_typeorganic := 0]
@@ -529,7 +530,7 @@
     dt.new[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.new[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
 
-    # convert to matrix, needed for rma models 
+    # convert to matrix, needed for rma models
     dt.newmod <- as.matrix(dt.new[,mget(c(m1.cols))])
 
     # predict the NUE via MD model
@@ -539,17 +540,17 @@
     cols <- c('pMDmean','pMDse','pMDcil','pMDciu','pMDpil','pMDpiu')
     dt.new[,c(cols) := dt.pred]
 
-   
+
     ############################################## scenario 4 (combination_mean)################################################################
     # scenario 4. the combination of measures with change in EE, CF, RFR, RFT, BC, RES, CC, ROT
-    
-    # make local copy 
+
+    # make local copy
     dt.s4 <- copy(dt.new)
-    
+
     # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-    
-    # update actions taken for scenario 3 
+
+    # update actions taken for scenario 3
     dt.s4[, fertilizer_typeenhanced := 1]
     dt.s4[, fertilizer_typemineral := 0]
     dt.s4[, fertilizer_typeorganic := 1]
@@ -564,46 +565,46 @@
     dt.s4[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s4[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s4[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-    
-    # convert to matrix, needed for rma models 
+
+    # convert to matrix, needed for rma models
     dt.newmod <- as.matrix(dt.s4[,mget(c(m1.cols))])
-    
+
     # predict the NUE via MD model
     dt.pred.s4 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s4[,c(cols) := dt.pred.s4]
-    
-    # compare baseline with scenario 
-    
-    # select relevant columns of the baseline 
+
+    # compare baseline with scenario
+
+    # select relevant columns of the baseline
     dt.fin <- dt.new[,.(x,y,base = pMDmean,cropname,area)]
-    
-    # select relevant columns of scenario 1 and merge 
+
+    # select relevant columns of scenario 1 and merge
     dt.fin <- merge(dt.fin,dt.s4[,.(x,y,s4 = pMDmean,cropname)],by=c('x','y','cropname'))
-    
-    # estimate relative improvement via senario 1 
+
+    # estimate relative improvement via senario 1
     dt.fin[, improvement := s4 - base]
-    
-    # estimate area weighted mean relative improvement 
+
+    # estimate area weighted mean relative improvement
     dt.fin <- dt.fin[,list(improvement = weighted.mean(improvement,w = area)),by = c('x','y')]
-    
-    
-    # make spatial raster of the estimated improvement 
-    
-    # convert to spatial raster 
+
+
+    # make spatial raster of the estimated improvement
+
+    # convert to spatial raster
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-    
+
     # write as output
-    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_4.tif', overwrite = TRUE)   
-    
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_4.tif', overwrite = TRUE)
+
     ############################################## scenario 5 (combination_lower boundaries of 95% CI)################################################################
-    # make local copy 
+    # make local copy
     dt.s5 <- copy(dt.new)
-    
+
     # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-    
-    # update actions taken for scenario 3 
+
+    # update actions taken for scenario 3
     dt.s5[, fertilizer_typeenhanced := 1]
     dt.s5[, fertilizer_typemineral := 0]
     dt.s5[, fertilizer_typeorganic := 1]
@@ -618,47 +619,47 @@
     dt.s5[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s5[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s5[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-    
-    # convert to matrix, needed for rma models 
+
+    # convert to matrix, needed for rma models
     dt.newmod <- as.matrix(dt.s5[,mget(c(m1.cols))])
-    
+
     # predict the NUE via MD model
     dt.pred.s5 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s5[,c(cols) := dt.pred.s5]
-    
-    # compare baseline with scenario 
-    
-    # select relevant columns of the baseline 
+
+    # compare baseline with scenario
+
+    # select relevant columns of the baseline
     dt.fin <- dt.new[,.(x,y,base_mean = pMDmean, base_se = pMDse,cropname,area)]
-    
-    # select relevant columns of scenario 1 and merge 
+
+    # select relevant columns of scenario 1 and merge
     dt.fin <- merge(dt.fin,dt.s5[,.(x,y,s5_mean = pMDmean,s5_se = pMDse,cropname)],by=c('x','y','cropname'))
-    
+
     # calcualte the lower boundaries
     dt.fin[, se_improvement := sqrt(s5_se^2 + base_se^2)]
     dt.fin[, mean_improvement := s5_mean - base_mean]
     dt.fin[, lower_improvement := mean_improvement - qnorm(0.975) * se_improvement]
 
-    # estimate area weighted mean relative improvement 
+    # estimate area weighted mean relative improvement
     dt.fin <- dt.fin[,list(lower_improvement = weighted.mean(lower_improvement,w = area)),by = c('x','y')]
 
-    # make spatial raster of the estimated improvement 
-    
-    # convert to spatial raster 
+    # make spatial raster of the estimated improvement
+
+    # convert to spatial raster
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-    
+
     # write as output
-    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_5.tif', overwrite = TRUE)   
-    
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_5.tif', overwrite = TRUE)
+
     ############################################## scenario 6 (combination_upper boundaries of 95% CI)################################################################
-    # make local copy 
+    # make local copy
     dt.s6 <- copy(dt.new)
-    
+
     # baseline mean and sd for total N input
     dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-    
-    # update actions taken for scenario 3 
+
+    # update actions taken for scenario 3
     dt.s6[, fertilizer_typeenhanced := 1]
     dt.s6[, fertilizer_typemineral := 0]
     dt.s6[, fertilizer_typeorganic := 1]
@@ -673,49 +674,49 @@
     dt.s6[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     dt.s6[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     dt.s6[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-    
-    # convert to matrix, needed for rma models 
+
+    # convert to matrix, needed for rma models
     dt.newmod <- as.matrix(dt.s6[,mget(c(m1.cols))])
-    
+
     # predict the NUE via MD model
     dt.pred.s6 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     dt.s6[,c(cols) := dt.pred.s6]
-    
-    # compare baseline with scenario 
-    
-    # select relevant columns of the baseline 
+
+    # compare baseline with scenario
+
+    # select relevant columns of the baseline
     dt.fin <- dt.new[,.(x,y,base_mean = pMDmean, base_se = pMDse,cropname,area)]
-    
-    # select relevant columns of scenario 1 and merge 
+
+    # select relevant columns of scenario 1 and merge
     dt.fin <- merge(dt.fin,dt.s6[,.(x,y,s6_mean = pMDmean,s6_se = pMDse,cropname)],by=c('x','y','cropname'))
-    
+
     # calcualte the lower boundaries
     dt.fin[, se_improvement := sqrt(s6_se^2 + base_se^2)]
     dt.fin[, mean_improvement := s6_mean - base_mean]
     dt.fin[, upper_improvement := mean_improvement + qnorm(0.975) * se_improvement]
-    
-    # estimate area weighted mean relative improvement 
+
+    # estimate area weighted mean relative improvement
     dt.fin <- dt.fin[,list(upper_improvement = weighted.mean(upper_improvement,w = area)),by = c('x','y')]
-    
-    # make spatial raster of the estimated improvement 
-    
-    # convert to spatial raster 
+
+    # make spatial raster of the estimated improvement
+
+    # convert to spatial raster
     r.fin <- terra::rast(dt.fin,type='xyz')
     terra::crs(r.fin) <- 'epsg:4326'
-    
+
     # write as output
-    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_6.tif', overwrite = TRUE)   
-    
+    terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_6.tif', overwrite = TRUE)
+
     # ############################################## scenario 4 (combination_SE)################################################################
     # # scenario 4. the combination of measures with change in EE, CF, RFR, RFT, BC, RES, CC, ROT
-    # 
-    # # make local copy 
+    #
+    # # make local copy
     # dt.s5 <- copy(dt.new)
-    # 
+    #
     # # baseline mean and sd for total N input
     # dt.fert.bs <- dt.new[,list(mean = mean(nh4+no3+nam), sd = sd(nh4+no3+nam))]
-    # 
-    # # update actions taken for scenario 3 
+    #
+    # # update actions taken for scenario 3
     # dt.s5[, fertilizer_typeenhanced := 1]
     # dt.s5[, fertilizer_typemineral := 0]
     # dt.s5[, fertilizer_typeorganic := 1]
@@ -730,48 +731,48 @@
     # dt.s5[, `n_dose_scaled:soc_scaled` := (n_dose_scaled - 0.1 )*soc_scaled]
     # dt.s5[, `rfpyes:ctmyes` := rfpyes*ctmyes]
     # dt.s5[, `mat_scaled:ctmyes` := mat_scaled*ctmyes]
-    # 
-    # # convert to matrix, needed for rma models 
+    #
+    # # convert to matrix, needed for rma models
     # dt.newmod <- as.matrix(dt.s5[,mget(c(m1.cols))])
-    # 
+    #
     # # predict the NUE via MD model
     # dt.pred.s5 <- as.data.table(predict(m1,newmods = dt.newmod,addx=F))
     # dt.s5[,c(cols) := dt.pred.s5]
-    # 
-    # # compare baseline with scenario 
-    # 
-    # # select relevant columns of the baseline 
+    #
+    # # compare baseline with scenario
+    #
+    # # select relevant columns of the baseline
     # dt.fin <- dt.new[,.(x,y,base_mean = pMDmean, base_se = pMDse,cropname,area)]
-    # 
-    # # select relevant columns of scenario 1 and merge 
+    #
+    # # select relevant columns of scenario 1 and merge
     # dt.fin <- merge(dt.fin,dt.s5[,.(x,y,s5_mean = pMDmean,s5_se = pMDse,cropname)],by=c('x','y','cropname'))
-    # 
-    # # estimate relative improvement via senario 1 
+    #
+    # # estimate relative improvement via senario 1
     # dt.fin[, se_improvement := sqrt(s5_se^2 + base_se^2)]
-    # 
+    #
     # # # calcualte the CV, assuming n = 1
     # # dt.fin[, mean_improvement := s5_mean - base_mean]
     # # dt.fin[, cv_improvement := round(se_improvement * sqrt(1) * 100 / mean_improvement,0)]
-    # 
-    # # estimate area weighted mean relative improvement 
+    #
+    # # estimate area weighted mean relative improvement
     # dt.fin <- dt.fin[,list(se_improvement = weighted.mean(se_improvement,w = area)),by = c('x','y')]
     # #dt.fin <- dt.fin[,list(cv_improvement = weighted.mean(cv_improvement,w = area)),by = c('x','y')]
-    # 
-    # 
-    # # make spatial raster of the estimated improvement 
-    # 
-    # # convert to spatial raster 
+    #
+    #
+    # # make spatial raster of the estimated improvement
+    #
+    # # convert to spatial raster
     # r.fin <- terra::rast(dt.fin,type='xyz')
     # terra::crs(r.fin) <- 'epsg:4326'
-    # 
+    #
     # # write as output
-    # terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_5.tif', overwrite = TRUE)   
-    # 
-    # 
-    
+    # terra::writeRaster(r.fin,'C:/Users/86188/Desktop/Figures/scenario_5.tif', overwrite = TRUE)
+    #
+    #
+
 ###############################################################################################################################
     # plotting
-    
+
     library(ggplot2)
     library(sf)
     library(rnaturalearth)
@@ -780,25 +781,25 @@
     library(cowplot)
     library(vcd)
     library(ggpubr)
-  
+
     ########################################### scenario_4 (combined_mean) ########################################################
-    
+
     # set theme
     theme_set(theme_bw())
-    
+
     # get the raster to plot
     r4 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_4.tif')
-    
+
     # convert to data.frame
     r4.p <- as.data.frame(r4,xy=TRUE)
 
     # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-    
+
     # plot a basic world map plot
     p4 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r4.p,aes(x=x,y=y, name ='none',
-                                fill = cut(improvement,breaks= c(0,20,30,35,40,800), 
+                                fill = cut(improvement,breaks= c(0,20,30,35,40,800),
                                            labels = c('< 20','20-30','30-35','35-40','> 40') ))) +
       theme_void() +
       theme(legend.position = c(0.05,0.4), text = element_text(size = 12),
@@ -808,30 +809,30 @@
       labs(fill = 'NUEr increased (%)') +
       xlab("Longitude") + ylab("Latitude") +
       ggtitle("Mean absolute NUEr changes") +
-      theme(plot.title = element_text(size = 16))+ 
+      theme(plot.title = element_text(size = 16))+
       theme(plot.title = element_text(hjust = 0.5))+
       annotate("text",x=0.5,y=-50,label="Mean: 30.3%",size=5, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    
-    
+
+
     ########################################### scenario_5 (combined_lower boundary) ########################################################
-    
+
     # set theme
     theme_set(theme_bw())
-    
+
     # get the raster to plot
     r5 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_5.tif')
-    
+
     # convert to data.frame
     r5.p <- as.data.frame(r5,xy=TRUE)
 
     # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-    
+
     # plot a basic world map plot
     p5 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r5.p,aes(x=x,y=y, name ='none',
-                                fill = cut(lower_improvement,breaks= c(0,20,30,35,40,800), 
+                                fill = cut(lower_improvement,breaks= c(0,20,30,35,40,800),
                                            labels = c('< 20','20-30','30-35','35-40','> 40') ))) +
       theme_void() +
       theme(legend.position = c(0.05,0.4), text = element_text(size = 12),
@@ -845,25 +846,25 @@
       theme(plot.title = element_text(hjust = 0.5))+
       annotate("text",x=0.5,y=-50,label="Mean: 24.5%",size=5, colour="#0070C0",fontface = "bold")+
       coord_sf(crs = 4326)
-    
+
     ########################################### scenario_6 (combined_lower boundary) ########################################################
-    
+
     # set theme
     theme_set(theme_bw())
-    
+
     # get the raster to plot
     r6 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_6.tif')
-    
+
     # convert to data.frame
     r6.p <- as.data.frame(r6,xy=TRUE)
 
     # get base world map
     world <- ne_countries(scale = "medium", returnclass = "sf")
-    
+
     # plot a basic world map plot
     p6 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
       geom_tile(data = r6.p,aes(x=x,y=y, name ='none',
-                                fill = cut(upper_improvement,breaks= c(0,20,30,35,40,800), 
+                                fill = cut(upper_improvement,breaks= c(0,20,30,35,40,800),
                                            labels = c('< 20','20-30','30-35','35-40','> 40') ))) +
       theme_void() +
       theme(legend.position = c(0.05,0.4), text = element_text(size = 12),
@@ -876,23 +877,23 @@
       theme(plot.title = element_text(size = 16))+
       theme(plot.title = element_text(hjust = 0.5))+
       annotate("text",x=0.5,y=-50,label="Mean: 36.6%",size=5, colour="#0070C0",fontface = "bold")+
-      coord_sf(crs = 4326) 
-    
-# 
+      coord_sf(crs = 4326)
+
+#
 #     ########################################### scenario_5 (combined_SE) ########################################################
-# 
+#
 #     # set theme
 #     theme_set(theme_bw())
-# 
+#
 #     # get the raster to plot
 #     r5 <- terra::rast('C:/Users/86188/Desktop/Figures/scenario_5.tif')
-# 
+#
 #     # convert to data.frame
 #     r5.p <- as.data.frame(r5,xy=TRUE)
-# 
+#
 #     # get base world map
 #     world <- ne_countries(scale = "medium", returnclass = "sf")
-# 
+#
 #     # plot a basic world map plot
 #     p5 <- ggplot(data = world) + geom_sf(color = "black", fill = "gray92") +
 #       geom_tile(data = r5.p,aes(x=x,y=y,
@@ -908,20 +909,19 @@
 #       theme(plot.title = element_text(size = 16))+
 #       theme(plot.title = element_text(hjust = 0.5))+
 #       coord_sf(crs = 4326)
-# 
+#
 
     #2*2
     library(ggpubr)
     p<-ggarrange(p4, p5, p6, ncol = 1, nrow = 3, labels = c("a", "b","c"), font.label=list(size=14),hjust = 0, vjust = 1)
-    
+
     p
-    
+
     ggsave(p, file = "C:/Users/86188/Desktop/Figures/Figure_4.png",width = 183,height = 247, units = "mm")
-    # 
+    #
     # p<-ggarrange(p4, p5, ncol = 1, nrow = 2, labels = c("a", "b"), font.label=list(size=14),hjust = 0, vjust = 1)
-    # 
+    #
     # p
-    # 
+    #
     # ggsave(p, file = "C:/Users/86188/Desktop/Figures/Figure_4.png",width = 183,height = 147, units = "mm")
-    
-    
+
