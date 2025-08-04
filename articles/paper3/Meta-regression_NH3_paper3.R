@@ -1,11 +1,11 @@
 
-# Load libraries 
+# Load libraries
 library(data.table)
 library(metafor)
 library(metagear)
 
 # read data
-d1 <- readxl::read_xlsx('.../You_paper3_S2.xlsx',sheet = 3)
+d1 <- readxl::read_xlsx('articles/paper3/You_paper3_S2.xlsx',sheet = 3)
 d1 <- as.data.table(d1)
 d2<-d1
 CV_nh3t_bar<-mean(d2$nh3t_sd[is.na(d2$nh3t_sd)==FALSE]/d2$nh3t_mean[is.na(d2$nh3t_sd)==FALSE])
@@ -18,7 +18,7 @@ setnames(d2,gsub('\\/','_',gsub(' |\\(|\\)','',colnames(d2))))
 setnames(d2,tolower(colnames(d2)))
 d2[is.na(n_dose), n_dose := median(d2$n_dose,na.rm=TRUE)]
 # calculate effect size
-es21 <- escalc(measure = "ROM", data = d2, 
+es21 <- escalc(measure = "ROM", data = d2,
                m1i = nh3t_mean, sd1i = nh3t_sd, n1i = replication,
                m2i = nh3c_mean, sd2i = nh3c_sd, n2i = replication )
 d02 <- as.data.table(es21)
@@ -38,19 +38,19 @@ d02.treat[treatment=='BC',desc := 'Biochar']
 out2 = out3 = list()
 
 for(i in d02.treat$treatment){
-  
+
   if(i=='ALL'){
 
     r_nh3 <- rma.mv(yi,vi, data=d02,random= list(~ 1|studyid), method="REML",sparse = TRUE)
-    
+
   } else {
 
     r_nh3 <- rma.mv(yi,vi, data=d02[management==i,],random= list(~ 1|studyid), method="REML",sparse = TRUE)
-    
+
   }
 
   out2[[i]] <- data.table(mean = as.numeric((exp(r_nh3$b)-1)*100),
-                          se = as.numeric((exp(r_nh3$se)-1)*100), 
+                          se = as.numeric((exp(r_nh3$se)-1)*100),
                           pval = round(as.numeric(r_nh3$pval),4),
                           label =  paste0(d02.treat[treatment==i,desc],' (n=',r_nh3$k,')')
   )
@@ -78,10 +78,10 @@ d02[,rfr := fifelse(management=='RFR' | rfr == 'yes','yes','no')]
 d02[,rft := fifelse(management=='RFT' | rft == 'yes','yes','no')]
 d02[,rfp := fifelse(management=='RFP'|rfp =='yes','yes','no')]
 
-d02[,res := fifelse(management=='RES' | crop_residue == 'yes','yes','no')] 
+d02[,res := fifelse(management=='RES' | crop_residue == 'yes','yes','no')]
 d02[,rot := fifelse(management=='ROT' | crop_rotation == 'yes','yes','no')]
 
-d02[,nt := fifelse(management=='NT' | tillage == 'NT','yes','no')] 
+d02[,nt := fifelse(management=='NT' | tillage == 'NT','yes','no')]
 d02[,rt := fifelse(management=='RT'| tillage == 'RT','yes','no')]
 d02[,ct := ifelse(!management %in% c('NT','RT') | tillage == 'CT','yes','no')]
 
@@ -96,24 +96,24 @@ r_nh3_0 <- rma.mv(yi,vi, data = d02,random= list(~ 1|studyid), method="REML",spa
 out1.est = out1.sum = list()
 
 for(i in var.sel){
-  
+
   vartype = is.character(d02[,get(i)])
-  
+
   if(vartype == TRUE){
-    
-    r_nh3_1 <- rma.mv(yi,vi, 
-                      mods = ~factor(varsel) -1, 
+
+    r_nh3_1 <- rma.mv(yi,vi,
+                      mods = ~factor(varsel) -1,
                       data = d02[,.(yi,vi,studyid,varsel = get(i))],
                       random = list(~ 1|studyid), method="REML",sparse = TRUE)
-    
+
   } else {
-    
-    r_nh3_1 <- rma.mv(yi,vi, 
-                      mods = ~varsel, 
+
+    r_nh3_1 <- rma.mv(yi,vi,
+                      mods = ~varsel,
                       data = d02[,.(yi,vi,studyid,varsel = get(i))],
                       random = list(~ 1|studyid), method="REML",sparse = TRUE)
   }
-  
+
   out1.est[[i]] <- data.table(var = i,
                               varname = gsub('factor\\(varsel\\)','',rownames(r_nh3_1$b)),
                               mean = round(as.numeric(r_nh3_1$b),3),
@@ -121,7 +121,7 @@ for(i in var.sel){
                               ci.lb = round(as.numeric(r_nh3_1$ci.lb),3),
                               ci.ub = round(as.numeric(r_nh3_1$ci.ub),3),
                               pval = round(as.numeric(r_nh3_1$pval),3))
-  
+
   out1.sum[[i]] <- data.table(var = i,
                               AIC = r_nh3_1$fit.stats[4,2],
                               ll = r_nh3_1$fit.stats[1,2],
@@ -129,7 +129,7 @@ for(i in var.sel){
                               r2_impr = round(100*max(0,(sum(r_nh3_0$sigma2)-sum(r_nh3_1$sigma2))/sum(r_nh3_0$sigma2)),2),
                               pval = round(anova(r_nh3_1,r_nh3_0)$pval,3)
   )
-  
+
 }
 
 # merge output into a data.table
@@ -154,7 +154,7 @@ r_nh3_0 <- rma.mv(yi,vi, data = d02,random= list(~ 1|studyid), method="REML",spa
 
 r_nh3_final <- rma.mv(yi,vi,
                       mods = ~ee + cf + of + rfr + rft + rfp + res + rot + nt + n_dose_scaled + crop_type +
-                        ph_scaled + clay_scaled + soc_scaled + map_scaled + mat_scaled + 
+                        ph_scaled + clay_scaled + soc_scaled + map_scaled + mat_scaled +
                         cf : n_dose_scaled + res : clay_scaled - 1,
                       data = d02,
                       random = list(~ 1|studyid), method="REML",sparse = TRUE)

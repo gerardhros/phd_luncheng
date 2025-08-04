@@ -50,6 +50,12 @@ p1 <- ggplot(data = metaresult_group[Vari=='NUE' & `Group type` == 'Data' & grep
 
 
 mydata <- metaresult_group[Vari=='NUE' & `Group type` == 'Method']
+mydata[,pval :=fifelse(ci.lb >0 & ci.ub >0,'*','')]
+mydata[,pval :=fifelse(ci.lb >3 & ci.ub >3,'***',pval)]
+
+
+metaresult_group[,pval :=fifelse(ci.lb >0 & ci.ub >0,'*','')]
+metaresult_group[,pval :=fifelse(ci.lb >3 & ci.ub >3,'***',pval)]
 
 # make the plot (b)
 p2 <- ggplot(data = metaresult_group[Vari=='NUE' & `Group type` == 'Method' & grepl('Method2',Group)],
@@ -57,7 +63,7 @@ p2 <- ggplot(data = metaresult_group[Vari=='NUE' & `Group type` == 'Method' & gr
       geom_bar(aes(x = mean, y = Management), stat = "identity", color='lightblue', fill = 'lightblue') +
       geom_errorbar(aes(y = Management, xmin = ci.lb, xmax = ci.ub), width = 0.4) +
 
-      geom_text(aes(y = Management, x = ci.ub + 3, label = n),
+      geom_text(aes(y = Management, x = ci.ub + 3, label = pval),col='red',
                 position = position_dodge(width = 0.7),vjust = 0.5,
                 hjust=0, size = 4.5, check_overlap = FALSE)+
       scale_y_discrete(limits=rev(c("Reduced tillage","No tillage","Crop rotation",
@@ -71,7 +77,7 @@ p2 <- ggplot(data = metaresult_group[Vari=='NUE' & `Group type` == 'Method' & gr
       ggtitle('Effect of management practices on NUE')
 
 # save the plot
-ggsave(plot = p2, file = "products/240704_figure_1_new.png",width = 180,height = 0.5*270, units = "mm")
+ggsave(plot = p2, file = "products/240816_figure_1_new.png",width = 180,height = 0.5*270, units = "mm")
 
 
 # -----
